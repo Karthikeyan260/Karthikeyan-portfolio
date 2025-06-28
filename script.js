@@ -11,19 +11,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.querySelector('.cursor');
     const cursorFollower = document.querySelector('.cursor-follower');
 
+    let mouseX = 0, mouseY = 0;
+    let followerX = 0, followerY = 0;
+    let isMouseDown = false;
+
     document.addEventListener('mousemove', (e) => {
-        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-        cursorFollower.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)` + (isMouseDown ? ' scale(0.8)' : '');
     });
 
+    function animateFollower() {
+        // Lower speed for even smoother lag
+        const speed = 0.08;
+        followerX += (mouseX - followerX) * speed;
+        followerY += (mouseY - followerY) * speed;
+        cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px)` + (isMouseDown ? ' scale(0.8)' : '');
+        requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+
     document.addEventListener('mousedown', () => {
-        cursor.style.transform = 'scale(0.8)';
-        cursorFollower.style.transform = 'scale(0.8)';
+        isMouseDown = true;
+        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) scale(0.8)`;
+        cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px) scale(0.8)`;
     });
 
     document.addEventListener('mouseup', () => {
-        cursor.style.transform = 'scale(1)';
-        cursorFollower.style.transform = 'scale(1)';
+        isMouseDown = false;
+        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px)`;
     });
 
     // Typed.js initialization
