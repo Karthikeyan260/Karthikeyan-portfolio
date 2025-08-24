@@ -492,7 +492,7 @@ nav {
 /* ===== ABOUT SECTION ===== */
 .about {
     padding: 4rem 0;
-    background: #fff;
+    background: var(--bg-color);
 }
 
 .about-container {
