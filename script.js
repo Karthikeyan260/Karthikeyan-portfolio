@@ -44,18 +44,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Typed.js initialization
-    const typed = new Typed('#typed', {
-        strings: [
-            'Full Stack Developer',
-            'IoT Enthusiast',
-            'AI Developer',
-            'Blockchain Developer'
-        ],
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 2000,
-        loop: true
-    });
+    if (typeof Typed !== 'undefined') {
+        const typed = new Typed('#typed', {
+            strings: [
+                'Full Stack Developer',
+                'IoT Enthusiast',
+                'AI Developer',
+                'Blockchain Developer'
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true
+        });
+    } else {
+        // Fallback for typed effect
+        const typedElement = document.getElementById('typed');
+        if (typedElement) {
+            const strings = [
+                'Full Stack Developer',
+                'IoT Enthusiast', 
+                'AI Developer',
+                'Blockchain Developer'
+            ];
+            let currentString = 0;
+            
+            function updateText() {
+                typedElement.textContent = strings[currentString];
+                currentString = (currentString + 1) % strings.length;
+            }
+            
+            updateText();
+            setInterval(updateText, 3000);
+        }
+    }
 
     // Theme toggle
     const themeToggle = document.querySelector('.theme-toggle');
@@ -142,10 +164,129 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Add your form submission logic here
-        alert('Thank you for your message! I will get back to you soon.');
-        contactForm.reset();
+        // Get form data
+        const formData = new FormData(contactForm);
+        const templateParams = {
+            from_name: formData.get('from_name'),
+            from_email: formData.get('from_email'),
+            message: formData.get('message')
+        };
+
+        // Validate form
+        if (!templateParams.from_name || !templateParams.from_email || !templateParams.message) {
+            showNotification('Please fill in all fields.', 'error');
+            return;
+        }
+
+        // Get button elements
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+        const btnIcon = submitBtn.querySelector('i');
+
+        // Show loading state
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline';
+        btnIcon.style.display = 'none';
+        submitBtn.disabled = true;
+
+        // Try EmailJS first, fallback to mailto if unavailable
+        if (typeof emailjs !== 'undefined') {
+            // EmailJS is available
+            emailjs.send('service_tmnxdvw', 'template_p5xe9co', templateParams)
+                .then((response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                    handleFormSuccess();
+                })
+                .catch((error) => {
+                    console.error('FAILED...', error);
+                    handleFormFallback(templateParams);
+                });
+        } else {
+            // EmailJS not available, use fallback
+            setTimeout(() => {
+                handleFormFallback(templateParams);
+            }, 1000); // Simulate processing time
+        }
+
+        function handleFormSuccess() {
+            // Show success state
+            btnText.textContent = 'Message Sent!';
+            btnText.style.display = 'inline';
+            btnLoading.style.display = 'none';
+            btnIcon.className = 'fas fa-check';
+            btnIcon.style.display = 'inline';
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                btnText.textContent = 'Send Message';
+                btnIcon.className = 'fas fa-paper-plane';
+                submitBtn.disabled = false;
+            }, 3000);
+            
+            // Show success message
+            showNotification('Thank you for your message! I will get back to you soon.', 'success');
+        }
+
+        function handleFormFallback(data) {
+            // Create mailto link with form data
+            const subject = `Portfolio Contact from ${data.from_name}`;
+            const body = `Name: ${data.from_name}\nEmail: ${data.from_email}\n\nMessage:\n${data.message}`;
+            const mailtoLink = `mailto:kartji005@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Show success state
+            btnText.textContent = 'Opening Email';
+            btnText.style.display = 'inline';
+            btnLoading.style.display = 'none';
+            btnIcon.className = 'fas fa-envelope';
+            btnIcon.style.display = 'inline';
+            
+            // Open mailto link
+            window.open(mailtoLink, '_blank');
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                btnText.textContent = 'Send Message';
+                btnIcon.className = 'fas fa-paper-plane';
+                submitBtn.disabled = false;
+            }, 3000);
+            
+            // Show instruction message
+            showNotification('Your email client should open with the message pre-filled. Please send it from there!', 'success');
+        }
     });
+
+    // Notification function
+    function showNotification(message, type) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.textContent = message;
+        
+        // Add to page
+        document.body.appendChild(notification);
+        
+        // Show notification
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 100);
+        
+        // Hide and remove notification after 5 seconds
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
+            }, 300);
+        }, 5000);
+    }
 
     // Update active nav link on scroll
     const sections = document.querySelectorAll('section');
