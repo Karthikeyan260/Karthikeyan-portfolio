@@ -552,22 +552,23 @@
                 </div>
                 <form class="contact-form" data-aos="fade-left">
                     <div class="form-group">
-                        <input type="text" required>
+                        <input type="text" name="from_name" required>
                         <label>Your Name</label>
                         <span class="border"></span>
                     </div>
                     <div class="form-group">
-                        <input type="email" required>
+                        <input type="email" name="from_email" required>
                         <label>Your Email</label>
                         <span class="border"></span>
                     </div>
                     <div class="form-group">
-                        <textarea required></textarea>
+                        <textarea name="message" required></textarea>
                         <label>Your Message</label>
                         <span class="border"></span>
                     </div>
                     <button type="submit" class="submit-btn">
-                        Send Message
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loading" style="display: none;">Sending...</span>
                         <i class="fas fa-paper-plane"></i>
                     </button>
                 </form>
@@ -593,10 +594,28 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-      AOS.init();
+      // Initialize EmailJS safely
+      if (typeof emailjs !== 'undefined') {
+          emailjs.init("2SaR4iNsIAD9SU7Ll"); // Replace with your EmailJS user ID
+      }
+      
+      // Initialize AOS safely
+      if (typeof AOS !== 'undefined') {
+          AOS.init();
+      } else {
+          // Simple fallback for AOS animations
+          document.addEventListener('DOMContentLoaded', () => {
+              const elements = document.querySelectorAll('[data-aos]');
+              elements.forEach(el => {
+                  el.style.opacity = '1';
+                  el.style.transform = 'none';
+              });
+          });
+      }
     </script>
 </body>
 </html>
