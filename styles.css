@@ -1296,6 +1296,14 @@ nav {
     letter-spacing: 1px;
 }
 
+.project-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    display: block;
+    opacity: 0.9;
+}
+
 /* ===== SKILLS SECTION ===== */
 .skills {
     padding: 3rem 0;
