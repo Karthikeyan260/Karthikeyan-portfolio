@@ -1077,6 +1077,7 @@ nav {
 .projects-grid .project-card:nth-child(4) { animation-delay: 0.4s; }
 .projects-grid .project-card:nth-child(5) { animation-delay: 0.5s; }
 .projects-grid .project-card:nth-child(6) { animation-delay: 0.6s; }
+.projects-grid .project-card:nth-child(7) { animation-delay: 0.7s; }
 
 @keyframes fadeInUp {
     to {
