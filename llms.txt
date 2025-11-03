@@ -1,0 +1,133 @@
+# Karthikeyan K - Portfolio Website
+
+> Personal portfolio website showcasing the work and skills of Karthikeyan K, a Full Stack Developer and B.Tech student in Information Technology
+
+## Site Purpose
+
+This is a professional portfolio website featuring projects, skills, experience, and educational background of Karthikeyan K. The site demonstrates expertise in Full Stack Development, AI, IoT, and Blockchain technologies.
+
+## Main Sections
+
+- Home: Introduction and hero section with profile information
+- About: Personal background, journey, and areas of expertise
+- Education: Academic qualifications including B.Tech in Information Technology from DMI College of Engineering (2021-2025)
+- Experience: Professional internships and work experience including roles at:
+  - AICTE (AI Virtual Internship, Aug 2024 - Sep 2024)
+  - Edunet Foundation & IBM SkillsBuild (Generative AI Virtual Internship, Aug 2024 - Sep 2024)
+  - NoviTech R&D (AI, Blockchain, IoT, Full Stack Internships, May 2024 - July 2024)
+- Skills: Technical competencies and programming languages
+- Projects: Portfolio of developed applications and systems
+- Contact: Ways to get in touch and social media links
+
+## Technologies Used
+
+### Frontend
+- HTML5 (Semantic markup)
+- CSS3 (Flexbox, Grid, Custom properties, Animations)
+- JavaScript (ES6+, DOM manipulation)
+
+### Libraries & Frameworks
+- AOS (Animate On Scroll)
+- Typed.js (Dynamic typing effects)
+- Font Awesome (Icon library)
+
+### Development Tools
+- Git & GitHub (Version control)
+- VS Code (Development environment)
+- Vercel (Deployment platform)
+
+## Featured Projects
+
+### AI Consulting System
+- Multi-domain AI-powered consulting platform
+- Technologies: Next.js 15, TypeScript, Gemini 2.0 Flash AI, Radix UI, Tailwind CSS, Framer Motion, Clerk Auth, Firebase
+- Features domain-specific chatbots for Education, Healthcare, Finance, and Retail
+- Live: https://aiconsultingsystem.netlify.app/
+- Repository: https://github.com/Karthikeyan260/AiConsultingSystem
+
+### Todo Application
+- Feature-rich task management application
+- Technologies: React, TypeScript, Redux
+- Live: https://i8ftfb0ekpv7admu.vercel.app/
+- Repository: https://github.com/Karthikeyan260/Todo-List
+
+### Weather Dashboard
+- Real-time weather application
+- Technologies: HTML5, CSS3, JavaScript, OpenWeatherMap API
+- Repository: https://github.com/Karthikeyan260/Weather-Dashboard
+
+### Chess Game
+- Interactive chess game with AI opponent
+- Technologies: JavaScript, HTML5, CSS3
+- Repository: https://github.com/Karthikeyan260/Chess-Game
+
+### Snake Game
+- Classic game with modern animations
+- Technologies: JavaScript, HTML5 Canvas, CSS3
+- Repository: https://github.com/Karthikeyan260/Snake-Game
+
+### NutrifyAI
+- AI-powered nutrition analysis tool
+- Technologies: AI/ML, Python, Web technologies
+- Repository: https://github.com/Karthikeyan260/NutrifyAI
+
+## Technical Skills
+
+### Programming Languages
+- Python
+- JavaScript
+- HTML
+- CSS
+- SQL
+
+### Frameworks & Libraries
+- React.js
+- Next.js
+- Bootstrap
+- Tailwind CSS
+- Redux
+
+### AI & Machine Learning
+- Model training
+- Generative AI
+- Responsible AI
+- Gemini AI integration
+
+### Tools & Platforms
+- Git & GitHub
+- VS Code
+- Vercel
+- MongoDB
+- Firebase
+
+### Other Technologies
+- Blockchain fundamentals
+- IoT (Internet of Things)
+- Cybersecurity fundamentals
+
+## Contact Information
+
+- Email: kartji005@gmail.com
+- LinkedIn: https://www.linkedin.com/in/karthikeyan-k-b41509258
+- GitHub: https://github.com/Karthikeyan260
+- Instagram: https://www.instagram.com/karthik_keyan04
+
+## Site Features
+
+- Modern, responsive design optimized for all devices
+- Dark/Light theme toggle
+- Smooth scroll animations
+- Interactive custom cursor
+- Progress bars for skill visualization
+- Project cards with live demos and source code links
+- Interactive contact form
+- Social media integration
+
+## Repository
+
+- GitHub: https://github.com/Karthikeyan260/Karthikeyan-portfolio
+- Live Site: https://karthikeyan-portfolio-website.vercel.app/
+
+## License
+
+Open source - MIT License
