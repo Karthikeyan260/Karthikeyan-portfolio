@@ -17,10 +17,10 @@
     --primary-color: #ffffff;
     --secondary-color: #00a8ff;
     --accent-color: #ff7675;
-    --text-color: #ffffff;
-    --bg-color: #2d3436;
-    --card-bg: #34495e;
-    --border-color: rgba(255, 255, 255, 0.1);
+    --text-color: #e0e0e0;
+    --bg-color: #1a1a2e;
+    --card-bg: #16213e;
+    --border-color: rgba(255, 255, 255, 0.08);
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
@@ -89,7 +89,7 @@ header {
 }
 
 .dark-theme header {
-    background-color: rgba(45, 52, 54, 0.95);
+    background-color: rgba(26, 26, 46, 0.95);
 }
 
 nav {
@@ -2072,6 +2072,187 @@ footer {
 
     .experience-grid {
         grid-template-columns: 1fr;
+    }
+
+    .scroll-top {
+        bottom: 1.2rem;
+        right: 1.2rem;
+        width: 42px;
+        height: 42px;
+    }
+
+    .cursor, .cursor-follower {
+        display: none;
+    }
+}
+
+/* ===== PRELOADER ===== */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-logo {
+    font-size: 3rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: preloaderPulse 1.2s ease-in-out infinite;
+    margin-bottom: 1.5rem;
+}
+
+@keyframes preloaderPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+}
+
+.preloader-bar {
+    width: 200px;
+    height: 3px;
+    background: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.preloader-progress {
+    height: 100%;
+    width: 0;
+    background: var(--gradient);
+    border-radius: 3px;
+    animation: preloaderBar 1.5s ease-in-out forwards;
+}
+
+@keyframes preloaderBar {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* ===== SCROLL TO TOP ===== */
+.scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 168, 255, 0.5);
+}
+
+/* ===== HERO PARTICLES CANVAS ===== */
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ===== SECTION DIVIDER ===== */
+.section-divider {
+    margin-top: -2px;
+    line-height: 0;
+}
+
+.section-divider svg {
+    width: 100%;
+    height: 60px;
+    display: block;
+}
+
+/* ===== NAVBAR SCROLL EFFECT ===== */
+header.scrolled {
+    padding-block: 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+header.scrolled nav {
+    padding-block: 0.6rem;
+}
+
+.dark-theme header.scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== ENHANCED FLOATING ANIMATION ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.profile-image {
+    animation: float 4s ease-in-out infinite;
+}
+
+.profile-image:hover {
+    animation-play-state: paused;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    .preloader-logo,
+    .profile-image,
+    .glitch,
+    .glitch:before,
+    .glitch:after,
+    .project-icon,
+    .logo-dot {
+        animation: none;
+    }
+
+    .preloader-progress {
+        animation: none;
+        width: 100%;
+    }
+
+    * {
+        transition-duration: 0.01ms !important;
     }
 }
 

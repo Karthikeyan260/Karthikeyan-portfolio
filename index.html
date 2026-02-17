@@ -43,8 +43,21 @@
     </script>
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">KK</div>
+            <div class="preloader-bar"><div class="preloader-progress"></div></div>
+        </div>
+    </div>
+
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <header>
         <nav>
@@ -72,6 +85,7 @@
 
     <main>
         <section id="home" class="hero">
+            <canvas class="hero-particles" id="heroParticles"></canvas>
             <div class="hero-content" data-aos="fade-up">
                 <div class="hero-text">
                     <h1 class="glitch" data-text="Karthikeyan K">Karthikeyan K</h1>
@@ -100,6 +114,9 @@
                 </div>
             </div>
         </section>
+        <div class="section-divider">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 C360,100 720,0 1080,60 C1260,90 1380,50 1440,60 L1440,100 L0,100 Z" fill="var(--bg-color)"/></svg>
+        </div>
         <section id="about" class="about">
             <div class="about-container">
                 <h2 class="section-title" data-aos="fade-up">About Me</h2>

@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Preloader
+    const preloader = document.getElementById('preloader');
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 1600);
+    });
+
     // Initialize AOS
     AOS.init({
         duration: 800,
@@ -288,9 +296,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     }
 
-    // Update active nav link on scroll
+    // Update active nav link on scroll + navbar effect + scroll-to-top
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-link');
+    const header = document.querySelector('header');
+    const scrollTopBtn = document.getElementById('scrollTop');
 
     window.addEventListener('scroll', () => {
         let current = '';
@@ -308,6 +318,93 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.add('active');
             }
         });
+
+        // Navbar scroll effect
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        // Scroll to top button visibility
+        if (window.scrollY > 400) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
     });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Hero particles
+    const canvas = document.getElementById('heroParticles');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const MAX_CONNECTION_DISTANCE = 120;
+        const LINE_BASE_OPACITY = 0.06;
+        const PARTICLE_COUNT = window.innerWidth <= 768 ? 25 : 60;
+
+        function resizeCanvas() {
+            const hero = canvas.parentElement;
+            canvas.width = hero.offsetWidth;
+            canvas.height = hero.offsetHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        function createParticle() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2.5 + 0.5,
+                speedX: (Math.random() - 0.5) * 0.5,
+                speedY: (Math.random() - 0.5) * 0.5,
+                opacity: Math.random() * 0.4 + 0.1
+            };
+        }
+
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push(createParticle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const isDark = document.body.classList.contains('dark-theme');
+            const color = isDark ? '255, 255, 255' : '0, 168, 255';
+
+            particles.forEach((p, i) => {
+                p.x += p.speedX;
+                p.y += p.speedY;
+
+                if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${color}, ${p.opacity})`;
+                ctx.fill();
+
+                // Draw lines between close particles
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = p.x - particles[j].x;
+                    const dy = p.y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < MAX_CONNECTION_DISTANCE) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(${color}, ${LINE_BASE_OPACITY * (1 - dist / MAX_CONNECTION_DISTANCE)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+    }
 });
 
