@@ -3,13 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karthikeyan K - Portfolio</title>
+    <title>Karthikeyan K - Full Stack Developer | AI & IoT Enthusiast</title>
+    <meta name="description" content="Portfolio of Karthikeyan K – a Full Stack Developer, AI Developer, and IoT Enthusiast. Explore projects in React, Next.js, Python, Blockchain, and more.">
+    <meta name="keywords" content="Karthikeyan K, Full Stack Developer, AI Developer, IoT, Blockchain, React, Next.js, Python, Portfolio">
+    <meta name="author" content="Karthikeyan K">
+    <link rel="canonical" href="https://karthikeyan-portfolio-website.vercel.app/">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://karthikeyan-portfolio-website.vercel.app/">
+    <meta property="og:title" content="Karthikeyan K - Full Stack Developer | AI & IoT Enthusiast">
+    <meta property="og:description" content="Portfolio of Karthikeyan K – a Full Stack Developer, AI Developer, and IoT Enthusiast. Explore projects in React, Next.js, Python, Blockchain, and more.">
+    <meta property="og:image" content="https://karthikeyan-portfolio-website.vercel.app/hi.jpeg">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Karthikeyan K - Full Stack Developer | AI & IoT Enthusiast">
+    <meta name="twitter:description" content="Portfolio of Karthikeyan K – a Full Stack Developer, AI Developer, and IoT Enthusiast. Explore projects in React, Next.js, Python, Blockchain, and more.">
+    <meta name="twitter:image" content="https://karthikeyan-portfolio-website.vercel.app/hi.jpeg">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='white'/%3E%3Ctext x='50%' y='55%' text-anchor='middle' font-size='32' font-family='Segoe UI, Arial, sans-serif' fill='%2300a8ff' dy='.3em'%3EKK%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Karthikeyan K",
+        "url": "https://karthikeyan-portfolio-website.vercel.app/",
+        "image": "https://karthikeyan-portfolio-website.vercel.app/hi.jpeg",
+        "jobTitle": "Full Stack Developer",
+        "worksFor": { "@type": "Organization", "name": "Zinnov" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "DMI College of Engineering" },
+        "knowsAbout": ["Full Stack Development", "AI", "IoT", "Blockchain", "React", "Python", "JavaScript"],
+        "sameAs": [
+            "https://github.com/Karthikeyan260",
+            "https://www.linkedin.com/in/karthikeyan-k-b41509258",
+            "https://www.instagram.com/karthik_keyan04"
+        ]
+    }
+    </script>
 </head>
 <body>
     <div class="cursor"></div>
@@ -30,12 +61,12 @@
                 <li><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
                 <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
-            <div class="theme-toggle">
+            <button class="theme-toggle" aria-label="Toggle dark/light theme">
                 <i class="fas fa-moon"></i>
-            </div>
-            <div class="menu-toggle">
+            </button>
+            <button class="menu-toggle" aria-label="Open navigation menu">
                 <div class="hamburger"></div>
-            </div>
+            </button>
         </nav>
     </header>
 
@@ -50,20 +81,20 @@
                     </div>
                 </div>
                 <div class="profile-image">
-                    <img src="hi.jpeg" alt="Karthikeyan K" />
+                    <img src="hi.jpeg" alt="Portrait photo of Karthikeyan K, Full Stack Developer" />
                 </div>
                 <div class="hero-cta">
                     <a href="#contact" class="cta-button">Get in Touch</a>
                     <a href="#projects" class="cta-button secondary">View Projects</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram profile">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div>
@@ -215,7 +246,162 @@
             </div>
         </section>
         
-        
+
+        <section id="skills" class="skills">
+            <h2 data-aos="fade-up">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category" data-aos="fade-up">
+                    <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-progress="85">
+                            <div class="skill-info">
+                                <span>JavaScript</span>
+                                <span class="percent">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-progress="75">
+                            <div class="skill-info">
+                                <span>React.js</span>
+                                <span class="percent">75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-progress="80">
+                            <div class="skill-info">
+                                <span>HTML & CSS</span>
+                                <span class="percent">80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-progress="80">
+                            <div class="skill-info">
+                                <span>Bootstrap & Tailwind</span>
+                                <span class="percent">80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3><i class="fas fa-server"></i> Backend & Database</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-progress="90">
+                            <div class="skill-info">
+                                <span>Python</span>
+                                <span class="percent">90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-progress="65">
+                            <div class="skill-info">
+                                <span>MongoDB</span>
+                                <span class="percent">65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-progress="60">
+                            <div class="skill-info">
+                                <span>SQL</span>
+                                <span class="percent">60%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+                    <h3><i class="fas fa-brain"></i> AI & Emerging Technologies</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-progress="75">
+                            <div class="skill-info">
+                                <span>Machine Learning</span>
+                                <span class="percent">75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-progress="70">
+                            <div class="skill-info">
+                                <span>Generative AI</span>
+                                <span class="percent">70%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-progress="70">
+                            <div class="skill-info">
+                                <span>Blockchain</span>
+                                <span class="percent">70%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-progress="65">
+                            <div class="skill-info">
+                                <span>IoT</span>
+                                <span class="percent">65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="600">
+                    <h3><i class="fas fa-tools"></i> Development Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-progress="85">
+                            <div class="skill-info">
+                                <span>Git & GitHub</span>
+                                <span class="percent">85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-progress="80">
+                            <div class="skill-info">
+                                <span>VS Code</span>
+                                <span class="percent">80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-progress="75">
+                            <div class="skill-info">
+                                <span>Vercel Deployment</span>
+                                <span class="percent">75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="projects" class="projects">
             <h2 data-aos="fade-up">My Projects</h2>
             <div class="projects-grid">
@@ -440,161 +626,6 @@
             </div>
         </section>
 
-        <section id="skills" class="skills">
-            <h2 data-aos="fade-up">Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category" data-aos="fade-up">
-                    <h3><i class="fas fa-code"></i> Frontend Development</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-progress="85">
-                            <div class="skill-info">
-                                <span>JavaScript</span>
-                                <span class="percent">85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="75">
-                            <div class="skill-info">
-                                <span>React.js</span>
-                                <span class="percent">75%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="80">
-                            <div class="skill-info">
-                                <span>HTML & CSS</span>
-                                <span class="percent">80%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="80">
-                            <div class="skill-info">
-                                <span>Bootstrap & Tailwind</span>
-                                <span class="percent">80%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3><i class="fas fa-server"></i> Backend & Database</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-progress="90">
-                            <div class="skill-info">
-                                <span>Python</span>
-                                <span class="percent">90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="65">
-                            <div class="skill-info">
-                                <span>MongoDB</span>
-                                <span class="percent">65%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="60">
-                            <div class="skill-info">
-                                <span>SQL</span>
-                                <span class="percent">60%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
-                    <h3><i class="fas fa-brain"></i> AI & Emerging Technologies</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-progress="75">
-                            <div class="skill-info">
-                                <span>Machine Learning</span>
-                                <span class="percent">75%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="70">
-                            <div class="skill-info">
-                                <span>Generative AI</span>
-                                <span class="percent">70%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="70">
-                            <div class="skill-info">
-                                <span>Blockchain</span>
-                                <span class="percent">70%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="65">
-                            <div class="skill-info">
-                                <span>IoT</span>
-                                <span class="percent">65%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="600">
-                    <h3><i class="fas fa-tools"></i> Development Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-progress="85">
-                            <div class="skill-info">
-                                <span>Git & GitHub</span>
-                                <span class="percent">85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="80">
-                            <div class="skill-info">
-                                <span>VS Code</span>
-                                <span class="percent">80%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="75">
-                            <div class="skill-info">
-                                <span>Vercel Deployment</span>
-                                <span class="percent">75%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="contact" class="contact">
             <h2 data-aos="fade-up">Get in Touch</h2>
             <div class="contact-container">
@@ -614,13 +645,13 @@
                         </div>
                     </div>
                     <div class="contact-social">
-                        <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
@@ -653,15 +684,15 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Karthikeyan K. All rights reserved.</p>
+            <p>&copy; 2025 Karthikeyan K. All rights reserved.</p>
             <div class="footer-social">
-                <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
             </div>
