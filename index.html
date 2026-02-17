@@ -120,30 +120,55 @@
         <section id="about" class="about">
             <div class="about-container">
                 <h2 class="section-title" data-aos="fade-up">About Me</h2>
+                <div class="about-stats" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="7">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="4">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Internships</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="3">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">AI-Powered Apps</span>
+                    </div>
+                </div>
                 <div class="about-content">
                     <div class="about-left" data-aos="fade-right">
                         <p class="about-intro">
-                            Hello! I'm Karthikeyan K, a passionate and ambitious B.Tech student in Information Technology at DMI College of Engineering (2021–2025). As a budding Full Stack Developer, I'm on a mission to create innovative solutions that make a positive impact on the world.
+                            Hi, I'm <strong>Karthikeyan K</strong> — a Full Stack Developer and AI enthusiast currently working as an <strong>Associate Data Analyst at Zinnov</strong>. I hold a B.Tech in Information Technology from DMI College of Engineering (2021–2025) and I'm passionate about building products that solve real-world problems using cutting-edge technology.
                         </p>
+                        <div class="about-current-role">
+                            <i class="fas fa-building"></i>
+                            <div>
+                                <span class="current-label">Currently</span>
+                                <span class="current-value">Associate Data Analyst @ Zinnov — Data-driven consulting & AI agents</span>
+                            </div>
+                        </div>
                         <p class="about-description">
-                            My journey in tech began with a fascination for how software can solve real-world problems. This curiosity has led me to explore and gain expertise in various domains, including:
+                            From AI-powered consulting platforms to nutrition analysis tools, I love turning ideas into impactful digital experiences. My journey spans multiple internships, open-source contributions on <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer">GitHub</a>, and continuous learning across:
                         </p>
                         <ul class="expertise-list">
                             <li>
                                 <span class="expertise-title">Full Stack Development:</span> 
-                                Proficient in both front-end and back-end technologies, allowing me to build complete, scalable web applications.
+                                Building end-to-end web apps with React, Next.js, TypeScript, and modern deployment workflows on Vercel.
                             </li>
                             <li>
                                 <span class="expertise-title">IoT (Internet of Things):</span> 
-                                Passionate about connecting devices and creating smart, efficient systems that enhance our daily lives.
+                                Connecting devices and creating smart, efficient systems that bridge hardware and software.
                             </li>
                             <li>
-                                <span class="expertise-title">AI Development:</span> 
-                                Exploring the fascinating world of artificial intelligence and machine learning to create intelligent solutions.
+                                <span class="expertise-title">AI &amp; Generative AI:</span> 
+                                Developing intelligent applications powered by Google Gemini, machine learning, and data-driven insights.
                             </li>
                             <li>
                                 <span class="expertise-title">Blockchain Technology:</span> 
-                                Delving into decentralized systems and their potential to revolutionize various industries.
+                                Exploring decentralized architectures and their potential to transform industries.
                             </li>
                         </ul>
                     </div>
@@ -479,8 +504,14 @@
         <section id="projects" class="projects">
             <h2 data-aos="fade-up">My Projects</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">A showcase of my best work across AI, web development, and more</p>
+            <div class="project-filters" data-aos="fade-up" data-aos-delay="150">
+                <button class="filter-btn active" data-filter="all">All <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="ai">AI &amp; ML <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="web">Web Apps <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="game">Games <span class="filter-count"></span></button>
+            </div>
             <div class="projects-grid">
-                <div class="project-card featured" data-aos="fade-up">
+                <div class="project-card featured" data-aos="fade-up" data-category="ai">
                     <span class="project-badge"><i class="fas fa-star"></i> Featured</span>
                     <div class="project-image">
                         <img src="images/projects/ai-consulting.jpg" alt="AI Consulting System" loading="lazy">
@@ -515,7 +546,7 @@
                     </div>
                 </div>
 
-                <div class="project-card featured" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-card featured" data-aos="fade-up" data-aos-delay="100" data-category="ai">
                     <span class="project-badge"><i class="fas fa-star"></i> Featured</span>
                     <div class="project-image">
                         <img src="images/projects/ai-job-assistant.jpg" alt="AI-Powered Job Application Assistant" loading="lazy">
@@ -548,7 +579,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-category="ai">
                     <div class="project-image">
                         <img src="images/projects/nutrify-ai.jpg" alt="NutrifyAI" loading="lazy">
                         <div class="project-overlay">
@@ -579,7 +610,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300" data-category="web">
                     <div class="project-image">
                         <img src="images/projects/todo-app.jpg" alt="Todo Application" loading="lazy">
                         <div class="project-overlay">
@@ -608,7 +639,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400" data-category="web">
                     <div class="project-image">
                         <img src="images/projects/weather-dashboard.jpg" alt="Weather Dashboard" loading="lazy">
                         <div class="project-overlay">
@@ -638,7 +669,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="500" data-category="game">
                     <div class="project-image">
                         <img src="images/projects/chess-game.jpg" alt="Chess Game" loading="lazy">
                         <div class="project-overlay">
@@ -667,7 +698,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="600" data-category="game">
                     <div class="project-image">
                         <img src="images/projects/snake-game.jpg" alt="Snake Game" loading="lazy">
                         <div class="project-overlay">

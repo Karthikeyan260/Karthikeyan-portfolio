@@ -8,12 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialize AOS
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-    });
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    }
 
     // Custom cursor
     const cursor = document.querySelector('.cursor');
@@ -147,6 +149,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
     skillItems.forEach(item => {
         progressObserver.observe(item);
+    });
+
+    // About stats counter animation
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const animateStats = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.target);
+                let current = 0;
+                const step = Math.ceil(target / 30);
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    el.textContent = current;
+                }, 40);
+                observer.unobserve(el);
+            }
+        });
+    };
+
+    const statsObserver = new IntersectionObserver(animateStats, {
+        threshold: 0.5
+    });
+
+    statNumbers.forEach(num => {
+        statsObserver.observe(num);
+    });
+
+    // Project filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    // Dynamically populate filter counts
+    filterBtns.forEach(btn => {
+        const filter = btn.dataset.filter;
+        const count = filter === 'all'
+            ? projectCards.length
+            : document.querySelectorAll(`.project-card[data-category="${filter}"]`).length;
+        const countEl = btn.querySelector('.filter-count');
+        if (countEl) countEl.textContent = count;
+    });
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.classList.remove('hidden-card');
+                    card.style.animation = 'none';
+                    card.offsetHeight; // Force reflow to restart CSS animation
+                    card.style.animation = 'fadeInUp 0.5s ease forwards';
+                } else {
+                    card.classList.add('hidden-card');
+                }
+            });
+        });
     });
 
     // Form animation
