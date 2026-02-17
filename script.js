@@ -185,6 +185,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
+    // Dynamically populate filter counts
+    filterBtns.forEach(btn => {
+        const filter = btn.dataset.filter;
+        const count = filter === 'all'
+            ? projectCards.length
+            : document.querySelectorAll(`.project-card[data-category="${filter}"]`).length;
+        const countEl = btn.querySelector('.filter-count');
+        if (countEl) countEl.textContent = count;
+    });
+
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
@@ -196,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (filter === 'all' || card.dataset.category === filter) {
                     card.classList.remove('hidden-card');
                     card.style.animation = 'none';
-                    card.offsetHeight; // trigger reflow
+                    card.offsetHeight; // Force reflow to restart CSS animation
                     card.style.animation = 'fadeInUp 0.5s ease forwards';
                 } else {
                     card.classList.add('hidden-card');
