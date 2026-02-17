@@ -155,6 +155,9 @@ nav {
     border-radius: 50%;
     transition: all 0.3s ease;
     color: var(--text-color);
+    background: none;
+    border: none;
+    font-size: inherit;
 }
 
 .theme-toggle:hover {
@@ -169,6 +172,8 @@ nav {
     gap: 4px;
     padding: 0.5rem;
     z-index: 1001;
+    background: none;
+    border: none;
 }
 
 .hamburger {
@@ -711,7 +716,6 @@ nav {
     color: var(--primary-color);
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
-}
     display: inline;
     margin-right: 0.3rem;
 }
