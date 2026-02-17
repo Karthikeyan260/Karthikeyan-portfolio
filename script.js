@@ -439,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             const isDark = document.body.classList.contains('dark-theme');
-            const color = isDark ? '255, 255, 255' : '0, 168, 255';
+            const color = isDark ? '167, 139, 250' : '124, 58, 237';
 
             particles.forEach((p, i) => {
                 p.x += p.speedX;
