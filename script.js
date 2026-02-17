@@ -343,7 +343,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let particles = [];
-        let animId;
+        const MAX_CONNECTION_DISTANCE = 120;
+        const LINE_BASE_OPACITY = 0.06;
+        const PARTICLE_COUNT = window.innerWidth <= 768 ? 25 : 60;
 
         function resizeCanvas() {
             const hero = canvas.parentElement;
@@ -364,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         }
 
-        for (let i = 0; i < 60; i++) {
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
             particles.push(createParticle());
         }
 
@@ -390,17 +392,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     const dx = p.x - particles[j].x;
                     const dy = p.y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 120) {
+                    if (dist < MAX_CONNECTION_DISTANCE) {
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(${color}, ${0.06 * (1 - dist / 120)})`;
+                        ctx.strokeStyle = `rgba(${color}, ${LINE_BASE_OPACITY * (1 - dist / MAX_CONNECTION_DISTANCE)})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
                 }
             });
-            animId = requestAnimationFrame(animateParticles);
+            requestAnimationFrame(animateParticles);
         }
         animateParticles();
     }

@@ -2234,6 +2234,28 @@ header.scrolled nav {
     animation-play-state: paused;
 }
 
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    .preloader-logo,
+    .profile-image,
+    .glitch,
+    .glitch:before,
+    .glitch:after,
+    .project-icon,
+    .logo-dot {
+        animation: none;
+    }
+
+    .preloader-progress {
+        animation: none;
+        width: 100%;
+    }
+
+    * {
+        transition-duration: 0.01ms !important;
+    }
+}
+
 /* ===== UTILITY CLASSES ===== */
 .text-center {
     text-align: center;
