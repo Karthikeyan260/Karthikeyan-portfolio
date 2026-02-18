@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karthikeyan K - Full Stack Developer | AI & IoT Enthusiast</title>
+    <title>Karthikeyan K — Full Stack Developer | AI & IoT Enthusiast</title>
     <meta name="description" content="Portfolio of Karthikeyan K – a Full Stack Developer, AI Developer, and IoT Enthusiast. Explore projects in React, Next.js, Python, Blockchain, and more.">
     <meta name="keywords" content="Karthikeyan K, Full Stack Developer, AI Developer, IoT, Blockchain, React, Next.js, Python, Portfolio">
     <meta name="author" content="Karthikeyan K">
-    <link rel="canonical" href="https://karthikeyan-portfolio-website.vercel.app/">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#7c3aed">
+    <link rel="canonical" href="https://karthikeyank.tech/">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://karthikeyan-portfolio-website.vercel.app/">
-    <meta property="og:title" content="Karthikeyan K - Full Stack Developer | AI & IoT Enthusiast">
+    <meta property="og:url" content="https://karthikeyank.tech/">
+    <meta property="og:title" content="Karthikeyan K — Full Stack Developer | AI & IoT Enthusiast">
     <meta property="og:description" content="Portfolio of Karthikeyan K – a Full Stack Developer, AI Developer, and IoT Enthusiast. Explore projects in React, Next.js, Python, Blockchain, and more.">
-    <meta property="og:image" content="https://karthikeyan-portfolio-website.vercel.app/hi.jpeg">
+    <meta property="og:image" content="https://karthikeyank.tech/hi.jpeg">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Karthikeyan K - Full Stack Developer | AI & IoT Enthusiast">
+    <meta name="twitter:site" content="@karthik_keyan04">
+    <meta name="twitter:title" content="Karthikeyan K — Full Stack Developer | AI & IoT Enthusiast">
     <meta name="twitter:description" content="Portfolio of Karthikeyan K – a Full Stack Developer, AI Developer, and IoT Enthusiast. Explore projects in React, Next.js, Python, Blockchain, and more.">
-    <meta name="twitter:image" content="https://karthikeyan-portfolio-website.vercel.app/hi.jpeg">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='white'/%3E%3Ctext x='50%' y='55%' text-anchor='middle' font-size='32' font-family='Segoe UI, Arial, sans-serif' fill='%2300a8ff' dy='.3em'%3EKK%3C/text%3E%3C/svg%3E">
+    <meta name="twitter:image" content="https://karthikeyank.tech/hi.jpeg">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%237c3aed'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-size='28' font-family='Inter,sans-serif' font-weight='700' fill='white' dy='.3em'%3EKK%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <script type="application/ld+json">
@@ -31,8 +34,8 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Karthikeyan K",
-        "url": "https://karthikeyan-portfolio-website.vercel.app/",
-        "image": "https://karthikeyan-portfolio-website.vercel.app/hi.jpeg",
+        "url": "https://karthikeyank.tech/",
+        "image": "https://karthikeyank.tech/hi.jpeg",
         "jobTitle": "Full Stack Developer",
         "worksFor": { "@type": "Organization", "name": "Zinnov" },
         "alumniOf": { "@type": "CollegeOrUniversity", "name": "DMI College of Engineering" },
@@ -50,94 +53,147 @@
     <div class="preloader" id="preloader">
         <div class="preloader-content">
             <div class="preloader-logo">KK</div>
+            <div class="preloader-tagline">Building the Future</div>
             <div class="preloader-bar"><div class="preloader-progress"></div></div>
         </div>
     </div>
 
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" aria-hidden="true"></div>
 
     <!-- Scroll to top button -->
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-        <i class="fas fa-chevron-up"></i>
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
-    <header>
-        <nav>
-            <div class="logo" data-aos="fade-right">
+    <header id="mainHeader" role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+            <a href="#home" class="logo" aria-label="Karthikeyan K - Home">
                 <span class="logo-text">KK</span>
-                <div class="logo-dot"></div>
-            </div>
-            <ul class="nav-links" data-aos="fade-left">
-                <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
-                <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> Experience</a></li>
-                <li><a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a></li>
-                <li><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
-                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+                <div class="logo-dot" aria-hidden="true"></div>
+            </a>
+            <ul class="nav-links" id="navLinks" role="list">
+                <li role="listitem"><a href="#home" class="nav-link active" aria-current="page">Home</a></li>
+                <li role="listitem"><a href="#about" class="nav-link">About</a></li>
+                <li role="listitem"><a href="#education" class="nav-link">Education</a></li>
+                <li role="listitem"><a href="#experience" class="nav-link">Experience</a></li>
+                <li role="listitem"><a href="#skills" class="nav-link">Skills</a></li>
+                <li role="listitem"><a href="#projects" class="nav-link">Projects</a></li>
+                <li role="listitem"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <button class="theme-toggle" aria-label="Toggle dark/light theme">
-                <i class="fas fa-moon"></i>
-            </button>
-            <button class="menu-toggle" aria-label="Open navigation menu">
-                <div class="hamburger"></div>
-            </button>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle theme">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+                    <span class="hamburger" aria-hidden="true"></span>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <canvas class="hero-particles" id="heroParticles"></canvas>
-            <div class="hero-content" data-aos="fade-up">
-                <div class="hero-text">
-                    <h1 class="glitch" data-text="Karthikeyan K">Karthikeyan K</h1>
-                    <h2>Full Stack Developer</h2>
-                    <div class="type-wrap">
-                        <span id="typed"></span>
+    <main id="mainContent">
+        <section id="home" class="hero" aria-label="Hero section">
+            <canvas class="hero-particles" id="heroParticles" aria-hidden="true"></canvas>
+            <div class="hero-bg-orbs" aria-hidden="true">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="hero-layout">
+                    <div class="hero-text">
+                        <div class="hero-greeting" data-aos="fade-right" data-aos-delay="100">
+                            <span class="greeting-wave">👋</span> Hello, I'm
+                        </div>
+                        <h1 class="glitch" data-text="Karthikeyan K" data-aos="fade-right" data-aos-delay="200">Karthikeyan K</h1>
+                        <h2 class="hero-subtitle" data-aos="fade-right" data-aos-delay="300">
+                            <span class="subtitle-prefix">I'm a </span><span id="typed" aria-label="Role description"></span>
+                        </h2>
+                        <p class="hero-bio" data-aos="fade-right" data-aos-delay="400">
+                            Building intelligent, scalable, and impactful digital experiences — from AI-powered platforms to full-stack web apps.
+                        </p>
+                        <div class="hero-cta" data-aos="fade-up" data-aos-delay="500">
+                            <a href="#contact" class="cta-button" aria-label="Contact Karthikeyan">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i> Get in Touch
+                            </a>
+                            <a href="#projects" class="cta-button secondary" aria-label="View projects">
+                                <i class="fas fa-rocket" aria-hidden="true"></i> View Projects
+                            </a>
+                            <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" class="cta-button outline" aria-label="View GitHub profile">
+                                <i class="fab fa-github" aria-hidden="true"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="hero-social" data-aos="fade-up" data-aos-delay="600">
+                            <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram profile">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                            <a href="mailto:kartji005@gmail.com" class="social-link" aria-label="Send email">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image-wrapper" data-aos="fade-left" data-aos-delay="300">
+                        <div class="profile-image-container">
+                            <div class="profile-image">
+                                <img src="hi.jpeg" alt="Portrait photo of Karthikeyan K, Full Stack Developer" width="280" height="280" />
+                            </div>
+                            <div class="profile-ring" aria-hidden="true"></div>
+                            <div class="profile-ring ring-2" aria-hidden="true"></div>
+                            <div class="floating-badge badge-1" aria-hidden="true">
+                                <i class="fas fa-code"></i>
+                                <span>Full Stack</span>
+                            </div>
+                            <div class="floating-badge badge-2" aria-hidden="true">
+                                <i class="fas fa-brain"></i>
+                                <span>AI Dev</span>
+                            </div>
+                            <div class="floating-badge badge-3" aria-hidden="true">
+                                <i class="fas fa-trophy"></i>
+                                <span>7+ Projects</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="profile-image">
-                    <img src="hi.jpeg" alt="Portrait photo of Karthikeyan K, Full Stack Developer" />
+            </div>
+            <div class="scroll-indicator" aria-hidden="true">
+                <div class="mouse">
+                    <div class="wheel"></div>
                 </div>
-                <div class="hero-cta">
-                    <a href="#contact" class="cta-button">Get in Touch</a>
-                    <a href="#projects" class="cta-button secondary">View Projects</a>
-                </div>
-                <div class="social-links">
-                    <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram profile">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                <div class="arrows">
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
         </section>
-        <div class="section-divider">
-            <svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 C360,100 720,0 1080,60 C1260,90 1380,50 1440,60 L1440,100 L0,100 Z" fill="var(--bg-color)"/></svg>
-        </div>
-        <section id="about" class="about">
+        <section id="about" class="about" aria-labelledby="about-title">
             <div class="about-container">
-                <h2 class="section-title" data-aos="fade-up">About Me</h2>
-                <div class="about-stats" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="7">0</span><span class="stat-plus">+</span>
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-tag">Who I Am</span>
+                    <h2 class="section-title" id="about-title">About Me</h2>
+                    <p class="section-desc">Passionate developer turning ideas into real-world solutions</p>
+                </div>
+                <div class="about-stats" data-aos="fade-up" data-aos-delay="100" role="list" aria-label="Statistics">
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-number" data-target="7" aria-label="7 or more">0</span><span class="stat-plus" aria-hidden="true">+</span>
                         <span class="stat-label">Projects Built</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="4">0</span><span class="stat-plus">+</span>
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-number" data-target="4" aria-label="4 or more">0</span><span class="stat-plus" aria-hidden="true">+</span>
                         <span class="stat-label">Internships</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span>
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-number" data-target="10" aria-label="10 or more">0</span><span class="stat-plus" aria-hidden="true">+</span>
                         <span class="stat-label">Technologies</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number" data-target="3">0</span><span class="stat-plus">+</span>
+                    <div class="stat-item" role="listitem">
+                        <span class="stat-number" data-target="3" aria-label="3 or more">0</span><span class="stat-plus" aria-hidden="true">+</span>
                         <span class="stat-label">AI-Powered Apps</span>
                     </div>
                 </div>
@@ -147,16 +203,16 @@
                             Hi, I'm <strong>Karthikeyan K</strong> — a Full Stack Developer and AI enthusiast currently working as an <strong>Associate Data Analyst at Zinnov</strong>. I hold a B.Tech in Information Technology from DMI College of Engineering (2021–2025) and I'm passionate about building products that solve real-world problems using cutting-edge technology.
                         </p>
                         <div class="about-current-role">
-                            <i class="fas fa-building"></i>
+                            <i class="fas fa-building" aria-hidden="true"></i>
                             <div>
-                                <span class="current-label">Currently</span>
-                                <span class="current-value">Associate Data Analyst @ Zinnov — Data-driven consulting & AI agents</span>
+                                <span class="current-label">Currently Working At</span>
+                                <span class="current-value">Associate Data Analyst @ Zinnov — Data-driven consulting &amp; AI agents</span>
                             </div>
                         </div>
                         <p class="about-description">
                             From AI-powered consulting platforms to nutrition analysis tools, I love turning ideas into impactful digital experiences. My journey spans multiple internships, open-source contributions on <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer">GitHub</a>, and continuous learning across:
                         </p>
-                        <ul class="expertise-list">
+                        <ul class="expertise-list" aria-label="Areas of expertise">
                             <li>
                                 <span class="expertise-title">Full Stack Development:</span> 
                                 Building end-to-end web apps with React, Next.js, TypeScript, and modern deployment workflows on Vercel.
@@ -179,9 +235,13 @@
             </div>
         </section>
 
-        <section id="education" class="education">
+        <section id="education" class="education" aria-labelledby="education-title">
             <div class="about-container">
-                <h2 class="section-title" data-aos="fade-up">Education</h2>
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-tag">Academic Journey</span>
+                    <h2 class="section-title" id="education-title">Education</h2>
+                    <p class="section-desc">My academic foundations and achievements</p>
+                </div>
                 <div class="education-timeline">
                     <div class="education-card" data-aos="zoom-in">
                         <div class="education-icon">
@@ -249,9 +309,13 @@
             </div>
         </section>
 
-        <section id="experience" class="experience">
+        <section id="experience" class="experience" aria-labelledby="experience-title">
             <div class="experience-container">
-                <h2 data-aos="fade-up">Experience</h2>
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-tag">Career Path</span>
+                    <h2 id="experience-title">Experience</h2>
+                    <p class="section-desc">Professional journey and internships</p>
+                </div>
                 <div class="experience-timeline">
                     <div class="experience-card" data-aos="fade-up">
                         <div class="experience-icon">
@@ -307,8 +371,12 @@
         </section>
         
 
-        <section id="skills" class="skills">
-            <h2 data-aos="fade-up">Technical Skills</h2>
+        <section id="skills" class="skills" aria-labelledby="skills-title">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">What I Know</span>
+                <h2 id="skills-title">Technical Skills</h2>
+                <p class="section-desc">Technologies and tools I work with</p>
+            </div>
             <div class="skills-container">
                 <div class="skill-category" data-aos="fade-up">
                     <h3><i class="fas fa-code"></i> Frontend Development</h3>
@@ -504,9 +572,12 @@
             </div>
         </section>
 
-        <section id="projects" class="projects">
-            <h2 data-aos="fade-up">My Projects</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">A showcase of my best work across AI, web development, and more</p>
+        <section id="projects" class="projects" aria-labelledby="projects-title">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">My Work</span>
+                <h2 id="projects-title">My Projects</h2>
+                <p class="section-subtitle section-desc" data-aos="fade-up" data-aos-delay="100">A showcase of my best work across AI, web development, and more</p>
+            </div>
             <div class="project-filters" data-aos="fade-up" data-aos-delay="150">
                 <button class="filter-btn active" data-filter="all">All <span class="filter-count"></span></button>
                 <button class="filter-btn" data-filter="ai">AI &amp; ML <span class="filter-count"></span></button>
@@ -732,75 +803,107 @@
             </div>
         </section>
 
-        <section id="contact" class="contact">
-            <h2 data-aos="fade-up">Get in Touch</h2>
+        <section id="contact" class="contact" aria-labelledby="contact-title">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Let's Talk</span>
+                <h2 id="contact-title">Get in Touch</h2>
+                <p class="section-desc">Have a project in mind? Let's build something amazing together</p>
+            </div>
             <div class="contact-container">
                 <div class="contact-info" data-aos="fade-right">
                     <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
+                        <div class="contact-icon-wrap">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                        </div>
                         <div>
                             <h3>Email</h3>
-                            <p>kartji005@gmail.com</p>
+                            <a href="mailto:kartji005@gmail.com" class="contact-value">kartji005@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="fas fa-phone"></i>
+                        <div class="contact-icon-wrap">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                        </div>
                         <div>
                             <h3>Phone</h3>
-                            <p>+91 93457 66900</p>
+                            <a href="tel:+919345766900" class="contact-value">+91 93457 66900</a>
                         </div>
                     </div>
-                    <div class="contact-social">
-                        <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
+                    <div class="contact-item">
+                        <div class="contact-icon-wrap">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p class="contact-value">Chennai, Tamil Nadu, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-social" role="list" aria-label="Social media links">
+                        <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" aria-label="GitHub" role="listitem">
+                            <i class="fab fa-github" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" role="listitem">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer" aria-label="Instagram" role="listitem">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
-                <form class="contact-form" data-aos="fade-left">
+                <form class="contact-form" data-aos="fade-left" novalidate aria-label="Contact form">
                     <div class="form-group">
-                        <input type="text" name="from_name" required>
-                        <label>Your Name</label>
-                        <span class="border"></span>
+                        <input type="text" name="from_name" id="from_name" required autocomplete="name" placeholder=" ">
+                        <label for="from_name">Your Name</label>
+                        <span class="border" aria-hidden="true"></span>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="from_email" required>
-                        <label>Your Email</label>
-                        <span class="border"></span>
+                        <input type="email" name="from_email" id="from_email" required autocomplete="email" placeholder=" ">
+                        <label for="from_email">Your Email</label>
+                        <span class="border" aria-hidden="true"></span>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" required></textarea>
-                        <label>Your Message</label>
-                        <span class="border"></span>
+                        <textarea name="message" id="message" required placeholder=" " rows="5"></textarea>
+                        <label for="message">Your Message</label>
+                        <span class="border" aria-hidden="true"></span>
                     </div>
-                    <button type="submit" class="submit-btn">
+                    <button type="submit" class="submit-btn" aria-label="Send message">
                         <span class="btn-text">Send Message</span>
-                        <span class="btn-loading" style="display: none;">Sending...</span>
-                        <i class="fas fa-paper-plane"></i>
+                        <span class="btn-loading" style="display: none;" aria-live="polite">Sending...</span>
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
                     </button>
                 </form>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-content">
-            <p>&copy; 2025 Karthikeyan K. All rights reserved.</p>
-            <div class="footer-social">
-                <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <span class="logo-text">KK</span>
+                    <div class="logo-dot" aria-hidden="true"></div>
+                </div>
+                <p class="footer-tagline">Building the future, one line at a time.</p>
+            </div>
+            <div class="footer-links" role="navigation" aria-label="Footer navigation">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-right">
+                <div class="footer-social" role="list" aria-label="Social media links">
+                    <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" aria-label="GitHub" role="listitem">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/karthikeyan-k-b41509258" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" role="listitem">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/karthik_keyan04" target="_blank" rel="noopener noreferrer" aria-label="Instagram" role="listitem">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <p class="footer-copy">&copy; <span id="currentYear"></span> Karthikeyan K. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -812,14 +915,18 @@
     <script>
       // Initialize EmailJS safely
       if (typeof emailjs !== 'undefined') {
-          emailjs.init("2SaR4iNsIAD9SU7Ll"); // Replace with your EmailJS user ID
+          emailjs.init("2SaR4iNsIAD9SU7Ll");
       }
       
       // Initialize AOS safely
       if (typeof AOS !== 'undefined') {
-          AOS.init();
+          AOS.init({
+              duration: 800,
+              easing: 'ease-out-cubic',
+              once: true,
+              offset: 80
+          });
       } else {
-          // Simple fallback for AOS animations
           document.addEventListener('DOMContentLoaded', () => {
               const elements = document.querySelectorAll('[data-aos]');
               elements.forEach(el => {
@@ -828,6 +935,10 @@
               });
           });
       }
+
+      // Set current year in footer
+      const yearEl = document.getElementById('currentYear');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
