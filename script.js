@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Cursor hover effects on interactive elements
-        const interactiveEls = document.querySelectorAll('a, button, .project-card, .skill-item, .stat-item');
+        const interactiveEls = document.querySelectorAll('a, button, .project-card, .skill-item, .stat-item, .pstat-item');
         interactiveEls.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.classList.add('cursor-hover');
@@ -195,23 +195,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressObserver = new IntersectionObserver(animateProgress, { threshold: 0.3 });
     skillItems.forEach(item => progressObserver.observe(item));
 
-    // About stats counter animation
+    // About stats counter animation (reusable)
+    function animateCounter(el, target, duration) {
+        let current = 0;
+        const step = Math.ceil(target / (duration / 40));
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            el.textContent = current;
+        }, 40);
+    }
+
     const statNumbers = document.querySelectorAll('.stat-number');
     const animateStats = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const el = entry.target;
                 const target = parseInt(el.dataset.target);
-                let current = 0;
-                const step = Math.ceil(target / 30);
-                const timer = setInterval(() => {
-                    current += step;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    el.textContent = current;
-                }, 40);
+                animateCounter(el, target, 1200);
                 observer.unobserve(el);
             }
         });
@@ -219,6 +223,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const statsObserver = new IntersectionObserver(animateStats, { threshold: 0.5 });
     statNumbers.forEach(num => statsObserver.observe(num));
+
+    // Project stats bar counter animation
+    const pstatNumbers = document.querySelectorAll('.pstat-number');
+    const animatePStats = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.target);
+                animateCounter(el, target, 1000);
+                observer.unobserve(el);
+            }
+        });
+    };
+
+    const pstatsObserver = new IntersectionObserver(animatePStats, { threshold: 0.3 });
+    pstatNumbers.forEach(num => pstatsObserver.observe(num));
 
     // Project filter functionality
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -256,6 +276,32 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // 3D Tilt effect on project cards (desktop only)
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const TILT_RESET_DURATION = 500;
+        projectCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                const dx = (e.clientX - cx) / (rect.width / 2);
+                const dy = (e.clientY - cy) / (rect.height / 2);
+                const tiltX = -(dy * 6);
+                const tiltY = dx * 6;
+                card.classList.add('tilt');
+                card.style.transform = `perspective(900px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-8px)`;
+                card.style.boxShadow = `${-tiltY * 2}px ${tiltX * 2}px 32px rgba(124,58,237,0.18), var(--shadow-card)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('tilt');
+                card.style.transform = '';
+                card.style.boxShadow = '';
+                card.style.transition = `transform ${TILT_RESET_DURATION}ms ease, box-shadow ${TILT_RESET_DURATION}ms ease`;
+                setTimeout(() => { card.style.transition = ''; }, TILT_RESET_DURATION);
+            });
+        });
+    }
 
     // Contact form
     const formGroups = document.querySelectorAll('.form-group');

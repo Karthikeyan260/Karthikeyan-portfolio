@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#141414;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e50914;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b81d24;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="80%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#000;stop-opacity:0" />
+      <stop offset="100%" style="stop-color:#000;stop-opacity:0.9" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#e50914" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="800" height="480" fill="url(#bg)"/>
+  
+  <!-- Netflix Logo -->
+  <text x="40" y="60" font-size="42" fill="url(#redGrad)" font-family="Impact,Arial,sans-serif" font-weight="900" letter-spacing="-2" filter="url(#shadow)">NETFLIX</text>
+  
+  <!-- Nav items -->
+  <text x="220" y="55" font-size="14" fill="#e5e7eb" font-family="Inter,sans-serif">Home</text>
+  <text x="275" y="55" font-size="14" fill="#9ca3af" font-family="Inter,sans-serif">TV Shows</text>
+  <text x="345" y="55" font-size="14" fill="#9ca3af" font-family="Inter,sans-serif">Movies</text>
+  <text x="405" y="55" font-size="14" fill="#9ca3af" font-family="Inter,sans-serif">My List</text>
+  
+  <!-- Search icon -->
+  <circle cx="720" cy="48" r="10" fill="none" stroke="#9ca3af" stroke-width="2"/>
+  <line x1="727" y1="55" x2="735" y2="63" stroke="#9ca3af" stroke-width="2"/>
+  
+  <!-- Hero movie card -->
+  <rect x="0" y="80" width="800" height="220" rx="0" fill="#1f2937"/>
+  <rect x="0" y="80" width="800" height="220" fill="url(#cardGrad)"/>
+  <text x="50" y="160" font-size="48" fill="white" font-family="Impact,Arial,sans-serif" font-weight="900">Featured Movie</text>
+  <text x="50" y="195" font-size="16" fill="#d1d5db" font-family="Inter,sans-serif">Action • Adventure • 2h 30m</text>
+  <rect x="50" y="215" width="120" height="40" rx="4" fill="white"/>
+  <text x="86" y="240" font-size="15" fill="black" font-family="Inter,sans-serif" font-weight="700">▶ Play</text>
+  <rect x="185" y="215" width="140" height="40" rx="4" fill="#6b728099"/>
+  <text x="227" y="240" font-size="15" fill="white" font-family="Inter,sans-serif" font-weight="600">More Info</text>
+  
+  <!-- Movie grid row -->
+  <text x="40" y="330" font-size="16" fill="white" font-family="Inter,sans-serif" font-weight="600">Trending Now</text>
+  
+  <!-- Movie thumbnails -->
+  <rect x="40" y="345" width="110" height="70" rx="6" fill="#dc2626"/>
+  <text x="95" y="385" text-anchor="middle" font-size="22" fill="white">🎬</text>
+  
+  <rect x="165" y="345" width="110" height="70" rx="6" fill="#1d4ed8"/>
+  <text x="220" y="385" text-anchor="middle" font-size="22" fill="white">🎭</text>
+  
+  <rect x="290" y="345" width="110" height="70" rx="6" fill="#065f46"/>
+  <text x="345" y="385" text-anchor="middle" font-size="22" fill="white">🌟</text>
+  
+  <rect x="415" y="345" width="110" height="70" rx="6" fill="#92400e"/>
+  <text x="470" y="385" text-anchor="middle" font-size="22" fill="white">🔥</text>
+  
+  <rect x="540" y="345" width="110" height="70" rx="6" fill="#6d28d9"/>
+  <text x="595" y="385" text-anchor="middle" font-size="22" fill="white">🚀</text>
+  
+  <rect x="665" y="345" width="110" height="70" rx="6" fill="#be123c"/>
+  <text x="720" y="385" text-anchor="middle" font-size="22" fill="white">❤️</text>
+  
+  <!-- Tech label -->
+  <text x="400" y="445" text-anchor="middle" font-size="14" fill="#6b7280" font-family="Inter,sans-serif">HTML • CSS • JavaScript • Responsive Design</text>
+  <text x="400" y="465" text-anchor="middle" font-size="22" fill="#e50914" font-family="Impact,sans-serif" letter-spacing="1">Netflix Clone</text>
+</svg>

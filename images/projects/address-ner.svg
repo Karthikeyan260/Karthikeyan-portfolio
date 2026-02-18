@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e1e3f;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2dd4bf;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="480" fill="url(#bg)"/>
+  
+  <!-- Input box -->
+  <rect x="50" y="40" width="700" height="70" rx="12" fill="#1e293b" stroke="#7c3aed" stroke-width="2"/>
+  <text x="75" y="68" font-size="13" fill="#64748b" font-family="Inter,sans-serif">Input Address</text>
+  <text x="75" y="95" font-size="15" fill="#e2e8f0" font-family="Inter,sans-serif">42 Baker Street, Westminster, London, W1U 6AH, United Kingdom</text>
+  
+  <!-- Entity annotations -->
+  <rect x="50" y="140" width="700" height="90" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="75" y="165" font-size="13" fill="#64748b" font-family="Inter,sans-serif">Extracted Entities</text>
+  
+  <!-- Entity tags -->
+  <rect x="75" y="176" width="95" height="30" rx="8" fill="#7c3aed" opacity="0.9"/>
+  <text x="122" y="196" text-anchor="middle" font-size="12" fill="white" font-family="Inter,sans-serif" font-weight="600">HOUSE_NUMBER</text>
+  
+  <rect x="180" y="176" width="120" height="30" rx="8" fill="#0891b2" opacity="0.9"/>
+  <text x="240" y="196" text-anchor="middle" font-size="12" fill="white" font-family="Inter,sans-serif" font-weight="600">STREET_NAME</text>
+
+  <rect x="310" y="176" width="80" height="30" rx="8" fill="#059669" opacity="0.9"/>
+  <text x="350" y="196" text-anchor="middle" font-size="12" fill="white" font-family="Inter,sans-serif" font-weight="600">DISTRICT</text>
+
+  <rect x="400" y="176" width="60" height="30" rx="8" fill="#d97706" opacity="0.9"/>
+  <text x="430" y="196" text-anchor="middle" font-size="12" fill="white" font-family="Inter,sans-serif" font-weight="600">CITY</text>
+  
+  <rect x="470" y="176" width="75" height="30" rx="8" fill="#dc2626" opacity="0.9"/>
+  <text x="507" y="196" text-anchor="middle" font-size="12" fill="white" font-family="Inter,sans-serif" font-weight="600">POSTCODE</text>
+
+  <rect x="555" y="176" width="80" height="30" rx="8" fill="#7c3aed" opacity="0.7"/>
+  <text x="595" y="196" text-anchor="middle" font-size="12" fill="white" font-family="Inter,sans-serif" font-weight="600">COUNTRY</text>
+  
+  <text x="75" y="220" font-size="14" fill="#94a3b8" font-family="Inter,sans-serif">42 Baker Street · Westminster · London · W1U 6AH · UK</text>
+
+  <!-- Model metrics -->
+  <rect x="50" y="260" width="210" height="100" rx="12" fill="#1e293b" stroke="#7c3aed" stroke-width="1"/>
+  <text x="155" y="285" text-anchor="middle" font-size="13" fill="#94a3b8" font-family="Inter,sans-serif">F1 Score</text>
+  <text x="155" y="340" text-anchor="middle" font-size="42" fill="url(#purpleGrad)" font-family="Inter,sans-serif" font-weight="800" filter="url(#glow)">0.92</text>
+  
+  <rect x="295" y="260" width="210" height="100" rx="12" fill="#1e293b" stroke="#0891b2" stroke-width="1"/>
+  <text x="400" y="285" text-anchor="middle" font-size="13" fill="#94a3b8" font-family="Inter,sans-serif">Precision</text>
+  <text x="400" y="340" text-anchor="middle" font-size="42" fill="#2dd4bf" font-family="Inter,sans-serif" font-weight="800" filter="url(#glow)">0.94</text>
+  
+  <rect x="540" y="260" width="210" height="100" rx="12" fill="#1e293b" stroke="#059669" stroke-width="1"/>
+  <text x="645" y="285" text-anchor="middle" font-size="13" fill="#94a3b8" font-family="Inter,sans-serif">Recall</text>
+  <text x="645" y="340" text-anchor="middle" font-size="42" fill="#34d399" font-family="Inter,sans-serif" font-weight="800" filter="url(#glow)">0.91</text>
+
+  <!-- Title -->
+  <text x="400" y="405" text-anchor="middle" font-size="26" fill="white" font-family="Inter,sans-serif" font-weight="800">Address NER</text>
+  <text x="400" y="430" text-anchor="middle" font-size="14" fill="#64748b" font-family="Inter,sans-serif">Named Entity Recognition for Address Parsing</text>
+  <text x="400" y="455" text-anchor="middle" font-size="13" fill="#7c3aed" font-family="Inter,sans-serif">Python • SpaCy • Hugging Face • NLP • ML</text>
+</svg>
