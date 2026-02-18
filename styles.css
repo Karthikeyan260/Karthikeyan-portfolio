@@ -2830,8 +2830,6 @@ footer {
     .hero-text h1 {
         font-size: 2.4rem;
         line-height: 1.2;
-        white-space: nowrap;
-        overflow: visible;
     }
 
     /* Disable glitch effect on mobile for better readability */
