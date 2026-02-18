@@ -2773,6 +2773,12 @@ footer {
     .hero-greeting { justify-content: center; }
     .hero-bio { margin: 0 auto 2rem; }
 
+    /* Reduce glitch intensity on tablets for better readability */
+    .glitch::before,
+    .glitch::after {
+        opacity: 0.3;
+    }
+
     .hero-cta { justify-content: center; }
     .hero-social { justify-content: center; }
 
@@ -2821,7 +2827,22 @@ footer {
 @media (max-width: 480px) {
     html { font-size: 15px; }
 
-    .hero-text h1 { font-size: 2.4rem; }
+    .hero-text h1 {
+        font-size: 2.4rem;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: visible;
+    }
+
+    /* Disable glitch effect on mobile for better readability */
+    .glitch {
+        animation: none;
+    }
+
+    .glitch::before,
+    .glitch::after {
+        display: none;
+    }
 
     .about-stats {
         grid-template-columns: repeat(2, 1fr);
@@ -2892,7 +2913,10 @@ footer {
 
 @media (max-width: 360px) {
     .cta-button { max-width: 220px; font-size: 0.88rem; padding: 0.7rem 1.2rem; }
-    .hero-text h1 { font-size: 2rem; }
+    .hero-text h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
     nav { padding: 0 4%; }
 }
 
