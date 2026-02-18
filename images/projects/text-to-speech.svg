@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="800" height="480">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2dd4bf;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="480" fill="url(#bg)"/>
+  
+  <!-- App card -->
+  <rect x="100" y="30" width="600" height="420" rx="20" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  
+  <!-- Title bar -->
+  <rect x="100" y="30" width="600" height="60" rx="20" fill="#7c3aed" opacity="0.9"/>
+  <rect x="100" y="70" width="600" height="20" fill="#7c3aed" opacity="0.9"/>
+  <text x="400" y="68" text-anchor="middle" font-size="20" fill="white" font-family="Inter,sans-serif" font-weight="700">🔊 Text to Speech</text>
+  
+  <!-- Text area -->
+  <rect x="130" y="110" width="540" height="130" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="155" y="138" font-size="13" fill="#64748b" font-family="Inter,sans-serif">Enter your text here...</text>
+  <text x="155" y="162" font-size="15" fill="#e2e8f0" font-family="Inter,sans-serif">Hello! This is a Text to Speech</text>
+  <text x="155" y="185" font-size="15" fill="#e2e8f0" font-family="Inter,sans-serif">web application. Type any text</text>
+  <text x="155" y="208" font-size="15" fill="#e2e8f0" font-family="Inter,sans-serif">and it will be converted to audio.</text>
+  
+  <!-- Controls -->
+  <text x="155" y="275" font-size="13" fill="#94a3b8" font-family="Inter,sans-serif">Voice</text>
+  <rect x="200" y="258" width="180" height="32" rx="8" fill="#0f172a" stroke="#7c3aed" stroke-width="1"/>
+  <text x="290" y="279" text-anchor="middle" font-size="13" fill="#e2e8f0" font-family="Inter,sans-serif">Google UK English</text>
+  
+  <text x="420" y="275" font-size="13" fill="#94a3b8" font-family="Inter,sans-serif">Speed</text>
+  <rect x="465" y="258" width="180" height="32" rx="8" fill="#0f172a" stroke="#7c3aed" stroke-width="1"/>
+  <text x="555" y="279" text-anchor="middle" font-size="13" fill="#e2e8f0" font-family="Inter,sans-serif">1.0x (Normal)</text>
+  
+  <!-- Sound waves visualization -->
+  <line x1="200" y1="340" x2="200" y2="380" stroke="#7c3aed" stroke-width="4" stroke-linecap="round"/>
+  <line x1="220" y1="325" x2="220" y2="395" stroke="#7c3aed" stroke-width="4" stroke-linecap="round"/>
+  <line x1="240" y1="310" x2="240" y2="410" stroke="#7c3aed" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+  <line x1="260" y1="320" x2="260" y2="400" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+  <line x1="280" y1="335" x2="280" y2="385" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round"/>
+  <line x1="300" y1="345" x2="300" y2="375" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round"/>
+  <line x1="320" y1="330" x2="320" y2="390" stroke="#7c3aed" stroke-width="4" stroke-linecap="round"/>
+  <line x1="340" y1="315" x2="340" y2="405" stroke="#7c3aed" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+  <line x1="360" y1="305" x2="360" y2="415" stroke="#a855f7" stroke-width="4" stroke-linecap="round" filter="url(#glow)"/>
+  <line x1="380" y1="320" x2="380" y2="400" stroke="#a855f7" stroke-width="4" stroke-linecap="round"/>
+  <line x1="400" y1="330" x2="400" y2="390" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round"/>
+  <line x1="420" y1="340" x2="420" y2="380" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Speak button -->
+  <rect x="460" y="320" width="180" height="55" rx="28" fill="url(#purpleGrad)" filter="url(#glow)"/>
+  <text x="550" y="352" text-anchor="middle" font-size="18" fill="white" font-family="Inter,sans-serif" font-weight="700">🎙 Speak</text>
+  
+  <!-- Tech label -->
+  <text x="400" y="468" text-anchor="middle" font-size="13" fill="#64748b" font-family="Inter,sans-serif">JavaScript Web Speech API • HTML5 • CSS3</text>
+</svg>
