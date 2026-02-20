@@ -2992,3 +2992,418 @@ header.scrolled nav { padding-block: 0; }
     font-weight: 600;
     color: var(--text-color);
 }
+
+/* ===================================================
+   AI-THEMED EDUCATION & EXPERIENCE ENHANCEMENTS
+   =================================================== */
+
+/* ---- Shared: Neural Grid Background ---- */
+.edu-grid-bg,
+.exp-circuit-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.edu-grid-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(124,58,237,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,58,237,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+.edu-grid-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 15% 30%, rgba(45,212,191,0.07) 0%, transparent 45%),
+                radial-gradient(circle at 85% 70%, rgba(124,58,237,0.07) 0%, transparent 45%);
+}
+
+.exp-circuit-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, rgba(124,58,237,0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+    mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent 100%);
+}
+
+.exp-circuit-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 20%, rgba(45,212,191,0.06) 0%, transparent 40%),
+                radial-gradient(circle at 15% 80%, rgba(124,58,237,0.06) 0%, transparent 40%);
+}
+
+/* ---- AI Timeline line glow ---- */
+.ai-timeline,
+.ai-exp-timeline {
+    position: relative;
+}
+
+.ai-timeline::before,
+.ai-exp-timeline::before {
+    background: linear-gradient(180deg,
+        rgba(124,58,237,0) 0%,
+        rgba(124,58,237,0.8) 20%,
+        rgba(45,212,191,0.8) 80%,
+        rgba(45,212,191,0) 100%);
+    box-shadow: 0 0 12px rgba(124,58,237,0.4), 0 0 24px rgba(124,58,237,0.2);
+    animation: timelineGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes timelineGlow {
+    from { box-shadow: 0 0 8px rgba(124,58,237,0.3), 0 0 20px rgba(124,58,237,0.1); }
+    to   { box-shadow: 0 0 18px rgba(45,212,191,0.5), 0 0 36px rgba(45,212,191,0.2); }
+}
+
+/* ---- AI Card ---- */
+.ai-card,
+.ai-exp-card {
+    position: relative;
+    overflow: visible;
+    background: var(--card-bg);
+    border: 1px solid rgba(124,58,237,0.25);
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.35s cubic-bezier(0.4,0,0.2,1),
+                border-color 0.35s ease;
+}
+
+.ai-card:hover,
+.ai-exp-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 60px rgba(124,58,237,0.18), 0 0 0 1px rgba(124,58,237,0.25);
+    border-color: rgba(45,212,191,0.5);
+}
+
+/* Glow overlay on hover */
+.ai-card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 40% 40%, rgba(124,58,237,0.07) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+}
+
+.ai-card:hover .ai-card-glow,
+.ai-exp-card:hover .ai-card-glow {
+    opacity: 1;
+}
+
+/* ---- Node Icon with pulse ---- */
+.ai-node-icon,
+.ai-exp-icon {
+    position: relative;
+    z-index: 2;
+}
+
+.node-pulse {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(45,212,191,0.5);
+    animation: nodePulse 2.5s ease-out infinite;
+}
+
+.node-pulse::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(124,58,237,0.3);
+    animation: nodePulse 2.5s ease-out infinite 1.25s;
+}
+
+@keyframes nodePulse {
+    0%   { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.9); opacity: 0; }
+}
+
+/* ---- AI Phase Badge ---- */
+.ai-phase-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.18rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(45,212,191,0.15));
+    color: var(--secondary-color);
+    border: 1px solid rgba(124,58,237,0.2);
+    font-family: 'Fira Code', monospace;
+}
+
+.ai-phase-badge.phase-2 {
+    background: linear-gradient(135deg, rgba(45,212,191,0.15), rgba(124,58,237,0.1));
+    color: var(--teal);
+    border-color: rgba(45,212,191,0.25);
+}
+
+.ai-phase-badge.phase-1 {
+    background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(124,58,237,0.1));
+    color: var(--accent-color);
+    border-color: rgba(245,158,11,0.2);
+}
+
+/* ---- AI Year Label ---- */
+.ai-year,
+.exp-year {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* ---- Edu Module Tags (replaces .highlight) ---- */
+.edu-modules {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.85rem 0 1rem;
+}
+
+.module-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(124,58,237,0.07);
+    color: var(--secondary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.77rem;
+    font-weight: 600;
+    border: 1px solid rgba(124,58,237,0.15);
+    transition: var(--transition);
+}
+
+.module-tag i {
+    font-size: 0.68rem;
+    opacity: 0.85;
+}
+
+.module-tag:hover {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124,58,237,0.3);
+}
+
+/* ---- Edu Metric / Progress Bar ---- */
+.edu-metric-row {
+    margin: 0.75rem 0 0.5rem;
+}
+
+.edu-metric {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.metric-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+    min-width: 130px;
+    font-family: 'Fira Code', monospace;
+}
+
+.edu-progress-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(124,58,237,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.edu-progress {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 3px;
+    width: 0;
+    transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+}
+
+.edu-progress::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(45,212,191,0.8);
+}
+
+.metric-val {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-family: 'Fira Code', monospace;
+    min-width: 36px;
+    text-align: right;
+}
+
+/* ---- Experience: Meta Row & Status Badges ---- */
+.exp-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+}
+
+.exp-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-family: 'Fira Code', monospace;
+}
+
+.exp-status-badge.current {
+    background: rgba(45,212,191,0.12);
+    color: var(--teal);
+    border: 1px solid rgba(45,212,191,0.25);
+}
+
+.exp-status-badge.current i {
+    font-size: 0.5rem;
+    animation: blink 1.2s step-start infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+.exp-status-badge.completed {
+    background: rgba(0,184,148,0.1);
+    color: #00b894;
+    border: 1px solid rgba(0,184,148,0.2);
+}
+
+/* ---- Experience: Impact Chips ---- */
+.exp-impact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.85rem 0 0.85rem;
+}
+
+.impact-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.28rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(45,212,191,0.07));
+    color: var(--secondary-color);
+    border: 1px solid rgba(124,58,237,0.15);
+    transition: var(--transition);
+}
+
+.impact-chip i {
+    font-size: 0.68rem;
+    color: var(--teal);
+}
+
+.impact-chip:hover {
+    background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(45,212,191,0.12));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124,58,237,0.15);
+}
+
+/* ---- Dark theme adjustments ---- */
+.dark-theme .ai-card,
+.dark-theme .ai-exp-card {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: rgba(167,139,250,0.2);
+}
+
+.dark-theme .ai-card:hover,
+.dark-theme .ai-exp-card:hover {
+    border-color: rgba(45,212,191,0.45);
+}
+
+.dark-theme .module-tag {
+    background: rgba(167,139,250,0.08);
+    border-color: rgba(167,139,250,0.18);
+}
+
+.dark-theme .impact-chip {
+    background: linear-gradient(135deg, rgba(167,139,250,0.1), rgba(45,212,191,0.07));
+    border-color: rgba(167,139,250,0.18);
+}
+
+.dark-theme .edu-progress-bar {
+    background: rgba(167,139,250,0.12);
+}
+
+.dark-theme .edu-grid-bg::before {
+    background-image:
+        linear-gradient(rgba(167,139,250,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(167,139,250,0.06) 1px, transparent 1px);
+}
+
+.dark-theme .exp-circuit-bg::before {
+    background-image:
+        radial-gradient(circle, rgba(167,139,250,0.1) 1px, transparent 1px);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .edu-metric { flex-wrap: wrap; gap: 0.5rem; }
+    .metric-label { min-width: auto; }
+    .exp-meta-row { gap: 0.5rem; }
+    .exp-impact-row { gap: 0.4rem; }
+    .impact-chip { font-size: 0.7rem; padding: 0.22rem 0.6rem; }
+}
+
+@media (max-width: 480px) {
+    .edu-modules { gap: 0.4rem; }
+    .module-tag { font-size: 0.72rem; padding: 0.25rem 0.65rem; }
+    .edu-metric { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+    .edu-progress-bar { width: 100%; }
+    .metric-val { text-align: left; }
+    .ai-phase-badge { font-size: 0.65rem; }
+}
+
+/* Ensure content sits above grid backgrounds */
+.education .about-container,
+.experience .experience-container {
+    position: relative;
+    z-index: 1;
+}
