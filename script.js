@@ -195,6 +195,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressObserver = new IntersectionObserver(animateProgress, { threshold: 0.3 });
     skillItems.forEach(item => progressObserver.observe(item));
 
+    // AI Education progress bar animation
+    const eduProgressBars = document.querySelectorAll('.edu-progress');
+    const animateEduProgress = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const bar = entry.target;
+                const targetWidth = bar.dataset.width;
+                if (targetWidth) {
+                    setTimeout(() => { bar.style.width = `${targetWidth}%`; }, 80);
+                }
+                observer.unobserve(bar);
+            }
+        });
+    };
+    const eduProgressObserver = new IntersectionObserver(animateEduProgress, { threshold: 0.4 });
+    eduProgressBars.forEach(bar => eduProgressObserver.observe(bar));
+
     // About stats counter animation (reusable)
     function animateCounter(el, target, duration) {
         let current = 0;
