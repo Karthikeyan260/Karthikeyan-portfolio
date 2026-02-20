@@ -1,3 +1,20 @@
+/* ===== SKIP LINK ===== */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--secondary-color, #7c3aed);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    z-index: 10000;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+    transition: top 0.2s;
+}
+.skip-link:focus {
+    top: 0;
+}
 /* ===== CSS VARIABLES ===== */
 :root {
     --primary-color: #1e1e2e;

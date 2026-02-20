@@ -7,6 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1600);
     });
 
+    // Initialize EmailJS
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("2SaR4iNsIAD9SU7Ll");
+    }
+
+    // Set current year in footer
+    const yearEl = document.getElementById('currentYear');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
     // Initialize AOS
     if (typeof AOS !== 'undefined') {
         AOS.init({
