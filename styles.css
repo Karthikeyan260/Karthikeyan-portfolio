@@ -818,12 +818,93 @@ nav {
 .about {
     padding: 6rem 0;
     background: var(--bg-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* AI animated background */
+.about-ai-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-ai-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(124,58,237,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124,58,237,0.045) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 20%, transparent 100%);
+}
+
+.about-ai-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 8% 20%, rgba(124,58,237,0.08) 0%, transparent 38%),
+        radial-gradient(circle at 92% 80%, rgba(45,212,191,0.08) 0%, transparent 38%),
+        radial-gradient(circle at 50% 50%, rgba(124,58,237,0.03) 0%, transparent 60%);
+    animation: aboutBgPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes aboutBgPulse {
+    from { opacity: 0.7; }
+    to   { opacity: 1; }
 }
 
 .about-container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---- AI floating chips below header ---- */
+.about-ai-chips {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-bottom: 2.5rem;
+}
+
+.ai-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.38rem 1rem;
+    background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(45,212,191,0.08));
+    border: 1px solid rgba(124,58,237,0.22);
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 0.03em;
+    animation: chipFloat 3.5s ease-in-out infinite;
+    transition: var(--transition);
+}
+
+.ai-chip:hover {
+    background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(45,212,191,0.15));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(124,58,237,0.2);
+}
+
+.ai-chip:nth-child(2) { animation-delay: 0.8s; }
+.ai-chip:nth-child(3) { animation-delay: 1.6s; }
+.ai-chip:nth-child(4) { animation-delay: 2.4s; }
+
+@keyframes chipFloat {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-5px); }
 }
 
 /* About Stats */
@@ -899,6 +980,27 @@ nav {
     letter-spacing: 0.5px;
 }
 
+/* Stat icon (AI theme) */
+.stat-icon {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 0.55rem;
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Pulsing glow on stat items */
+@keyframes statItemGlow {
+    0%, 100% { box-shadow: var(--shadow-card); }
+    50%       { box-shadow: var(--shadow-card), 0 0 22px rgba(124,58,237,0.18); }
+}
+.stat-item:nth-child(1) { animation: statItemGlow 4s ease-in-out infinite 0s; }
+.stat-item:nth-child(2) { animation: statItemGlow 4s ease-in-out infinite 1s; }
+.stat-item:nth-child(3) { animation: statItemGlow 4s ease-in-out infinite 2s; }
+.stat-item:nth-child(4) { animation: statItemGlow 4s ease-in-out infinite 3s; }
+
 /* About Content */
 .about-current-role {
     display: flex;
@@ -909,6 +1011,12 @@ nav {
     border: 1px solid rgba(124, 58, 237, 0.15);
     border-radius: var(--radius-md);
     margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.about-current-role:hover {
+    border-color: rgba(124,58,237,0.35);
+    box-shadow: 0 0 20px rgba(124,58,237,0.08);
 }
 
 .about-current-role > i {
@@ -955,6 +1063,29 @@ nav {
     box-shadow: var(--shadow-card);
     position: relative;
     overflow: hidden;
+    transition: var(--transition);
+}
+
+.about-intro:hover {
+    box-shadow: var(--shadow-card), 0 0 0 1px rgba(124,58,237,0.3), 0 0 30px rgba(124,58,237,0.1);
+}
+
+/* Animated scan line */
+.about-intro::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -50%;
+    height: 50%;
+    background: linear-gradient(180deg, transparent, rgba(124,58,237,0.04), transparent);
+    animation: aboutScanLine 5s ease-in-out infinite 0.5s;
+    pointer-events: none;
+}
+
+@keyframes aboutScanLine {
+    0%   { top: -50%; }
+    100% { top: 100%; }
 }
 
 .about-intro::after {
@@ -1010,8 +1141,30 @@ nav {
 
 .expertise-list li:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-    border-left-width: 6px;
+    box-shadow: var(--shadow-hover), 0 0 20px rgba(45,212,191,0.1);
+    border-left-color: var(--teal);
+}
+
+/* AI icon for each expertise card */
+.expertise-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: var(--gradient);
+    border-radius: var(--radius-sm);
+    color: white;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    align-self: flex-start;
+    box-shadow: 0 4px 12px rgba(124,58,237,0.3);
+    transition: var(--transition);
+}
+
+.expertise-list li:hover .expertise-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 18px rgba(124,58,237,0.4);
 }
 
 .expertise-title {
@@ -2787,6 +2940,8 @@ footer {
         gap: 1rem;
     }
 
+    .about-ai-chips { gap: 0.5rem; }
+
     .contact-container {
         grid-template-columns: 1fr;
     }
@@ -3381,6 +3536,25 @@ header.scrolled nav { padding-block: 0; }
 .dark-theme .exp-circuit-bg::before {
     background-image:
         radial-gradient(circle, rgba(167,139,250,0.1) 1px, transparent 1px);
+}
+
+/* Dark theme: about AI background */
+.dark-theme .about-ai-bg::before {
+    background-image:
+        linear-gradient(rgba(167,139,250,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(167,139,250,0.06) 1px, transparent 1px);
+}
+
+.dark-theme .about-ai-bg::after {
+    background:
+        radial-gradient(circle at 8% 20%, rgba(167,139,250,0.1) 0%, transparent 38%),
+        radial-gradient(circle at 92% 80%, rgba(45,212,191,0.1) 0%, transparent 38%),
+        radial-gradient(circle at 50% 50%, rgba(167,139,250,0.04) 0%, transparent 60%);
+}
+
+.dark-theme .ai-chip {
+    background: linear-gradient(135deg, rgba(167,139,250,0.12), rgba(45,212,191,0.1));
+    border-color: rgba(167,139,250,0.28);
 }
 
 /* ---- Responsive ---- */
