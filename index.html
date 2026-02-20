@@ -10,6 +10,8 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#7c3aed">
     <link rel="canonical" href="https://karthikeyank.tech/">
+    <link rel="alternate" hreflang="en" href="https://karthikeyank.tech/">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://www.emailjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://api.emailjs.com; frame-ancestors 'none';">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://karthikeyank.tech/">
@@ -23,12 +25,16 @@
     <meta name="twitter:description" content="Portfolio of Karthikeyan K – a Full Stack Developer, AI Developer, and IoT Enthusiast. Explore projects in React, Next.js, Python, Blockchain, and more.">
     <meta name="twitter:image" content="https://karthikeyank.tech/hi.jpeg">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%237c3aed'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-size='28' font-family='Inter,sans-serif' font-weight='700' fill='white' dy='.3em'%3EKK%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"></noscript>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -49,6 +55,7 @@
     </script>
 </head>
 <body>
+    <a href="#mainContent" class="skip-link">Skip to main content</a>
     <!-- Preloader -->
     <div class="preloader" id="preloader">
         <div class="preloader-content">
@@ -142,7 +149,10 @@
                     <div class="hero-image-wrapper" data-aos="fade-left" data-aos-delay="300">
                         <div class="profile-image-container">
                             <div class="profile-image">
-                                <img src="hi.jpeg" alt="Portrait photo of Karthikeyan K, Full Stack Developer" width="280" height="280" />
+                                <picture>
+                                    <source srcset="hi.webp" type="image/webp">
+                                    <img src="hi.jpeg" alt="Portrait photo of Karthikeyan K, Full Stack Developer" width="280" height="280" />
+                                </picture>
                             </div>
                             <div class="profile-ring" aria-hidden="true"></div>
                             <div class="profile-ring ring-2" aria-hidden="true"></div>
@@ -817,7 +827,10 @@
                 <div class="project-card featured" data-aos="zoom-in" data-aos-delay="0" data-category="ai">
                     <span class="project-badge"><i class="fas fa-star"></i> Featured</span>
                     <div class="project-image">
-                        <img src="images/projects/ai-consulting.jpg" alt="AI Consulting System screenshot" loading="lazy" width="800" height="480">
+                        <picture>
+                            <source srcset="images/projects/ai-consulting.webp" type="image/webp">
+                            <img src="images/projects/ai-consulting.jpg" alt="AI Consulting System screenshot" loading="lazy" width="800" height="480">
+                        </picture>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
                                 <i class="fas fa-robot project-icon"></i>
@@ -857,7 +870,10 @@
                 <div class="project-card featured" data-aos="zoom-in" data-aos-delay="80" data-category="ai">
                     <span class="project-badge"><i class="fas fa-star"></i> Featured</span>
                     <div class="project-image">
-                        <img src="images/projects/ai-job-assistant.jpg" alt="AI-Powered Job Application Assistant screenshot" loading="lazy" width="800" height="480">
+                        <picture>
+                            <source srcset="images/projects/ai-job-assistant.webp" type="image/webp">
+                            <img src="images/projects/ai-job-assistant.jpg" alt="AI-Powered Job Application Assistant screenshot" loading="lazy" width="800" height="480">
+                        </picture>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
                                 <i class="fas fa-briefcase project-icon"></i>
@@ -894,7 +910,10 @@
 
                 <div class="project-card" data-aos="zoom-in" data-aos-delay="160" data-category="ai">
                     <div class="project-image">
-                        <img src="images/projects/nutrify-ai.jpg" alt="NutrifyAI nutrition analysis app screenshot" loading="lazy" width="800" height="480">
+                        <picture>
+                            <source srcset="images/projects/nutrify-ai.webp" type="image/webp">
+                            <img src="images/projects/nutrify-ai.jpg" alt="NutrifyAI nutrition analysis app screenshot" loading="lazy" width="800" height="480">
+                        </picture>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
                                 <i class="fas fa-apple-alt project-icon"></i>
@@ -966,7 +985,10 @@
 
                 <div class="project-card" data-aos="zoom-in" data-aos-delay="320" data-category="web">
                     <div class="project-image">
-                        <img src="images/projects/todo-app.jpg" alt="Todo Application screenshot" loading="lazy" width="800" height="480">
+                        <picture>
+                            <source srcset="images/projects/todo-app.webp" type="image/webp">
+                            <img src="images/projects/todo-app.jpg" alt="Todo Application screenshot" loading="lazy" width="800" height="480">
+                        </picture>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
                                 <i class="fas fa-tasks project-icon"></i>
@@ -1001,7 +1023,10 @@
 
                 <div class="project-card" data-aos="zoom-in" data-aos-delay="400" data-category="web">
                     <div class="project-image">
-                        <img src="images/projects/weather-dashboard.jpg" alt="Weather Dashboard screenshot" loading="lazy" width="800" height="480">
+                        <picture>
+                            <source srcset="images/projects/weather-dashboard.webp" type="image/webp">
+                            <img src="images/projects/weather-dashboard.jpg" alt="Weather Dashboard screenshot" loading="lazy" width="800" height="480">
+                        </picture>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
                                 <i class="fas fa-cloud-sun project-icon"></i>
@@ -1071,7 +1096,10 @@
 
                 <div class="project-card" data-aos="zoom-in" data-aos-delay="560" data-category="game">
                     <div class="project-image">
-                        <img src="images/projects/chess-game.jpg" alt="Chess Game screenshot" loading="lazy" width="800" height="480">
+                        <picture>
+                            <source srcset="images/projects/chess-game.webp" type="image/webp">
+                            <img src="images/projects/chess-game.jpg" alt="Chess Game screenshot" loading="lazy" width="800" height="480">
+                        </picture>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
                                 <i class="fas fa-chess project-icon"></i>
@@ -1106,7 +1134,10 @@
 
                 <div class="project-card" data-aos="zoom-in" data-aos-delay="640" data-category="game">
                     <div class="project-image">
-                        <img src="images/projects/snake-game.jpg" alt="Snake Game screenshot" loading="lazy" width="800" height="480">
+                        <picture>
+                            <source srcset="images/projects/snake-game.webp" type="image/webp">
+                            <img src="images/projects/snake-game.jpg" alt="Snake Game screenshot" loading="lazy" width="800" height="480">
+                        </picture>
                         <div class="project-overlay">
                             <div class="project-overlay-content">
                                 <i class="fas fa-gamepad project-icon"></i>
@@ -1356,38 +1387,10 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-      // Initialize EmailJS safely
-      if (typeof emailjs !== 'undefined') {
-          emailjs.init("2SaR4iNsIAD9SU7Ll");
-      }
-      
-      // Initialize AOS safely
-      if (typeof AOS !== 'undefined') {
-          AOS.init({
-              duration: 800,
-              easing: 'ease-out-cubic',
-              once: true,
-              offset: 80
-          });
-      } else {
-          document.addEventListener('DOMContentLoaded', () => {
-              const elements = document.querySelectorAll('[data-aos]');
-              elements.forEach(el => {
-                  el.style.opacity = '1';
-                  el.style.transform = 'none';
-              });
-          });
-      }
-
-      // Set current year in footer
-      const yearEl = document.getElementById('currentYear');
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
 </body>
 </html>
 
