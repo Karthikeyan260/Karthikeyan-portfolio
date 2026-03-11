@@ -773,7 +773,8 @@ nav {
 }
 
 /* Hero particles canvas */
-.hero-particles {
+.hero-particles,
+.hero-canvas-3d {
     position: absolute;
     top: 0;
     left: 0;
@@ -2245,6 +2246,21 @@ nav {
     transition: none;
 }
 
+/* 3D tilt shine overlay */
+.project-card.tilt-active::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        circle at var(--tilt-gx, 50%) var(--tilt-gy, 50%),
+        rgba(124, 58, 237, 0.12) 0%,
+        transparent 65%
+    );
+    pointer-events: none;
+    z-index: 2;
+}
+
 .project-card:not(.tilt):hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-hover);
@@ -3597,4 +3613,97 @@ header.scrolled nav { padding-block: 0; }
 .experience .experience-container {
     position: relative;
     z-index: 1;
+}
+
+/* ===== 3D SCENE ENHANCEMENTS ===== */
+
+/* --- Section decoration canvases (about / experience) --- */
+.about,
+.experience {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-deco-canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+}
+
+/* Ensure content stays above deco canvas */
+.about .about-container,
+.experience .experience-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Skills 3D sphere --- */
+.skills-sphere-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skills-sphere-canvas {
+    width: 100%;
+    height: 340px;
+    display: block;
+    border-radius: 1rem;
+    cursor: grab;
+}
+
+.skills-sphere-canvas:active {
+    cursor: grabbing;
+}
+
+.sphere-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.7;
+}
+
+/* --- Project card 3D positioning context --- */
+.project-card {
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* --- Skill item 3D lift --- */
+.skill-item {
+    will-change: transform;
+    transform-origin: center;
+}
+
+/* --- Responsive: disable 3D tilt on touch/small screens --- */
+@media (hover: none), (max-width: 768px) {
+    .skills-sphere-wrapper {
+        max-width: 320px;
+    }
+    .skills-sphere-canvas {
+        height: 260px;
+    }
+    .section-deco-canvas {
+        display: none;
+    }
+}
+
+/* --- Skill item 3D lift class --- */
+.skill-item.skill-lifted {
+    transform: perspective(400px) translateZ(12px) scale(1.04);
+    box-shadow: 0 16px 40px rgba(124, 58, 237, 0.22);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
