@@ -97,7 +97,7 @@
 
     <main id="mainContent">
         <section id="home" class="hero" aria-label="Hero section">
-            <canvas class="hero-particles" id="heroParticles" aria-hidden="true"></canvas>
+            <canvas class="hero-canvas-3d" id="heroCanvas3D" aria-hidden="true"></canvas>
             <div class="hero-bg-orbs" aria-hidden="true">
                 <div class="orb orb-1"></div>
                 <div class="orb orb-2"></div>
@@ -180,6 +180,7 @@
         </section>
         <section id="about" class="about" aria-labelledby="about-title">
             <div class="about-ai-bg" aria-hidden="true"></div>
+            <canvas class="section-deco-canvas" aria-hidden="true"></canvas>
             <div class="about-container">
                 <div class="section-header" data-aos="fade-up">
                     <span class="section-tag"><i class="fas fa-robot" aria-hidden="true"></i> Who I Am</span>
@@ -366,6 +367,7 @@
 
         <section id="experience" class="experience" aria-labelledby="experience-title">
             <div class="exp-circuit-bg" aria-hidden="true"></div>
+            <canvas class="section-deco-canvas" aria-hidden="true"></canvas>
             <div class="experience-container">
                 <div class="section-header" data-aos="fade-up">
                     <span class="section-tag"><i class="fas fa-rocket"></i> Deployment Log</span>
@@ -469,6 +471,11 @@
                 <span class="section-tag">What I Know</span>
                 <h2 id="skills-title">Technical Skills</h2>
                 <p class="section-desc">Technologies and tools I work with</p>
+            </div>
+            <!-- 3D Tech Sphere -->
+            <div class="skills-sphere-wrapper" data-aos="fade-up" aria-hidden="true">
+                <canvas id="skillsSphereCanvas" class="skills-sphere-canvas"></canvas>
+                <div class="sphere-label">Tech Universe</div>
             </div>
             <div class="skills-container">
                 <div class="skill-category" data-aos="fade-up">
@@ -1386,7 +1393,9 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="three-scene.js" defer></script>
 </body>
 </html>
 
