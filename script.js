@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (el.dataset.animated === 'true') return;
                 const target = Number(el.dataset.target);
                 if (!Number.isFinite(target)) {
-                    console.warn('Invalid counter target:', el);
+                    console.warn('Invalid counter target:', el.dataset.target, 'for element:', el);
                     return;
                 }
                 el.dataset.animated = 'true';
