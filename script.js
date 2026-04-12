@@ -244,7 +244,10 @@ document.addEventListener('DOMContentLoaded', () => {
             numberEls.forEach(el => {
                 if (el.dataset.animated === 'true') return;
                 const target = Number(el.dataset.target);
-                if (!Number.isFinite(target)) return;
+                if (!Number.isFinite(target)) {
+                    console.warn('Invalid counter target:', el);
+                    return;
+                }
                 el.dataset.animated = 'true';
                 animateCounter(el, target, duration);
             });
