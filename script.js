@@ -235,36 +235,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 40);
     }
 
-    const statNumbers = document.querySelectorAll('.stat-number');
-    const animateStats = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                const target = parseInt(el.dataset.target);
-                animateCounter(el, target, 1200);
-                observer.unobserve(el);
-            }
+    function animateCounterGroup(containerSelector, numberSelector, duration) {
+        const container = document.querySelector(containerSelector);
+        if (!container) return;
+
+        const numberEls = container.querySelectorAll(numberSelector);
+        const runAnimation = () => {
+            numberEls.forEach(el => {
+                if (el.dataset.animated === 'true') return;
+                const target = Number(el.dataset.target);
+                if (!Number.isFinite(target)) {
+                    console.warn('Invalid counter target:', el.dataset.target, 'for element:', el);
+                    return;
+                }
+                el.dataset.animated = 'true';
+                animateCounter(el, target, duration);
+            });
+        };
+
+        if (typeof IntersectionObserver === 'undefined') {
+            console.info('IntersectionObserver is not supported; running counter animations immediately.');
+            runAnimation();
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    runAnimation();
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px 0px -10% 0px'
         });
-    };
 
-    const statsObserver = new IntersectionObserver(animateStats, { threshold: 0.5 });
-    statNumbers.forEach(num => statsObserver.observe(num));
+        observer.observe(container);
+    }
 
-    // Project stats bar counter animation
-    const pstatNumbers = document.querySelectorAll('.pstat-number');
-    const animatePStats = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                const target = parseInt(el.dataset.target);
-                animateCounter(el, target, 1000);
-                observer.unobserve(el);
-            }
-        });
-    };
-
-    const pstatsObserver = new IntersectionObserver(animatePStats, { threshold: 0.3 });
-    pstatNumbers.forEach(num => pstatsObserver.observe(num));
+    animateCounterGroup('.about-stats', '.stat-number', 1200);
+    animateCounterGroup('.project-stats-bar', '.pstat-number', 1000);
 
     // Project filter functionality
     const filterBtns = document.querySelectorAll('.filter-btn');
