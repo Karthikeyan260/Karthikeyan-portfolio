@@ -48,7 +48,7 @@ This is a professional portfolio website featuring projects, skills, experience,
 ### Todo Application
 - Feature-rich task management application
 - Technologies: React, TypeScript, Redux
-- Live: https://i8ftfb0ekpv7admu.vercel.app/
+- Live: https://todo-karthikeyan.vercel.app/
 - Repository: https://github.com/Karthikeyan260/Todo-List
 
 ### Weather Dashboard
@@ -108,7 +108,7 @@ This is a professional portfolio website featuring projects, skills, experience,
 ## Contact Information
 
 - Email: kartji005@gmail.com
-- LinkedIn: https://www.linkedin.com/in/karthikeyan-k-b41509258
+- LinkedIn: https://www.linkedin.com/in/karthikeyan-k-260/
 - GitHub: https://github.com/Karthikeyan260
 - Instagram: https://www.instagram.com/karthik_keyan04
 
