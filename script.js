@@ -254,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         if (typeof IntersectionObserver === 'undefined') {
+            console.info('IntersectionObserver is not supported; running counter animations immediately.');
             runAnimation();
             return;
         }
