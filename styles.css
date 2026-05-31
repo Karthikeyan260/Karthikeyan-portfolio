@@ -2749,15 +2749,55 @@ footer {
     box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
 }
 
+.scroll-top::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 18px;
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    opacity: 0;
+    pointer-events: none;
+}
+
 .scroll-top.visible {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    animation: scrollTopFloat 2.2s ease-in-out infinite;
+}
+
+.scroll-top.visible::before {
+    animation: scrollTopPulse 2s ease-out infinite;
+}
+
+.scroll-top i {
+    position: relative;
+    z-index: 1;
 }
 
 .scroll-top:hover {
-    transform: translateY(-4px);
+    animation: none;
+    transform: translateY(-6px) scale(1.04);
     box-shadow: 0 8px 28px rgba(124, 58, 237, 0.5);
+}
+
+@keyframes scrollTopPulse {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    40% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes scrollTopFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
 /* ===== GLITCH EFFECT ===== */
@@ -3652,6 +3692,7 @@ header.scrolled nav { padding-block: 0; }
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    overflow: hidden;
 }
 
 .skills-sphere-canvas {
@@ -3692,12 +3733,23 @@ header.scrolled nav { padding-block: 0; }
 @media (hover: none), (max-width: 768px) {
     .skills-sphere-wrapper {
         max-width: 320px;
+        margin-bottom: 2rem;
     }
     .skills-sphere-canvas {
         height: 260px;
     }
     .section-deco-canvas {
         display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-sphere-wrapper {
+        max-width: 270px;
+        margin-bottom: 1.5rem;
+    }
+    .skills-sphere-canvas {
+        height: 220px;
     }
 }
 
