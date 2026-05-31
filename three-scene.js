@@ -194,8 +194,13 @@
         if (!canvas) return;
 
         var container = canvas.parentElement;
+        function getSphereHeight() {
+            if (window.innerWidth <= 480) return 220;
+            if (window.innerWidth <= 768) return 260;
+            return 340;
+        }
         var W = container.offsetWidth;
-        var H = 340;
+        var H = getSphereHeight();
         canvas.height = H;
 
         var scene    = new THREE.Scene();
@@ -273,6 +278,8 @@
         /* resize */
         window.addEventListener('resize', function () {
             var nW = container.offsetWidth;
+            H = getSphereHeight();
+            canvas.height = H;
             camera.aspect = nW / H;
             camera.updateProjectionMatrix();
             renderer.setSize(nW, H);
