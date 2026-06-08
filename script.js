@@ -407,26 +407,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             function submitContactMessage(data) {
+                const payload = new FormData();
+                payload.append('name', data.from_name);
+                payload.append('email', data.from_email);
+                payload.append('message', data.message);
+                payload.append('_subject', `Portfolio Contact from ${data.from_name}`);
+                payload.append('_captcha', 'false');
+
                 return fetch('https://formsubmit.co/ajax/kartji005@gmail.com', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
                         Accept: 'application/json'
                     },
-                    body: JSON.stringify({
-                        name: data.from_name,
-                        email: data.from_email,
-                        message: data.message,
-                        _subject: `Portfolio Contact from ${data.from_name}`
-                    })
+                    body: payload
                 }).then(async (response) => {
                     let result;
                     try {
                         result = await response.json();
                     } catch {
+                        if (response.ok) return { success: true };
                         throw new Error('Unexpected response from contact service');
                     }
-                    const success = result && (result.success === 'true' || result.success === true);
+                    const success = result && result.success !== false && result.success !== 'false';
                     if (!response.ok || !success) {
                         throw new Error(result && result.message ? result.message : 'Failed to send contact form');
                     }
