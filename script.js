@@ -417,7 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return fetch('https://formsubmit.co/ajax/kartji005@gmail.com', {
                     method: 'POST',
                     headers: {
-                        Accept: 'application/json'
+                        Accept: 'application/json, text/plain, */*'
                     },
                     body: payload
                 }).then(async (response) => {
@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (response.ok) return { success: true };
                         throw new Error('Unexpected response from contact service');
                     }
-                    const success = result && result.success !== false && result.success !== 'false';
+                    const success = result && (result.success === true || result.success === 'true');
                     if (!response.ok || !success) {
                         throw new Error(result && result.message ? result.message : 'Failed to send contact form');
                     }
