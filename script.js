@@ -7,11 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1600);
     });
 
-    // Initialize EmailJS
-    if (typeof emailjs !== 'undefined') {
-        emailjs.init("2SaR4iNsIAD9SU7Ll");
-    }
-
     // Set current year in footer
     const yearEl = document.getElementById('currentYear');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -380,13 +375,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (btnIcon) btnIcon.style.display = 'none';
             submitBtn.disabled = true;
 
-            if (typeof emailjs !== 'undefined') {
-                emailjs.send('service_tmnxdvw', 'template_p5xe9co', templateParams)
-                    .then(() => handleFormSuccess())
-                    .catch(() => handleFormFallback(templateParams));
-            } else {
-                setTimeout(() => handleFormFallback(templateParams), 1000);
-            }
+            submitContactMessage(templateParams)
+                .then(() => handleFormSuccess())
+                .catch(() => handleFormError());
 
             function handleFormSuccess() {
                 btnText.textContent = 'Message Sent!';
@@ -402,22 +393,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 showNotification('Thank you! I\'ll get back to you soon.', 'success');
             }
 
-            function handleFormFallback(data) {
-                const subject = `Portfolio Contact from ${data.from_name}`;
-                const bodyText = `Name: ${data.from_name}\nEmail: ${data.from_email}\n\nMessage:\n${data.message}`;
-                const mailtoLink = `mailto:kartji005@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
-                btnText.textContent = 'Opening Email';
+            function handleFormError() {
+                btnText.textContent = 'Try Again';
                 btnText.style.display = 'inline';
                 btnLoading.style.display = 'none';
-                if (btnIcon) { btnIcon.className = 'fas fa-envelope'; btnIcon.style.display = 'inline'; }
-                window.open(mailtoLink, '_blank');
-                contactForm.reset();
+                if (btnIcon) { btnIcon.className = 'fas fa-triangle-exclamation'; btnIcon.style.display = 'inline'; }
                 setTimeout(() => {
                     btnText.textContent = 'Send Message';
                     if (btnIcon) btnIcon.className = 'fas fa-paper-plane';
                     submitBtn.disabled = false;
                 }, 3000);
-                showNotification('Your email client should open with the message pre-filled!', 'success');
+                showNotification('Unable to send right now. Please try again shortly.', 'error');
+            }
+
+            function submitContactMessage(data) {
+                return fetch('https://formsubmit.co/ajax/kartji005@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: data.from_name,
+                        email: data.from_email,
+                        message: data.message,
+                        _subject: `Portfolio Contact from ${data.from_name}`
+                    })
+                }).then(async (response) => {
+                    let result;
+                    try {
+                        result = await response.json();
+                    } catch {
+                        throw new Error('Unexpected response from contact service');
+                    }
+                    const success = result && (result.success === 'true' || result.success === true);
+                    if (!response.ok || !success) {
+                        throw new Error(result && result.message ? result.message : 'Failed to send contact form');
+                    }
+                    return result;
+                });
             }
         });
     }
@@ -555,4 +569,3 @@ document.addEventListener('DOMContentLoaded', () => {
         animateParticles();
     }
 });
-
