@@ -1,0 +1,119 @@
+# Apache Server Configuration for SEO Optimization
+# Note: This file is for reference if using Apache. Vercel uses edge network, so most directives are informational.
+
+# Enable GZIP compression for faster page loads
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# Enable browser caching for static assets (performance optimization)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Images
+    ExpiresByType image/jpeg "access 1 year"
+    ExpiresByType image/gif "access 1 year"
+    ExpiresByType image/png "access 1 year"
+    ExpiresByType image/webp "access 1 year"
+    ExpiresByType image/svg+xml "access 1 year"
+    ExpiresByType image/x-icon "access 1 year"
+    
+    # CSS and JavaScript
+    ExpiresByType text/css "access 1 year"
+    ExpiresByType application/javascript "access 1 year"
+    ExpiresByType text/javascript "access 1 year"
+    
+    # Fonts
+    ExpiresByType font/ttf "access 1 year"
+    ExpiresByType font/otf "access 1 year"
+    ExpiresByType font/woff "access 1 year"
+    ExpiresByType font/woff2 "access 1 year"
+    
+    # HTML and default
+    ExpiresByType text/html "access 1 day"
+    ExpiresByType application/xhtml+xml "access 1 day"
+</IfModule>
+
+# Force HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Remove www from URL (canonicalization)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Add proper headers for security and SEO
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Enable XSS protection in older browsers
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Add Strict-Transport-Security for HTTPS
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    
+    # Set proper charset
+    Header always set Content-Type "text/html; charset=UTF-8"
+</IfModule>
+
+# SEO-friendly URL handling
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Remove .html extension
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([^\.]+)$ $1.html [NC, L]
+</IfModule>
+
+# Disable directory indexing for security
+Options -Indexes
+
+# Set default pages
+DirectoryIndex index.html index.htm
+
+# Protect sensitive files
+<FilesMatch "^\.(env|htaccess|git|sql|json)$|^package\.json$|^README\.md$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Allow access to public files
+<FilesMatch "\.(html|css|js|jpg|jpeg|png|gif|webp|svg|eot|ttf|woff|woff2|json|xml|txt|pdf)$">
+    Header set Cache-Control "max-age=31536000, public"
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# Proper MIME types for fonts
+AddType application/font-woff .woff
+AddType application/font-woff2 .woff2
+AddType application/vnd.ms-fontobject .eot
+AddType application/x-font-ttf .ttf
+
+# Proper MIME types for other assets
+AddType application/json .json
+AddType image/svg+xml .svg
+AddType image/webp .webp
+
+# ETag for cache validation
+FileETag MTime Size
