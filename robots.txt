@@ -1,0 +1,31 @@
+# Robots file for Karthikeyan K Portfolio
+# Allow all bots to crawl the entire website
+
+User-agent: *
+Allow: /
+Disallow: /.git/
+Disallow: /.vercel/
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://karthikeyank.tech/sitemap.xml
+
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific rules for Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
