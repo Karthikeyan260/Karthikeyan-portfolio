@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
-        <loc>https://karthikeyank.tech/</loc>
-        <lastmod>2024-07-01</lastmod>
+        <loc>https://karthikeyank-site.vercel.app/</loc>
+        <lastmod>2025-07-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://karthikeyank.tech/hi.jpeg</image:loc>
+            <image:loc>https://karthikeyank-site.vercel.app/hi.jpeg</image:loc>
             <image:title>Karthikeyan K Profile Picture</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://karthikeyank.tech/#home</loc>
-        <lastmod>2024-07-01</lastmod>
+        <loc>https://karthikeyank-site.vercel.app/#home</loc>
+        <lastmod>2025-07-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://karthikeyank.tech/#about</loc>
-        <lastmod>2024-07-01</lastmod>
+        <loc>https://karthikeyank-site.vercel.app/#about</loc>
+        <lastmod>2025-07-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://karthikeyank.tech/#education</loc>
-        <lastmod>2024-07-01</lastmod>
+        <loc>https://karthikeyank-site.vercel.app/#education</loc>
+        <lastmod>2025-07-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://karthikeyank.tech/#experience</loc>
-        <lastmod>2024-07-01</lastmod>
+        <loc>https://karthikeyank-site.vercel.app/#experience</loc>
+        <lastmod>2025-07-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://karthikeyank.tech/#skills</loc>
-        <lastmod>2024-07-01</lastmod>
+        <loc>https://karthikeyank-site.vercel.app/#skills</loc>
+        <lastmod>2025-07-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://karthikeyank.tech/#projects</loc>
-        <lastmod>2024-07-01</lastmod>
+        <loc>https://karthikeyank-site.vercel.app/#projects</loc>
+        <lastmod>2025-07-01</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://karthikeyank.tech/#contact</loc>
-        <lastmod>2024-07-01</lastmod>
+        <loc>https://karthikeyank-site.vercel.app/#contact</loc>
+        <lastmod>2025-07-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
