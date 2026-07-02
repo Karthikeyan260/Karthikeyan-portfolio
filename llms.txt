@@ -1,6 +1,6 @@
 # Karthikeyan K - Portfolio Website
 
-> Personal portfolio website showcasing the work and skills of Karthikeyan K, a Full Stack Developer and B.Tech student in Information Technology
+Personal portfolio website showcasing the work and skills of Karthikeyan K, a Full Stack Developer and B.Tech student in Information Technology
 
 ## Site Purpose
 
@@ -131,3 +131,20 @@ This is a professional portfolio website featuring projects, skills, experience,
 ## License
 
 Open source - MIT License
+
+## Related Links
+
+- **Website**: https://karthikeyank-site.vercel.app/
+- **GitHub Repository**: https://github.com/Karthikeyan260/Karthikeyan-portfolio
+- **LinkedIn Profile**: https://www.linkedin.com/in/karthikeyan2604/
+- **Portfolio Projects**: https://github.com/Karthikeyan260
+
+## Navigation
+
+You can navigate to key sections:
+- Home: https://karthikeyank-site.vercel.app/#home
+- About: https://karthikeyank-site.vercel.app/#about
+- Experience: https://karthikeyank-site.vercel.app/#experience
+- Skills: https://karthikeyank-site.vercel.app/#skills
+- Projects: https://karthikeyank-site.vercel.app/#projects
+- Contact: https://karthikeyank-site.vercel.app/#contact

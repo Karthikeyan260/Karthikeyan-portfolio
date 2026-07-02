@@ -461,41 +461,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     const scrollTopBtn = document.getElementById('scrollTop');
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
-                current = section.getAttribute('id');
-            }
-        });
+    // Cache section positions to avoid repeated reflows
+    const sectionData = Array.from(sections).map(section => ({
+        id: section.getAttribute('id'),
+        top: section.offsetTop,
+        height: section.clientHeight
+    }));
 
+    let lastScrollY = 0;
+    let lastHeaderState = false;
+    let lastButtonState = false;
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.pageYOffset;
+        
+        // Only update if scroll position changed significantly
+        if (Math.abs(scrollY - lastScrollY) < 10 && scrollY !== 0) return;
+        lastScrollY = scrollY;
+
+        // Find current section
+        let current = '';
+        for (const section of sectionData) {
+            if (scrollY >= section.top - section.height / 3) {
+                current = section.id;
+            }
+        }
+
+        // Update nav links
         navItems.forEach(item => {
-            item.classList.remove('active');
-            item.removeAttribute('aria-current');
-            if (item.getAttribute('href') === `#${current}`) {
+            const isActive = item.getAttribute('href') === `#${current}`;
+            if (isActive && !item.classList.contains('active')) {
                 item.classList.add('active');
                 item.setAttribute('aria-current', 'page');
+            } else if (!isActive && item.classList.contains('active')) {
+                item.classList.remove('active');
+                item.removeAttribute('aria-current');
             }
         });
 
-        if (header) {
-            if (window.scrollY > 50) {
+        // Update header
+        const shouldScroll = scrollY > 50;
+        if (header && shouldScroll !== lastHeaderState) {
+            lastHeaderState = shouldScroll;
+            if (shouldScroll) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
         }
 
-        if (scrollTopBtn) {
-            if (window.scrollY > 400) {
+        // Update scroll-to-top button
+        const shouldShow = scrollY > 400;
+        if (scrollTopBtn && shouldShow !== lastButtonState) {
+            lastButtonState = shouldShow;
+            if (shouldShow) {
                 scrollTopBtn.classList.add('visible');
             } else {
                 scrollTopBtn.classList.remove('visible');
             }
         }
-    });
+    }, { passive: true });
 
     if (scrollTopBtn) {
         scrollTopBtn.addEventListener('click', () => {
