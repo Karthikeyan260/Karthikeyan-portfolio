@@ -1,55 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+    <!-- Homepage - Highest Priority -->
     <url>
         <loc>https://karthikeyank-site.vercel.app/</loc>
-        <lastmod>2025-07-01</lastmod>
+        <lastmod>2026-07-02T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <mobile:mobile/>
         <image:image>
             <image:loc>https://karthikeyank-site.vercel.app/hi.jpeg</image:loc>
-            <image:title>Karthikeyan K Profile Picture</image:title>
+            <image:title>Karthikeyan K - Full Stack Developer Profile Picture</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://karthikeyank-site.vercel.app/hi.webp</image:loc>
+            <image:title>Karthikeyan K - Full Stack Developer Profile Picture (WebP)</image:title>
         </image:image>
     </url>
+
+    <!-- Home Section -->
     <url>
         <loc>https://karthikeyank-site.vercel.app/#home</loc>
-        <lastmod>2025-07-01</lastmod>
+        <lastmod>2026-07-02T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.95</priority>
+        <mobile:mobile/>
     </url>
+
+    <!-- About Section -->
     <url>
         <loc>https://karthikeyank-site.vercel.app/#about</loc>
-        <lastmod>2025-07-01</lastmod>
+        <lastmod>2026-07-02T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.85</priority>
+        <mobile:mobile/>
     </url>
+
+    <!-- Education Section -->
     <url>
         <loc>https://karthikeyank-site.vercel.app/#education</loc>
-        <lastmod>2025-07-01</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <lastmod>2026-07-02T00:00:00Z</lastmod>
+        <changefreq>quarterly</changefreq>
+        <priority>0.75</priority>
+        <mobile:mobile/>
     </url>
+
+    <!-- Experience Section - High Priority for Job Search -->
     <url>
         <loc>https://karthikeyank-site.vercel.app/#experience</loc>
-        <lastmod>2025-07-01</lastmod>
+        <lastmod>2026-07-02T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
+        <mobile:mobile/>
     </url>
+
+    <!-- Skills Section - Important for Discoverability -->
     <url>
         <loc>https://karthikeyank-site.vercel.app/#skills</loc>
-        <lastmod>2025-07-01</lastmod>
+        <lastmod>2026-07-02T00:00:00Z</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.85</priority>
+        <mobile:mobile/>
     </url>
+
+    <!-- Projects Section - High Priority Content -->
     <url>
         <loc>https://karthikeyank-site.vercel.app/#projects</loc>
-        <lastmod>2025-07-01</lastmod>
+        <lastmod>2026-07-02T00:00:00Z</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.95</priority>
+        <mobile:mobile/>
     </url>
+
+    <!-- Contact Section -->
     <url>
         <loc>https://karthikeyank-site.vercel.app/#contact</loc>
-        <lastmod>2025-07-01</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-07-02T00:00:00Z</lastmod>
+        <changefreq>yearly</changefreq>
         <priority>0.8</priority>
+        <mobile:mobile/>
+    </url>
+
+    <!-- Resume/CV Section -->
+    <url>
+        <loc>https://karthikeyank-site.vercel.app/resume.pdf</loc>
+        <lastmod>2026-07-02T00:00:00Z</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Manifest Section -->
+    <url>
+        <loc>https://karthikeyank-site.vercel.app/manifest.json</loc>
+        <lastmod>2026-07-02T00:00:00Z</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
     </url>
 </urlset>
