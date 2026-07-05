@@ -3818,6 +3818,28 @@ header.scrolled nav { padding-block: 0; }
     border: 1px solid rgba(124, 58, 237, 0.24);
 }
 
+.cert-badge-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.7rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.cert-badge-link:hover {
+    background: rgba(124, 58, 237, 0.18);
+    border-color: rgba(124, 58, 237, 0.35);
+    transform: translateX(2px);
+}
+
 .achievement-card p {
     color: var(--text-secondary);
     line-height: 1.65;
@@ -3852,4 +3874,14 @@ header.scrolled nav { padding-block: 0; }
 .dark-theme .cert-type {
     background: rgba(167, 139, 250, 0.16);
     border-color: rgba(167, 139, 250, 0.3);
+}
+
+.dark-theme .cert-badge-link {
+    background: rgba(167, 139, 250, 0.12);
+    border-color: rgba(167, 139, 250, 0.28);
+}
+
+.dark-theme .cert-badge-link:hover {
+    background: rgba(167, 139, 250, 0.2);
+    border-color: rgba(167, 139, 250, 0.4);
 }
