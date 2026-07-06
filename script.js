@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Cursor hover effects on interactive elements
-        const interactiveEls = document.querySelectorAll('a, button, .project-card, .skill-item, .stat-item, .pstat-item');
+        const interactiveEls = document.querySelectorAll('a, button, .project-card, .skill-item, .skill-logo, .stat-item, .pstat-item');
         interactiveEls.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.classList.add('cursor-hover');
@@ -573,83 +573,80 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Anime.js Skills Section Animations
     if (typeof anime !== 'undefined') {
-        const skillCards = document.querySelectorAll('.skill-card');
+        const skillLogos = document.querySelectorAll('.skill-logo');
         
-        // Initial staggered entrance animation
-        if (skillCards.length > 0) {
-            anime.set(skillCards, {
+        // Initial staggered entrance animation for logos
+        if (skillLogos.length > 0) {
+            anime.set(skillLogos, {
                 opacity: 0,
-                translateY: 40,
-                scale: 0.8
+                translateY: 50,
+                scale: 0.7
             });
 
             anime.timeline()
                 .add({
-                    targets: skillCards,
+                    targets: skillLogos,
                     opacity: 1,
                     translateY: 0,
                     scale: 1,
                     duration: 800,
-                    delay: anime.stagger(100),
-                    easing: 'easeOutElastic(1, 0.6)'
+                    delay: anime.stagger(80),
+                    easing: 'easeOutElastic(1, 0.65)'
                 }, 'start');
         }
 
-        // Hover animation for each skill card
-        skillCards.forEach((card, index) => {
-            card.addEventListener('mouseenter', function() {
-                anime.timeline({duration: 600})
+        // Hover animation for each skill logo
+        skillLogos.forEach((logo) => {
+            logo.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('i');
+                
+                anime.timeline({duration: 500})
                     .add({
                         targets: this,
-                        translateY: -15,
-                        boxShadow: '0 20px 50px rgba(99, 102, 241, 0.3)',
-                        duration: 600,
-                        easing: 'easeOutElastic(1, 0.5)'
+                        translateY: -12,
+                        duration: 500,
+                        easing: 'easeOutQuad'
                     }, 0)
                     .add({
-                        targets: this.querySelector('.skill-icon'),
+                        targets: icon,
                         rotate: 360,
-                        scale: 1.2,
-                        duration: 700,
+                        scale: 1.3,
+                        duration: 600,
                         easing: 'easeInOutQuad'
                     }, 0);
             });
 
-            card.addEventListener('mouseleave', function() {
+            logo.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('i');
+                
                 anime({
                     targets: this,
                     translateY: 0,
-                    boxShadow: '0 2px 16px rgba(0, 0, 0, 0.06)',
+                    duration: 400,
+                    easing: 'easeOutQuad'
+                });
+
+                anime({
+                    targets: icon,
+                    rotate: 0,
+                    scale: 1,
                     duration: 400,
                     easing: 'easeOutQuad'
                 });
             });
         });
 
-        // Scroll animation - stagger cards into view
-        const skillsSection = document.querySelector('.skills');
-        if (skillsSection) {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -100px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && entry.target.classList.contains('skill-card')) {
-                        anime({
-                            targets: entry.target,
-                            opacity: [0, 1],
-                            translateY: [30, 0],
-                            duration: 800,
-                            easing: 'easeOutCubic'
-                        });
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            skillCards.forEach(card => observer.observe(card));
-        }
+        // Category title animations
+        const categoryTitles = document.querySelectorAll('.category-title');
+        categoryTitles.forEach((title, index) => {
+            anime({
+                targets: title,
+                opacity: [0, 1],
+                translateX: [-30, 0],
+                duration: 600,
+                delay: index * 100,
+                easing: 'easeOutCubic'
+            });
+        });
     }
 });
