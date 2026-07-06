@@ -641,325 +641,465 @@
 
         <section id="skills" class="skills" aria-labelledby="skills-title">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">What I Know</span>
+                <span class="section-tag"><i class="fas fa-microchip" aria-hidden="true"></i> Expertise</span>
                 <h2 id="skills-title">Technical Skills</h2>
-                <p class="section-desc">Technologies and tools I work with</p>
+                <p class="section-desc">Professional competencies across full-stack development, AI, and modern technologies</p>
             </div>
-            <!-- 3D Tech Sphere -->
-            <div class="skills-sphere-wrapper" data-aos="fade-up" aria-hidden="true">
-                <canvas id="skillsSphereCanvas" class="skills-sphere-canvas"></canvas>
-                <div class="sphere-label">Tech Universe</div>
+
+            <!-- Skills Filter Tabs -->
+            <div class="skills-filter" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">
+                    <i class="fas fa-star" aria-hidden="true"></i> All Skills
+                </button>
+                <button class="filter-btn" data-filter="frontend" aria-pressed="false">
+                    <i class="fas fa-code" aria-hidden="true"></i> Frontend
+                </button>
+                <button class="filter-btn" data-filter="backend" aria-pressed="false">
+                    <i class="fas fa-server" aria-hidden="true"></i> Backend
+                </button>
+                <button class="filter-btn" data-filter="ai" aria-pressed="false">
+                    <i class="fas fa-brain" aria-hidden="true"></i> AI/ML
+                </button>
+                <button class="filter-btn" data-filter="tools" aria-pressed="false">
+                    <i class="fas fa-wrench" aria-hidden="true"></i> Tools
+                </button>
             </div>
-            <div class="skills-container">
-                <div class="skill-category" data-aos="fade-up">
-                    <h3><i class="fas fa-code"></i> Frontend Development</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-progress="85">
-                            <div class="skill-icon-wrap"><i class="fab fa-js-square"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>JavaScript</span>
-                                    <span class="percent">85%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+
+            <!-- Skills Grid -->
+            <div class="skills-grid-modern" data-aos="fade-up" data-aos-delay="200">
+                <!-- Frontend Skills -->
+                <div class="skill-card frontend" data-category="frontend" data-level="85">
+                    <div class="skill-card-header">
+                        <div class="skill-icon frontend-icon">
+                            <i class="fab fa-js-square" aria-hidden="true"></i>
                         </div>
-                        <div class="skill-item" data-progress="75">
-                            <div class="skill-icon-wrap"><i class="fab fa-react"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>React.js</span>
-                                    <span class="percent">75%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                        <div class="skill-info-header">
+                            <h4>JavaScript</h4>
+                            <span class="skill-level-badge">Advanced</span>
                         </div>
-                        <div class="skill-item" data-progress="80">
-                            <div class="skill-icon-wrap"><i class="fab fa-html5"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>HTML & CSS</span>
-                                    <span class="percent">80%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 85%;"></div>
                         </div>
-                        <div class="skill-item" data-progress="80">
-                            <div class="skill-icon-wrap"><i class="fab fa-bootstrap"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Bootstrap & Tailwind</span>
-                                    <span class="percent">80%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="75">
-                            <div class="skill-icon-wrap"><i class="fas fa-code"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>TypeScript</span>
-                                    <span class="percent">75%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="70">
-                            <div class="skill-icon-wrap"><i class="fas fa-layer-group"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Next.js</span>
-                                    <span class="percent">70%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="70">
-                            <div class="skill-icon-wrap"><i class="fas fa-cube"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Redux</span>
-                                    <span class="percent">70%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
-                        </div>
+                        <span class="skill-percentage">85%</span>
                     </div>
                 </div>
 
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3><i class="fas fa-server"></i> Backend & Database</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-progress="90">
-                            <div class="skill-icon-wrap"><i class="fab fa-python"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Python</span>
-                                    <span class="percent">90%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                <div class="skill-card frontend" data-category="frontend" data-level="75">
+                    <div class="skill-card-header">
+                        <div class="skill-icon frontend-icon">
+                            <i class="fab fa-react" aria-hidden="true"></i>
                         </div>
-                        <div class="skill-item" data-progress="65">
-                            <div class="skill-icon-wrap"><i class="fas fa-leaf"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>MongoDB</span>
-                                    <span class="percent">65%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                        <div class="skill-info-header">
+                            <h4>React.js</h4>
+                            <span class="skill-level-badge">Proficient</span>
                         </div>
-                        <div class="skill-item" data-progress="60">
-                            <div class="skill-icon-wrap"><i class="fas fa-database"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>SQL</span>
-                                    <span class="percent">60%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 75%;"></div>
                         </div>
-                        <div class="skill-item" data-progress="65">
-                            <div class="skill-icon-wrap"><i class="fab fa-node-js"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Node.js / Express</span>
-                                    <span class="percent">65%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="70">
-                            <div class="skill-icon-wrap"><i class="fas fa-flask"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Flask / FastAPI</span>
-                                    <span class="percent">70%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
-                        </div>
+                        <span class="skill-percentage">75%</span>
                     </div>
                 </div>
 
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
-                    <h3><i class="fas fa-brain"></i> AI & Emerging Technologies</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-progress="75">
-                            <div class="skill-icon-wrap"><i class="fas fa-robot"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Machine Learning</span>
-                                    <span class="percent">75%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                <div class="skill-card frontend" data-category="frontend" data-level="80">
+                    <div class="skill-card-header">
+                        <div class="skill-icon frontend-icon">
+                            <i class="fab fa-html5" aria-hidden="true"></i>
                         </div>
-                        <div class="skill-item" data-progress="70">
-                            <div class="skill-icon-wrap"><i class="fas fa-microchip"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Generative AI</span>
-                                    <span class="percent">70%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                        <div class="skill-info-header">
+                            <h4>HTML & CSS</h4>
+                            <span class="skill-level-badge">Advanced</span>
                         </div>
-                        <div class="skill-item" data-progress="70">
-                            <div class="skill-icon-wrap"><i class="fas fa-link"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Blockchain</span>
-                                    <span class="percent">70%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 80%;"></div>
                         </div>
-                        <div class="skill-item" data-progress="65">
-                            <div class="skill-icon-wrap"><i class="fas fa-wifi"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>IoT</span>
-                                    <span class="percent">65%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="80">
-                            <div class="skill-icon-wrap"><i class="fas fa-chart-bar"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>NumPy & Pandas</span>
-                                    <span class="percent">80%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="72">
-                            <div class="skill-icon-wrap"><i class="fas fa-comment-dots"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>NLP / SpaCy</span>
-                                    <span class="percent">72%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-progress="78">
-                            <div class="skill-icon-wrap"><i class="fas fa-stream"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Streamlit</span>
-                                    <span class="percent">78%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
-                        </div>
+                        <span class="skill-percentage">80%</span>
                     </div>
                 </div>
 
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="600">
-                    <h3><i class="fas fa-tools"></i> Development Tools</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-progress="85">
-                            <div class="skill-icon-wrap"><i class="fab fa-git-alt"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Git & GitHub</span>
-                                    <span class="percent">85%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                <div class="skill-card frontend" data-category="frontend" data-level="80">
+                    <div class="skill-card-header">
+                        <div class="skill-icon frontend-icon">
+                            <i class="fas fa-palette" aria-hidden="true"></i>
                         </div>
-                        <div class="skill-item" data-progress="80">
-                            <div class="skill-icon-wrap"><i class="fas fa-laptop-code"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>VS Code</span>
-                                    <span class="percent">80%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                        <div class="skill-info-header">
+                            <h4>Tailwind & Bootstrap</h4>
+                            <span class="skill-level-badge">Advanced</span>
                         </div>
-                        <div class="skill-item" data-progress="75">
-                            <div class="skill-icon-wrap"><i class="fas fa-cloud-upload-alt"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Vercel Deployment</span>
-                                    <span class="percent">75%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 80%;"></div>
                         </div>
-                        <div class="skill-item" data-progress="70">
-                            <div class="skill-icon-wrap"><i class="fas fa-fire"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Firebase</span>
-                                    <span class="percent">70%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card frontend" data-category="frontend" data-level="75">
+                    <div class="skill-card-header">
+                        <div class="skill-icon frontend-icon">
+                            <i class="fas fa-cube" aria-hidden="true"></i>
                         </div>
-                        <div class="skill-item" data-progress="68">
-                            <div class="skill-icon-wrap"><i class="fas fa-robot"></i></div>
-                            <div class="skill-details">
-                                <div class="skill-info">
-                                    <span>Hugging Face</span>
-                                    <span class="percent">68%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress"></div>
-                                </div>
-                            </div>
+                        <div class="skill-info-header">
+                            <h4>TypeScript</h4>
+                            <span class="skill-level-badge">Proficient</span>
                         </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 75%;"></div>
+                        </div>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card frontend" data-category="frontend" data-level="70">
+                    <div class="skill-card-header">
+                        <div class="skill-icon frontend-icon">
+                            <i class="fas fa-layer-group" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Next.js</h4>
+                            <span class="skill-level-badge">Proficient</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 70%;"></div>
+                        </div>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card frontend" data-category="frontend" data-level="70">
+                    <div class="skill-card-header">
+                        <div class="skill-icon frontend-icon">
+                            <i class="fas fa-bolt" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Redux</h4>
+                            <span class="skill-level-badge">Proficient</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 70%;"></div>
+                        </div>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                </div>
+
+                <!-- Backend Skills -->
+                <div class="skill-card backend" data-category="backend" data-level="90">
+                    <div class="skill-card-header">
+                        <div class="skill-icon backend-icon">
+                            <i class="fab fa-python" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Python</h4>
+                            <span class="skill-level-badge">Expert</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 90%;"></div>
+                        </div>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card backend" data-category="backend" data-level="65">
+                    <div class="skill-card-header">
+                        <div class="skill-icon backend-icon">
+                            <i class="fas fa-leaf" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>MongoDB</h4>
+                            <span class="skill-level-badge">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 65%;"></div>
+                        </div>
+                        <span class="skill-percentage">65%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card backend" data-category="backend" data-level="60">
+                    <div class="skill-card-header">
+                        <div class="skill-icon backend-icon">
+                            <i class="fas fa-database" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>SQL</h4>
+                            <span class="skill-level-badge">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 60%;"></div>
+                        </div>
+                        <span class="skill-percentage">60%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card backend" data-category="backend" data-level="65">
+                    <div class="skill-card-header">
+                        <div class="skill-icon backend-icon">
+                            <i class="fab fa-node-js" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Node.js & Express</h4>
+                            <span class="skill-level-badge">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 65%;"></div>
+                        </div>
+                        <span class="skill-percentage">65%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card backend" data-category="backend" data-level="70">
+                    <div class="skill-card-header">
+                        <div class="skill-icon backend-icon">
+                            <i class="fas fa-flask" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Flask & FastAPI</h4>
+                            <span class="skill-level-badge">Proficient</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 70%;"></div>
+                        </div>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                </div>
+
+                <!-- AI/ML Skills -->
+                <div class="skill-card ai" data-category="ai" data-level="75">
+                    <div class="skill-card-header">
+                        <div class="skill-icon ai-icon">
+                            <i class="fas fa-robot" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Machine Learning</h4>
+                            <span class="skill-level-badge">Proficient</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 75%;"></div>
+                        </div>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card ai" data-category="ai" data-level="70">
+                    <div class="skill-card-header">
+                        <div class="skill-icon ai-icon">
+                            <i class="fas fa-microchip" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Generative AI</h4>
+                            <span class="skill-level-badge">Proficient</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 70%;"></div>
+                        </div>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card ai" data-category="ai" data-level="70">
+                    <div class="skill-card-header">
+                        <div class="skill-icon ai-icon">
+                            <i class="fas fa-link" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Blockchain</h4>
+                            <span class="skill-level-badge">Proficient</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 70%;"></div>
+                        </div>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card ai" data-category="ai" data-level="65">
+                    <div class="skill-card-header">
+                        <div class="skill-icon ai-icon">
+                            <i class="fas fa-wifi" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>IoT</h4>
+                            <span class="skill-level-badge">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 65%;"></div>
+                        </div>
+                        <span class="skill-percentage">65%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card ai" data-category="ai" data-level="80">
+                    <div class="skill-card-header">
+                        <div class="skill-icon ai-icon">
+                            <i class="fas fa-chart-bar" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>NumPy & Pandas</h4>
+                            <span class="skill-level-badge">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 80%;"></div>
+                        </div>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card ai" data-category="ai" data-level="72">
+                    <div class="skill-card-header">
+                        <div class="skill-icon ai-icon">
+                            <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>NLP & SpaCy</h4>
+                            <span class="skill-level-badge">Proficient</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 72%;"></div>
+                        </div>
+                        <span class="skill-percentage">72%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card ai" data-category="ai" data-level="78">
+                    <div class="skill-card-header">
+                        <div class="skill-icon ai-icon">
+                            <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Streamlit</h4>
+                            <span class="skill-level-badge">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 78%;"></div>
+                        </div>
+                        <span class="skill-percentage">78%</span>
+                    </div>
+                </div>
+
+                <!-- Tools & DevOps -->
+                <div class="skill-card tools" data-category="tools" data-level="85">
+                    <div class="skill-card-header">
+                        <div class="skill-icon tools-icon">
+                            <i class="fab fa-git-alt" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Git & GitHub</h4>
+                            <span class="skill-level-badge">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 85%;"></div>
+                        </div>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card tools" data-category="tools" data-level="80">
+                    <div class="skill-card-header">
+                        <div class="skill-icon tools-icon">
+                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>VS Code</h4>
+                            <span class="skill-level-badge">Advanced</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 80%;"></div>
+                        </div>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card tools" data-category="tools" data-level="75">
+                    <div class="skill-card-header">
+                        <div class="skill-icon tools-icon">
+                            <i class="fas fa-cloud-upload-alt" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Vercel Deployment</h4>
+                            <span class="skill-level-badge">Proficient</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 75%;"></div>
+                        </div>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card tools" data-category="tools" data-level="70">
+                    <div class="skill-card-header">
+                        <div class="skill-icon tools-icon">
+                            <i class="fas fa-fire" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Firebase</h4>
+                            <span class="skill-level-badge">Proficient</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 70%;"></div>
+                        </div>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card tools" data-category="tools" data-level="68">
+                    <div class="skill-card-header">
+                        <div class="skill-icon tools-icon">
+                            <i class="fas fa-brain" aria-hidden="true"></i>
+                        </div>
+                        <div class="skill-info-header">
+                            <h4>Hugging Face</h4>
+                            <span class="skill-level-badge">Intermediate</span>
+                        </div>
+                    </div>
+                    <div class="skill-card-footer">
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: 68%;"></div>
+                        </div>
+                        <span class="skill-percentage">68%</span>
                     </div>
                 </div>
             </div>

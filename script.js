@@ -272,8 +272,36 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounterGroup('.about-stats', '.stat-number', 1200);
     animateCounterGroup('.project-stats-bar', '.pstat-number', 1000);
 
+    // Skills filter functionality
+    const skillsFilterBtns = document.querySelectorAll('.skills-filter .filter-btn');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    skillsFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            skillsFilterBtns.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-pressed', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
+
+            const filter = btn.dataset.filter;
+
+            skillCards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = '';
+                    card.style.animation = 'none';
+                    card.offsetHeight;
+                    card.style.animation = 'fadeInUp 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
     // Project filter functionality
-    const filterBtns = document.querySelectorAll('.filter-btn');
+    const filterBtns = document.querySelectorAll('.project-filters .filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
     filterBtns.forEach(btn => {
