@@ -272,34 +272,6 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCounterGroup('.about-stats', '.stat-number', 1200);
     animateCounterGroup('.project-stats-bar', '.pstat-number', 1000);
 
-    // Skills filter functionality
-    const skillsFilterBtns = document.querySelectorAll('.skills-filter .filter-btn');
-    const skillCards = document.querySelectorAll('.skill-card');
-
-    skillsFilterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            skillsFilterBtns.forEach(b => {
-                b.classList.remove('active');
-                b.setAttribute('aria-pressed', 'false');
-            });
-            btn.classList.add('active');
-            btn.setAttribute('aria-pressed', 'true');
-
-            const filter = btn.dataset.filter;
-
-            skillCards.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.style.display = '';
-                    card.style.animation = 'none';
-                    card.offsetHeight;
-                    card.style.animation = 'fadeInUp 0.5s ease forwards';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-
     // Project filter functionality
     const filterBtns = document.querySelectorAll('.project-filters .filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
@@ -597,5 +569,87 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(animateParticles);
         }
         animateParticles();
+    }
+
+    // Anime.js Skills Section Animations
+    if (typeof anime !== 'undefined') {
+        const skillCards = document.querySelectorAll('.skill-card');
+        
+        // Initial staggered entrance animation
+        if (skillCards.length > 0) {
+            anime.set(skillCards, {
+                opacity: 0,
+                translateY: 40,
+                scale: 0.8
+            });
+
+            anime.timeline()
+                .add({
+                    targets: skillCards,
+                    opacity: 1,
+                    translateY: 0,
+                    scale: 1,
+                    duration: 800,
+                    delay: anime.stagger(100),
+                    easing: 'easeOutElastic(1, 0.6)'
+                }, 'start');
+        }
+
+        // Hover animation for each skill card
+        skillCards.forEach((card, index) => {
+            card.addEventListener('mouseenter', function() {
+                anime.timeline({duration: 600})
+                    .add({
+                        targets: this,
+                        translateY: -15,
+                        boxShadow: '0 20px 50px rgba(99, 102, 241, 0.3)',
+                        duration: 600,
+                        easing: 'easeOutElastic(1, 0.5)'
+                    }, 0)
+                    .add({
+                        targets: this.querySelector('.skill-icon'),
+                        rotate: 360,
+                        scale: 1.2,
+                        duration: 700,
+                        easing: 'easeInOutQuad'
+                    }, 0);
+            });
+
+            card.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this,
+                    translateY: 0,
+                    boxShadow: '0 2px 16px rgba(0, 0, 0, 0.06)',
+                    duration: 400,
+                    easing: 'easeOutQuad'
+                });
+            });
+        });
+
+        // Scroll animation - stagger cards into view
+        const skillsSection = document.querySelector('.skills');
+        if (skillsSection) {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.target.classList.contains('skill-card')) {
+                        anime({
+                            targets: entry.target,
+                            opacity: [0, 1],
+                            translateY: [30, 0],
+                            duration: 800,
+                            easing: 'easeOutCubic'
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            skillCards.forEach(card => observer.observe(card));
+        }
     }
 });
