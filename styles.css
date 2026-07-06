@@ -1674,20 +1674,42 @@ nav {
     align-items: center;
     justify-content: center;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-icon-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient);
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
 }
 
 .skill-icon-wrap i {
     font-size: 1.15rem;
     color: var(--secondary-color);
     transition: var(--transition);
+    position: relative;
+    z-index: 1;
 }
 
 .skill-item:hover .skill-icon-wrap {
-    background: var(--gradient);
-    transform: scale(1.05);
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 8px 16px rgba(124, 58, 237, 0.3);
 }
 
-.skill-item:hover .skill-icon-wrap i { color: white; }
+.skill-item:hover .skill-icon-wrap::before {
+    opacity: 1;
+}
+
+.skill-item:hover .skill-icon-wrap i { 
+    color: white;
+    transform: scale(1.05);
+}
 
 .skill-details { flex: 1; min-width: 0; }
 
@@ -3816,6 +3838,24 @@ header.scrolled nav { padding-block: 0; }
     color: var(--secondary-color);
     background: rgba(124, 58, 237, 0.12);
     border: 1px solid rgba(124, 58, 237, 0.24);
+}
+
+.cert-date {
+    display: inline-block;
+    margin-top: 0.7rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: rgba(45, 212, 191, 0.08);
+    border: 1px solid rgba(45, 212, 191, 0.18);
+    transition: var(--transition);
+}
+
+.cert-card:hover .cert-date {
+    background: rgba(45, 212, 191, 0.12);
+    border-color: rgba(45, 212, 191, 0.3);
 }
 
 .cert-badge-link {
