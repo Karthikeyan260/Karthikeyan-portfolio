@@ -1584,10 +1584,10 @@ nav {
 /* Logo Grid */
 .skills-logo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1.5rem;
     width: 100%;
-    min-height: auto;
+    auto-rows: minmax(180px, auto);
 }
 
 /* Individual Skill Logo */
@@ -1596,17 +1596,15 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    padding: 2rem 1.5rem;
-    background: var(--card-bg);
-    border: 2px solid var(--border-color);
-    border-radius: var(--radius-md);
+    gap: 12px;
+    padding: 20px 15px;
+    background-color: #ffffff;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.4s ease;
     position: relative;
-    overflow: hidden;
     text-align: center;
-    min-height: 140px;
 }
 
 .skill-logo::before {
@@ -1628,15 +1626,17 @@ nav {
 /* Logo Icon */
 .skill-logo i {
     font-size: 3rem;
-    color: var(--secondary-color);
+    color: #6366f1;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     display: block;
     line-height: 1;
+    text-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
 }
 
 .skill-logo:hover i {
     transform: scale(1.2) rotateY(360deg);
-    color: var(--accent-color);
+    color: #ec4899;
+    text-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
 }
 
 /* Logo Text */

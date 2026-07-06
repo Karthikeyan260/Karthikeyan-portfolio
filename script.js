@@ -577,18 +577,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Initial staggered entrance animation for logos
         if (skillLogos.length > 0) {
-            anime.set(skillLogos, {
-                opacity: 0,
-                translateY: 50,
-                scale: 0.7
-            });
-
             anime.timeline()
                 .add({
                     targets: skillLogos,
-                    opacity: 1,
-                    translateY: 0,
-                    scale: 1,
+                    opacity: [0, 1],
+                    translateY: [50, 0],
+                    scale: [0.7, 1],
                     duration: 800,
                     delay: anime.stagger(80),
                     easing: 'easeOutElastic(1, 0.65)'
