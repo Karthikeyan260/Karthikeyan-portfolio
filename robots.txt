@@ -8,7 +8,7 @@ Disallow: /.vercel/
 Disallow: /node_modules/
 
 # Sitemap location
-Sitemap: https://karthikeyank.tech/sitemap.xml
+Sitemap: https://karthikeyank-site.vercel.app/sitemap.xml
 
 # Specific rules for Googlebot
 User-agent: Googlebot

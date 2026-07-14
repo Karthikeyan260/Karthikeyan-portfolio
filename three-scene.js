@@ -7,6 +7,16 @@
      * ------------------------------------------------------------------ */
     function lerp(a, b, t) { return a + (b - a) * t; }
     function randRange(min, max) { return Math.random() * (max - min) + min; }
+    function debounce(fn, wait) {
+        var t;
+        return function () {
+            var ctx = this, args = arguments;
+            clearTimeout(t);
+            t = setTimeout(function () { fn.apply(ctx, args); }, wait);
+        };
+    }
+    var prefersReducedMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ------------------------------------------------------------------ *
      *  1. HERO 3D SCENE
@@ -122,13 +132,13 @@
         });
 
         /* ── resize ────────────────────────────────────────────── */
-        window.addEventListener('resize', function () {
+        window.addEventListener('resize', debounce(function () {
             var nW = hero ? hero.offsetWidth : window.innerWidth;
             var nH = hero ? hero.offsetHeight : window.innerHeight;
             camera.aspect = nW / nH;
             camera.updateProjectionMatrix();
             renderer.setSize(nW, nH);
-        });
+        }, 150));
 
         /* ── animation loop ────────────────────────────────────── */
         var t = 0;
@@ -276,14 +286,14 @@
         });
 
         /* resize */
-        window.addEventListener('resize', function () {
+        window.addEventListener('resize', debounce(function () {
             var nW = container.offsetWidth;
             H = getSphereHeight();
             canvas.height = H;
             camera.aspect = nW / H;
             camera.updateProjectionMatrix();
             renderer.setSize(nW, H);
-        });
+        }, 150));
 
         /* hover pause */
         var paused = false;
@@ -362,13 +372,13 @@
             s2.position.set(-2, -0.5, -1);
             scene.add(s2);
 
-            window.addEventListener('resize', function () {
+            window.addEventListener('resize', debounce(function () {
                 var nW = container.offsetWidth;
                 var nH = container.offsetHeight;
                 camera.aspect = nW / nH;
                 camera.updateProjectionMatrix();
                 renderer.setSize(nW, nH);
-            });
+            }, 150));
 
             var t = 0;
             var visible = false;
@@ -458,13 +468,18 @@
      *  Bootstrap – wait for Three.js to be available
      * ------------------------------------------------------------------ */
     function boot() {
+        // Hover effects are fine under reduced-motion (user-triggered, not autonomous).
+        setupCardTilt();
+        setupSkillLift();
+
+        // Skip autonomous WebGL animation loops when user prefers reduced motion.
+        if (prefersReducedMotion) return;
+
         var THREE = window.THREE;
         if (!THREE) return;
         setupHeroScene(THREE);
         setupSkillsSphere(THREE);
         setupSectionDeco(THREE);
-        setupCardTilt();
-        setupSkillLift();
     }
 
     /* three-scene.js is deferred, so DOM is ready when this runs. */

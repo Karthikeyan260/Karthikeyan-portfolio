@@ -25,9 +25,9 @@
 ### Step 1: Set Up Google Search Console
 1. Go to https://search.google.com/search-console/
 2. Click **Add Property**
-3. Enter: `https://karthikeyank.tech`
+3. Enter: `https://karthikeyank-site.vercel.app`
 4. Verify ownership using DNS record (recommended)
-5. Submit sitemap: `https://karthikeyank.tech/sitemap.xml`
+5. Submit sitemap: `https://karthikeyank-site.vercel.app/sitemap.xml`
 
 **Time**: 10 minutes
 
@@ -55,7 +55,7 @@
 
 ### Step 3: Monitor with PageSpeed Insights
 1. Go to https://pagespeed.web.dev/
-2. Enter: `https://karthikeyank.tech`
+2. Enter: `https://karthikeyank-site.vercel.app`
 3. Check scores:
    - ⚡ Performance (target: >90)
    - ♿ Accessibility (target: >90)
@@ -163,7 +163,7 @@ Your portfolio is **100% mobile-optimized**:
 - ✅ Touch-friendly navigation
 - ✅ Mobile-fast loading
 
-**Verify**: Open https://karthikeyank.tech/ on your phone to test
+**Verify**: Open https://karthikeyank-site.vercel.app/ on your phone to test
 
 ---
 
@@ -257,7 +257,7 @@ Your portfolio SEO setup is now **enterprise-grade**!
 ## 📞 Questions?
 
 Refer to the full documentation or search for:
-- Site: `site:karthikeyank.tech` in Google
+- Site: `site:karthikeyank-site.vercel.app` in Google
 - Keywords: Your target keywords in quotes
 - Issues: Check Search Console messages
 

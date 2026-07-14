@@ -184,7 +184,7 @@ This document outlines the comprehensive SEO improvements made to the portfolio 
 ## 🔗 Key URLs to Monitor
 
 ### Search Console
-- Submit sitemap: https://karthikeyank.tech/sitemap.xml
+- Submit sitemap: https://karthikeyank-site.vercel.app/sitemap.xml
 - Monitor coverage and errors
 - Review Rich Results (for schema markup)
 
@@ -262,4 +262,4 @@ After implementation, track:
 ---
 
 **Last Updated**: July 1, 2024
-**Portfolio**: https://karthikeyank.tech/
+**Portfolio**: https://karthikeyank-site.vercel.app/

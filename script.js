@@ -354,6 +354,14 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             
             const formData = new FormData(contactForm);
+
+            // Honeypot: bots fill hidden field. Silently pretend success.
+            if (formData.get('_honey')) {
+                contactForm.reset();
+                showNotification('Thank you! I\'ll get back to you soon.', 'success');
+                return;
+            }
+
             const templateParams = {
                 from_name: formData.get('from_name'),
                 from_email: formData.get('from_email'),
@@ -413,6 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 payload.append('message', data.message);
                 payload.append('_subject', `Portfolio Contact from ${data.from_name}`);
                 payload.append('_captcha', 'false');
+                payload.append('_honey', '');
 
                 return fetch('https://formsubmit.co/ajax/kartji005@gmail.com', {
                     method: 'POST',
@@ -461,7 +470,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
     const scrollTopBtn = document.getElementById('scrollTop');
 
-    window.addEventListener('scroll', () => {
+    let scrollTicking = false;
+    function onScroll() {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -495,79 +505,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTopBtn.classList.remove('visible');
             }
         }
-    });
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!scrollTicking) {
+            scrollTicking = true;
+            requestAnimationFrame(() => {
+                onScroll();
+                scrollTicking = false;
+            });
+        }
+    }, { passive: true });
 
     if (scrollTopBtn) {
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    }
-
-    // Hero particles
-    const canvas = document.getElementById('heroParticles');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        const MAX_CONNECTION_DISTANCE = 120;
-        const LINE_BASE_OPACITY = 0.06;
-        const PARTICLE_COUNT = window.innerWidth <= 768 ? 25 : 60;
-
-        function resizeCanvas() {
-            const hero = canvas.parentElement;
-            canvas.width = hero.offsetWidth;
-            canvas.height = hero.offsetHeight;
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        function createParticle() {
-            return {
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 2.5 + 0.5,
-                speedX: (Math.random() - 0.5) * 0.5,
-                speedY: (Math.random() - 0.5) * 0.5,
-                opacity: Math.random() * 0.4 + 0.1
-            };
-        }
-
-        for (let i = 0; i < PARTICLE_COUNT; i++) {
-            particles.push(createParticle());
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            const isDark = document.body.classList.contains('dark-theme');
-            const color = isDark ? '167, 139, 250' : '124, 58, 237';
-
-            particles.forEach((p, i) => {
-                p.x += p.speedX;
-                p.y += p.speedY;
-
-                if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${color}, ${p.opacity})`;
-                ctx.fill();
-
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = p.x - particles[j].x;
-                    const dy = p.y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < MAX_CONNECTION_DISTANCE) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(${color}, ${LINE_BASE_OPACITY * (1 - dist / MAX_CONNECTION_DISTANCE)})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
-                }
-            });
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
     }
 });

@@ -1,7 +1,7 @@
 # SEO Implementation Summary - Karthikeyan K Portfolio
 
 **Date**: July 1, 2024  
-**Portfolio**: https://karthikeyank.tech/  
+**Portfolio**: https://karthikeyank-site.vercel.app/  
 **Status**: ✅ Phase 1 Complete - Major SEO Improvements Implemented
 
 ---

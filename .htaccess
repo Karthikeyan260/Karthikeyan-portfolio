@@ -83,7 +83,7 @@
     # Remove .html extension
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^([^\.]+)$ $1.html [NC, L]
+    RewriteRule ^([^\.]+)$ $1.html [NC,L]
 </IfModule>
 
 # Disable directory indexing for security

@@ -227,7 +227,7 @@
 
 ### Add Canonical URL
 ```html
-<link rel="canonical" href="https://karthikeyank.tech/">
+<link rel="canonical" href="https://karthikeyank-site.vercel.app/">
 ```
 
 ### Add Image Lazy Loading
@@ -336,7 +336,7 @@ A: Regular updates signal freshness. Aim for at least monthly updates.
 ---
 
 **Last Updated**: July 1, 2024
-**Portfolio**: https://karthikeyank.tech/
+**Portfolio**: https://karthikeyank-site.vercel.app/
 **Status**: Phase 1 ✅ Complete | Phase 2 ⏳ Recommended | Phase 3 🎯 Long-term
 
 ---
