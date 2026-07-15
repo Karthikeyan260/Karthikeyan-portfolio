@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', () => {
         setTimeout(() => {
             preloader.classList.add('hidden');
-        }, 1600);
+        }, 400);
     });
 
     // Set current year in footer

@@ -19,13 +19,3 @@ Crawl-delay: 0
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
-
-# Block bad bots
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /

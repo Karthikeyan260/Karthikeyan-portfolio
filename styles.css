@@ -2739,7 +2739,7 @@ footer {
     width: 0;
     background: var(--gradient);
     border-radius: 3px;
-    animation: preloaderBar 1.5s ease-in-out forwards;
+    animation: preloaderBar 0.6s ease-in-out forwards;
 }
 
 @keyframes preloaderBar {
