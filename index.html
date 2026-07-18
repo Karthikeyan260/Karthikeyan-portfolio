@@ -499,243 +499,39 @@
                 <header class="section-head">
                     <span class="section-tag mono">06 · shipped</span>
                     <h2 class="section-title" id="projects-title">AI systems <span class="gradient-text">&amp; experiments</span></h2>
-                    <p class="section-sub">Production AI applications and LLM experiments — plus the playground that keeps the engineering sharp.</p>
+                    <p class="section-sub">Every deployment is a node in the network. Explore the map, open the inspector, read the architecture.</p>
                 </header>
-                <div class="filter-bar" role="tablist" aria-label="Project filters">
-                    <button class="filter-btn active ripple" data-filter="all" aria-pressed="true">All</button>
-                    <button class="filter-btn ripple" data-filter="ai" aria-pressed="false">AI &amp; LLM</button>
-                    <button class="filter-btn ripple" data-filter="web" aria-pressed="false">Web Apps</button>
-                    <button class="filter-btn ripple" data-filter="game" aria-pressed="false">Games</button>
-                    <button class="filter-btn ripple" data-filter="clone" aria-pressed="false">Clones</button>
-                </div>
-                <div class="projects-grid" id="projectsGrid">
-
-                    <article class="project-card featured tilt-card" data-tilt data-category="ai">
-                        <span class="p-badge"><i class="fas fa-star" aria-hidden="true"></i> Featured</span>
-                        <div class="p-media">
-                            <picture>
-                                <source srcset="images/projects/ai-consulting.webp" type="image/webp">
-                                <img src="images/projects/ai-consulting.jpg" alt="AI Consulting System screenshot" loading="lazy" width="800" height="480">
-                            </picture>
-                            <div class="p-overlay"><span class="mono">gemini-2.0 · multi-domain</span></div>
+                <div class="eco">
+                    <div class="eco-hud">
+                        <div class="eco-status mono"><span class="status-dot" aria-hidden="true"></span> system_map · 12 deployments · 4 clusters</div>
+                        <div class="eco-legend" role="group" aria-label="Filter network by cluster">
+                            <button data-cluster="agents" aria-pressed="false"><span class="ldot" style="--c:#8b5cf6"></span>LLM &amp; Agents</button>
+                            <button data-cluster="perception" aria-pressed="false"><span class="ldot" style="--c:#22d3ee"></span>Vision &amp; NLP</button>
+                            <button data-cluster="interfaces" aria-pressed="false"><span class="ldot" style="--c:#34d399"></span>Product Systems</button>
+                            <button data-cluster="playground" aria-pressed="false"><span class="ldot" style="--c:#fbbf24"></span>Algorithmic Play</button>
                         </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-ai">AI</span><span class="mono">2024</span></div>
-                            <h3>AI Consulting System</h3>
-                            <p>Multi-domain LLM expert system — specialized Gemini 2.0 Flash agents for Education, Healthcare, Finance and Retail with domain-tuned prompting and real-time persistence. Basis of my published research paper.</p>
-                            <div class="tag-row"><span>Gemini 2.0 Flash</span><span>Prompt Engineering</span><span>Next.js 15</span><span>Firebase</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/AiConsultingSystem" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://aiconsultingsystem.netlify.app/" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
+                    </div>
+                    <div class="eco-body">
+                        <div class="eco-stage" aria-label="Interactive project network. Use the list below for direct links.">
+                            <canvas id="ecoCanvas"></canvas>
+                            <div class="eco-hint mono" id="ecoHint">// click a node to inspect</div>
                         </div>
-                    </article>
-
-                    <article class="project-card featured tilt-card" data-tilt data-category="ai">
-                        <span class="p-badge"><i class="fas fa-star" aria-hidden="true"></i> Featured</span>
-                        <div class="p-media">
-                            <picture>
-                                <source srcset="images/projects/ai-job-assistant.webp" type="image/webp">
-                                <img src="images/projects/ai-job-assistant.jpg" alt="AI-Powered Job Application Assistant screenshot" loading="lazy" width="800" height="480">
-                            </picture>
-                            <div class="p-overlay"><span class="mono">resume · cover-letter · skill-gap</span></div>
-                        </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-ai">AI</span><span class="mono">2024</span></div>
-                            <h3>AI Job Application Assistant</h3>
-                            <p>LLM-powered career copilot — resume optimization, personalized cover-letter generation and job-fit scoring via Gemini 2.0 Flash, with ML-driven skill-gap analysis.</p>
-                            <div class="tag-row"><span>Gemini 2.0 Flash</span><span>LLM Pipelines</span><span>scikit-learn</span><span>Streamlit</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/AI-Powered-Job-Application-Assistant" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://ai-powered-job-application-assistant.streamlit.app/" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card tilt-card" data-tilt data-category="ai">
-                        <div class="p-media">
-                            <picture>
-                                <source srcset="images/projects/nutrify-ai.webp" type="image/webp">
-                                <img src="images/projects/nutrify-ai.jpg" alt="NutrifyAI nutrition analysis app screenshot" loading="lazy" width="800" height="480">
-                            </picture>
-                            <div class="p-overlay"><span class="mono">food-image → nutrition</span></div>
-                        </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-ai">AI</span><span class="mono">2024</span></div>
-                            <h3>NutrifyAI</h3>
-                            <p>Vision-language nutrition analysis — any food photo becomes instant nutritional insight and calorie counts through Gemini multimodal inference.</p>
-                            <div class="tag-row"><span>Multimodal LLM</span><span>Gemini Vision</span><span>Python</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/NutriLens" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://nutrifyai.streamlit.app/" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card tilt-card" data-tilt data-category="ai">
-                        <div class="p-media">
-                            <img src="images/projects/address-ner.svg" alt="Address NER project" loading="lazy" width="800" height="480">
-                            <div class="p-overlay"><span class="mono">92% F1 · huggingface</span></div>
-                        </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-ai">NLP</span><span class="mono">2024</span></div>
-                            <h3>Address NER</h3>
-                            <p>Custom named-entity-recognition model extracting structured address components from raw text — trained, evaluated and deployed to Hugging Face Spaces at 92% F1.</p>
-                            <div class="tag-row"><span>NER</span><span>SpaCy</span><span>Hugging Face</span><span>NLP</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/Address_NER" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://huggingface.co/spaces/karthik2604/Address_ner" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card tilt-card" data-tilt data-category="web">
-                        <div class="p-media">
-                            <picture>
-                                <source srcset="images/projects/todo-app.webp" type="image/webp">
-                                <img src="images/projects/todo-app.jpg" alt="Todo application screenshot" loading="lazy" width="800" height="480">
-                            </picture>
-                            <div class="p-overlay"><span class="mono">react · redux · ts</span></div>
-                        </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-web">Web</span><span class="mono">2024</span></div>
-                            <h3>Todo Application</h3>
-                            <p>Feature-rich task manager built during the Octanet internship — clean UI, Redux state, local persistence.</p>
-                            <div class="tag-row"><span>React</span><span>TypeScript</span><span>Redux</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/Todo-List" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://todo-karthikeyan.vercel.app/" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card tilt-card" data-tilt data-category="web">
-                        <div class="p-media">
-                            <picture>
-                                <source srcset="images/projects/weather-dashboard.webp" type="image/webp">
-                                <img src="images/projects/weather-dashboard.jpg" alt="Weather dashboard screenshot" loading="lazy" width="800" height="480">
-                            </picture>
-                            <div class="p-overlay"><span class="mono">openweather · geolocation</span></div>
-                        </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-web">Web</span><span class="mono">2024</span></div>
-                            <h3>Weather Dashboard</h3>
-                            <p>Real-time weather with 5-day forecasts, geolocation and animated data visualizations.</p>
-                            <div class="tag-row"><span>JavaScript</span><span>API</span><span>CSS3</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/Weather-Dashboard" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://weather-dashboard-rho-inky.vercel.app/" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card tilt-card" data-tilt data-category="web">
-                        <div class="p-media">
-                            <img src="images/projects/text-to-speech.svg" alt="Text to speech app" loading="lazy" width="800" height="480">
-                            <div class="p-overlay"><span class="mono">web-speech-api</span></div>
-                        </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-web">Web</span><span class="mono">2023</span></div>
-                            <h3>Text to Speech</h3>
-                            <p>Converts typed text to natural audio via the Web Speech API — multiple voices, adjustable speed.</p>
-                            <div class="tag-row"><span>JavaScript</span><span>Speech API</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/Text-to-Speech-webpage" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://text-to-speech-webpage.vercel.app" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card tilt-card" data-tilt data-category="game">
-                        <div class="p-media">
-                            <picture>
-                                <source srcset="images/projects/chess-game.webp" type="image/webp">
-                                <img src="images/projects/chess-game.jpg" alt="Chess game screenshot" loading="lazy" width="800" height="480">
-                            </picture>
-                            <div class="p-overlay"><span class="mono">minimax · full rules</span></div>
-                        </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-game">Game</span><span class="mono">2024</span></div>
-                            <h3>Chess Game</h3>
-                            <p>Chess vs a minimax AI — legal-move highlighting, check/checkmate detection, full rules.</p>
-                            <div class="tag-row"><span>JavaScript</span><span>Minimax</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/Chess-game" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://chess-game-sandy-seven.vercel.app/" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card tilt-card" data-tilt data-category="game">
-                        <div class="p-media">
-                            <picture>
-                                <source srcset="images/projects/snake-game.webp" type="image/webp">
-                                <img src="images/projects/snake-game.jpg" alt="Snake game screenshot" loading="lazy" width="800" height="480">
-                            </picture>
-                            <div class="p-overlay"><span class="mono">canvas · leaderboard</span></div>
-                        </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-game">Game</span><span class="mono">2024</span></div>
-                            <h3>Snake Game</h3>
-                            <p>Classic snake on HTML5 Canvas — smooth motion, difficulty curve, high-score board.</p>
-                            <div class="tag-row"><span>Canvas</span><span>JavaScript</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/snake-game" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://snake-game-tawny-tau.vercel.app/" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card tilt-card" data-tilt data-category="game">
-                        <div class="p-media">
-                            <img src="images/projects/memory-game.svg" alt="Memory card game" loading="lazy" width="800" height="480">
-                            <div class="p-overlay"><span class="mono">flip · timer · levels</span></div>
-                        </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-game">Game</span><span class="mono">2024</span></div>
-                            <h3>Memory Card Game</h3>
-                            <p>Card-matching challenge with flip animations, move counter, timer and difficulty levels.</p>
-                            <div class="tag-row"><span>CSS Animations</span><span>JavaScript</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/memory-game" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://memory-game-seven-snowy.vercel.app/" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card tilt-card" data-tilt data-category="game">
-                        <div class="p-media">
-                            <img src="images/projects/tic-tac-toe.svg" alt="Tic tac toe game" loading="lazy" width="800" height="480">
-                            <div class="p-overlay"><span class="mono">win detection · scores</span></div>
-                        </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-game">Game</span><span class="mono">2024</span></div>
-                            <h3>Tic Tac Toe</h3>
-                            <p>Responsive 2-player classic with animated winning lines and round score tracking.</p>
-                            <div class="tag-row"><span>JavaScript</span><span>CSS3</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/Tic-Tac-Toe" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://tic-tac-toe-livid-nu.vercel.app/" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card tilt-card" data-tilt data-category="clone">
-                        <div class="p-media">
-                            <img src="images/projects/netflix-clone.svg" alt="Netflix clone" loading="lazy" width="800" height="480">
-                            <div class="p-overlay"><span class="mono">grid · flexbox · pixel-perfect</span></div>
-                        </div>
-                        <div class="p-body">
-                            <div class="p-meta"><span class="pill pill-clone">Clone</span><span class="mono">2024</span></div>
-                            <h3>Netflix Clone</h3>
-                            <p>Pixel-perfect responsive recreation of the Netflix UI — hero banner, scrollable rows, hover effects.</p>
-                            <div class="tag-row"><span>CSS Grid</span><span>Flexbox</span><span>JavaScript</span></div>
-                            <div class="p-links">
-                                <a href="https://github.com/Karthikeyan260/Netflix-clone" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Code</a>
-                                <a href="https://netflix-clone-olive-five-55.vercel.app/" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Live</a>
-                            </div>
-                        </div>
-                    </article>
+                        <aside class="eco-inspector" id="ecoInspector" aria-live="polite"></aside>
+                    </div>
+                    <ul class="visually-hidden">
+                        <li><a href="https://github.com/Karthikeyan260/AiConsultingSystem">AI Consulting System</a></li>
+                        <li><a href="https://github.com/Karthikeyan260/AI-Powered-Job-Application-Assistant">AI Job Application Assistant</a></li>
+                        <li><a href="https://github.com/Karthikeyan260/NutriLens">NutrifyAI</a></li>
+                        <li><a href="https://github.com/Karthikeyan260/Address_NER">Address NER</a></li>
+                        <li><a href="https://github.com/Karthikeyan260/Text-to-Speech-webpage">Text to Speech</a></li>
+                        <li><a href="https://github.com/Karthikeyan260/Todo-List">Todo Application</a></li>
+                        <li><a href="https://github.com/Karthikeyan260/Weather-Dashboard">Weather Dashboard</a></li>
+                        <li><a href="https://github.com/Karthikeyan260/Netflix-clone">Netflix Clone</a></li>
+                        <li><a href="https://github.com/Karthikeyan260/Chess-game">Chess Game</a></li>
+                        <li><a href="https://github.com/Karthikeyan260/snake-game">Snake Game</a></li>
+                        <li><a href="https://github.com/Karthikeyan260/memory-game">Memory Card Game</a></li>
+                        <li><a href="https://github.com/Karthikeyan260/Tic-Tac-Toe">Tic Tac Toe</a></li>
+                    </ul>
                 </div>
                 <div class="projects-cta">
                     <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer" class="btn btn-ghost magnetic ripple"><i class="fab fa-github" aria-hidden="true"></i> All repositories</a>

@@ -26,7 +26,7 @@
         timelines();
         cardGlowTrack();
         scrollOrb();
-        projectFilters();
+        ecosystem();
         skillsOrbit();
         githubTelemetry();
         contactForm();
@@ -286,7 +286,7 @@
     function scrollReveals() {
         if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || reduceMotion) return;
         $$('.section').forEach((sec) => {
-            const items = $$('.section-head, .glass-card, .project-card, .filter-bar', sec)
+            const items = $$('.section-head, .glass-card, .eco-hud, .eco-body', sec)
                 .filter((el) => !el.closest('.hero'));
             if (!items.length) return;
             gsap.fromTo(items,
@@ -344,7 +344,7 @@
     function cardGlowTrack() {
         if (isTouch) return;
         document.addEventListener('pointermove', (e) => {
-            const card = e.target.closest('.glass-card, .project-card');
+            const card = e.target.closest('.glass-card');
             if (!card) return;
             const r = card.getBoundingClientRect();
             card.style.setProperty('--gx', ((e.clientX - r.left) / r.width) * 100 + '%');
@@ -370,25 +370,393 @@
         });
     }
 
-    /* ── Project filters ───────────────────────────────── */
-    function projectFilters() {
-        const btns = $$('.filter-btn');
-        const cards = $$('.project-card');
-        if (!btns.length) return;
-        btns.forEach((btn) => {
+    /* ── AI system map (projects ecosystem) ────────────── */
+    function ecosystem() {
+        const canvas = $('#ecoCanvas');
+        const inspector = $('#ecoInspector');
+        if (!canvas || !inspector) return;
+        const ctx = canvas.getContext('2d');
+        const hint = $('#ecoHint');
+
+        const CLUSTERS = {
+            agents:     { label: 'LLM & Agents',     color: '#8b5cf6', lx: 0.22, ly: 0.10 },
+            perception: { label: 'Vision & NLP',     color: '#22d3ee', lx: 0.78, ly: 0.10 },
+            interfaces: { label: 'Product Systems',  color: '#34d399', lx: 0.20, ly: 0.94 },
+            playground: { label: 'Algorithmic Play', color: '#fbbf24', lx: 0.78, ly: 0.94 }
+        };
+
+        const NODES = [
+            { id: 'core', core: true, x: 0.5, y: 0.47, r: 17, short: 'KK' },
+            {
+                id: 'ai-consulting', cluster: 'agents', x: 0.185, y: 0.235, r: 13, flag: true,
+                short: 'AI Consulting', name: 'AI Consulting System',
+                type: 'multi-domain LLM expert system', year: '2024', status: 'LIVE',
+                mission: 'Specialized Gemini 2.0 Flash agents for Education, Healthcare, Finance & Retail — domain-tuned prompting with real-time persistence. Published as international research.',
+                pipeline: ['user query', 'domain router', 'gemini 2.0', 'expert answer'],
+                metrics: [['4', 'domains'], ['paper', 'published'], ['prod', 'status']],
+                stack: ['Gemini 2.0 Flash', 'Prompt Engineering', 'Next.js 15', 'Firebase'],
+                img: 'images/projects/ai-consulting.jpg',
+                gh: 'https://github.com/Karthikeyan260/AiConsultingSystem',
+                live: 'https://aiconsultingsystem.netlify.app/'
+            },
+            {
+                id: 'job-assistant', cluster: 'agents', x: 0.315, y: 0.36, r: 12, flag: true,
+                short: 'Job Copilot', name: 'AI Job Application Assistant',
+                type: 'LLM career copilot', year: '2024', status: 'LIVE',
+                mission: 'Resume optimization, personalized cover-letter generation and job-fit scoring via Gemini 2.0 Flash — with ML-driven skill-gap analysis and progress tracking.',
+                pipeline: ['resume + JD', 'doc parser', 'LLM rewrite', 'fit score'],
+                metrics: [['3', 'AI tools'], ['ML', 'skill-gap'], ['PDF', 'pipeline']],
+                stack: ['Gemini 2.0 Flash', 'scikit-learn', 'Streamlit', 'PyPDF2'],
+                img: 'images/projects/ai-job-assistant.jpg',
+                gh: 'https://github.com/Karthikeyan260/AI-Powered-Job-Application-Assistant',
+                live: 'https://ai-powered-job-application-assistant.streamlit.app/'
+            },
+            {
+                id: 'nutrify', cluster: 'perception', x: 0.66, y: 0.20, r: 11,
+                short: 'NutrifyAI', name: 'NutrifyAI',
+                type: 'vision-language nutrition analysis', year: '2024', status: 'LIVE',
+                mission: 'Any food photo becomes instant nutritional insight and calorie counts through Gemini multimodal inference.',
+                pipeline: ['food photo', 'gemini vision', 'macro breakdown'],
+                metrics: [['vision', 'modality'], ['instant', 'inference'], ['live', 'status']],
+                stack: ['Multimodal LLM', 'Gemini Vision', 'Streamlit', 'Python'],
+                img: 'images/projects/nutrify-ai.jpg',
+                gh: 'https://github.com/Karthikeyan260/NutriLens',
+                live: 'https://nutrifyai.streamlit.app/'
+            },
+            {
+                id: 'address-ner', cluster: 'perception', x: 0.845, y: 0.30, r: 11,
+                short: 'Address NER', name: 'Address NER',
+                type: 'custom named-entity recognition', year: '2024', status: 'LIVE',
+                mission: 'Custom NER model extracting structured address components from raw text — trained, evaluated and deployed to Hugging Face Spaces.',
+                pipeline: ['raw text', 'spaCy NER', 'structured address'],
+                metrics: [['92%', 'F1 score'], ['HF', 'spaces'], ['6', 'entities']],
+                stack: ['SpaCy', 'NER', 'Hugging Face', 'Python'],
+                img: 'images/projects/address-ner.svg',
+                gh: 'https://github.com/Karthikeyan260/Address_NER',
+                live: 'https://huggingface.co/spaces/karthik2604/Address_ner'
+            },
+            {
+                id: 'tts', cluster: 'perception', x: 0.72, y: 0.42, r: 9,
+                short: 'TTS', name: 'Text to Speech',
+                type: 'browser speech synthesis', year: '2023', status: 'LIVE',
+                mission: 'Typed text becomes natural audio through the Web Speech API — multiple voices and adjustable speed.',
+                pipeline: ['text input', 'speech API', 'audio out'],
+                metrics: [['multi', 'voices'], ['0 deps', 'runtime'], ['live', 'status']],
+                stack: ['Web Speech API', 'JavaScript'],
+                img: 'images/projects/text-to-speech.svg',
+                gh: 'https://github.com/Karthikeyan260/Text-to-Speech-webpage',
+                live: 'https://text-to-speech-webpage.vercel.app'
+            },
+            {
+                id: 'todo', cluster: 'interfaces', x: 0.155, y: 0.66, r: 10,
+                short: 'Todo', name: 'Todo Application',
+                type: 'task manager · internship build', year: '2024', status: 'LIVE',
+                mission: 'Feature-rich task manager built during the Octanet internship — clean UI, Redux state and local persistence.',
+                pipeline: ['user action', 'redux store', 'persisted UI'],
+                metrics: [['CI/CD', 'pipeline'], ['redux', 'state'], ['live', 'status']],
+                stack: ['React', 'TypeScript', 'Redux'],
+                img: 'images/projects/todo-app.jpg',
+                gh: 'https://github.com/Karthikeyan260/Todo-List',
+                live: 'https://todo-karthikeyan.vercel.app/'
+            },
+            {
+                id: 'weather', cluster: 'interfaces', x: 0.27, y: 0.80, r: 10,
+                short: 'Weather', name: 'Weather Dashboard',
+                type: 'real-time data dashboard', year: '2024', status: 'LIVE',
+                mission: 'Real-time weather with 5-day forecasts, geolocation and animated data visualizations.',
+                pipeline: ['geolocation', 'weather API', 'visual forecast'],
+                metrics: [['5-day', 'forecast'], ['geo', 'aware'], ['live', 'status']],
+                stack: ['JavaScript', 'OpenWeatherMap', 'CSS3'],
+                img: 'images/projects/weather-dashboard.jpg',
+                gh: 'https://github.com/Karthikeyan260/Weather-Dashboard',
+                live: 'https://weather-dashboard-rho-inky.vercel.app/'
+            },
+            {
+                id: 'netflix', cluster: 'interfaces', x: 0.37, y: 0.68, r: 9,
+                short: 'Netflix UI', name: 'Netflix Clone',
+                type: 'pixel-perfect UI recreation', year: '2024', status: 'LIVE',
+                mission: 'Pixel-perfect responsive recreation of the Netflix interface — hero banner, scrollable rows, hover effects.',
+                pipeline: ['design ref', 'grid/flexbox', 'pixel-perfect UI'],
+                metrics: [['1:1', 'fidelity'], ['resp', 'layout'], ['live', 'status']],
+                stack: ['CSS Grid', 'Flexbox', 'JavaScript'],
+                img: 'images/projects/netflix-clone.svg',
+                gh: 'https://github.com/Karthikeyan260/Netflix-clone',
+                live: 'https://netflix-clone-olive-five-55.vercel.app/'
+            },
+            {
+                id: 'chess', cluster: 'playground', x: 0.64, y: 0.66, r: 11,
+                short: 'Chess AI', name: 'Chess Game',
+                type: 'minimax game AI', year: '2024', status: 'LIVE',
+                mission: 'Chess against a minimax adversary — legal-move highlighting, check/checkmate detection, full rules engine.',
+                pipeline: ['board state', 'minimax search', 'best move'],
+                metrics: [['minimax', 'engine'], ['full', 'rules'], ['live', 'status']],
+                stack: ['JavaScript', 'Minimax', 'Game AI'],
+                img: 'images/projects/chess-game.jpg',
+                gh: 'https://github.com/Karthikeyan260/Chess-game',
+                live: 'https://chess-game-sandy-seven.vercel.app/'
+            },
+            {
+                id: 'snake', cluster: 'playground', x: 0.86, y: 0.68, r: 9,
+                short: 'Snake', name: 'Snake Game',
+                type: 'canvas game loop', year: '2024', status: 'LIVE',
+                mission: 'Classic snake on HTML5 Canvas — smooth motion, difficulty curve and a high-score board.',
+                pipeline: ['input', 'game loop', 'canvas render'],
+                metrics: [['60fps', 'loop'], ['hi-score', 'board'], ['live', 'status']],
+                stack: ['HTML5 Canvas', 'JavaScript'],
+                img: 'images/projects/snake-game.jpg',
+                gh: 'https://github.com/Karthikeyan260/snake-game',
+                live: 'https://snake-game-tawny-tau.vercel.app/'
+            },
+            {
+                id: 'memory', cluster: 'playground', x: 0.70, y: 0.84, r: 9,
+                short: 'Memory', name: 'Memory Card Game',
+                type: 'state-machine puzzle', year: '2024', status: 'LIVE',
+                mission: 'Card-matching challenge with flip animations, move counter, timer and difficulty levels.',
+                pipeline: ['flip event', 'match logic', 'score state'],
+                metrics: [['3', 'levels'], ['timer', 'mode'], ['live', 'status']],
+                stack: ['CSS Animations', 'JavaScript'],
+                img: 'images/projects/memory-game.svg',
+                gh: 'https://github.com/Karthikeyan260/memory-game',
+                live: 'https://memory-game-seven-snowy.vercel.app/'
+            },
+            {
+                id: 'tictactoe', cluster: 'playground', x: 0.87, y: 0.86, r: 9,
+                short: 'TicTacToe', name: 'Tic Tac Toe',
+                type: 'win-detection logic', year: '2024', status: 'LIVE',
+                mission: 'Responsive 2-player classic with animated winning lines and round score tracking.',
+                pipeline: ['move', 'win detection', 'score round'],
+                metrics: [['2P', 'mode'], ['anim', 'win line'], ['live', 'status']],
+                stack: ['JavaScript', 'CSS3'],
+                img: 'images/projects/tic-tac-toe.svg',
+                gh: 'https://github.com/Karthikeyan260/Tic-Tac-Toe',
+                live: 'https://tic-tac-toe-livid-nu.vercel.app/'
+            }
+        ];
+        const byId = Object.fromEntries(NODES.map((n) => [n.id, n]));
+        const EDGES = [
+            ['core', 'ai-consulting'], ['core', 'job-assistant'], ['ai-consulting', 'job-assistant'],
+            ['core', 'nutrify'], ['nutrify', 'address-ner'], ['nutrify', 'tts'],
+            ['core', 'todo'], ['todo', 'weather'], ['todo', 'netflix'],
+            ['core', 'chess'], ['chess', 'snake'], ['chess', 'memory'], ['snake', 'tictactoe']
+        ].map(([a, b], i) => ({ a: byId[a], b: byId[b], t: (i * 0.37) % 1, speed: 0.0018 + (i % 4) * 0.0006 }));
+
+        NODES.forEach((n, i) => { n.phase = i * 1.7; });
+
+        let W = 0, H = 0, dpr = 1;
+        function resize() {
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            W = canvas.clientWidth; H = canvas.clientHeight;
+            canvas.width = W * dpr; canvas.height = H * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+        resize();
+        window.addEventListener('resize', resize, { passive: true });
+
+        const themePal = () => getTheme() === 'light'
+            ? { label: (a) => `rgba(20,22,42,${a})`, ghost: 'rgba(20,22,42,0.35)', edge: 0.22, coreText: '#fff' }
+            : { label: (a) => `rgba(238,240,255,${a})`, ghost: 'rgba(238,240,255,0.28)', edge: 0.16, coreText: '#eef0ff' };
+        let pal = themePal();
+        document.addEventListener('themechange', () => { pal = themePal(); });
+
+        let hover = null, selected = null, focusCluster = null;
+        let mx = -1e4, my = -1e4;
+
+        const px = (n, t) => {
+            /* on narrow canvases pull nodes toward center so labels stay inside */
+            const squeeze = W < 520 ? 0.82 : 1;
+            return {
+                x: (0.5 + (n.x - 0.5) * squeeze) * W,
+                y: n.y * H + (reduceMotion ? 0 : Math.sin(t * 0.8 + n.phase) * 5)
+            };
+        };
+
+        canvas.addEventListener('pointermove', (e) => {
+            const r = canvas.getBoundingClientRect();
+            mx = e.clientX - r.left; my = e.clientY - r.top;
+        }, { passive: true });
+        canvas.addEventListener('pointerleave', () => { mx = my = -1e4; });
+        canvas.addEventListener('click', (e) => {
+            /* hit-test from event coords — hover state never fires on touch taps */
+            const r = canvas.getBoundingClientRect();
+            const cx = e.clientX - r.left, cy = e.clientY - r.top;
+            const t = performance.now() / 1000;
+            let best = null, bestD = Infinity;
+            NODES.forEach((n) => {
+                if (n.core || dimmed(n)) return;
+                const p = px(n, t);
+                const d = Math.hypot(cx - p.x, cy - p.y);
+                if (d < Math.max(34, n.r + 22) && d < bestD) { bestD = d; best = n; }
+            });
+            if (best) select(best);
+        });
+
+        $$('.eco-legend button').forEach((btn) => {
             btn.addEventListener('click', () => {
-                btns.forEach((b) => {
-                    b.classList.toggle('active', b === btn);
-                    b.setAttribute('aria-pressed', String(b === btn));
+                focusCluster = focusCluster === btn.dataset.cluster ? null : btn.dataset.cluster;
+                $$('.eco-legend button').forEach((b) => {
+                    const on = b.dataset.cluster === focusCluster;
+                    b.classList.toggle('on', on);
+                    b.setAttribute('aria-pressed', String(on));
                 });
-                const f = btn.dataset.filter;
-                cards.forEach((card) => {
-                    const show = f === 'all' || card.dataset.category === f;
-                    card.classList.toggle('hide', !show);
-                });
-                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
             });
         });
+
+        function select(n) {
+            selected = n;
+            renderNode(n);
+            if (window.innerWidth < 980) {
+                inspector.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+            }
+        }
+
+        /* ── inspector rendering ── */
+        function renderIdle() {
+            inspector.innerHTML = `
+                <div class="ins-prompt mono">$ awaiting_selection<span class="ins-caret"></span></div>
+                <div class="ins-idle">
+                    <p>This is the live map of everything I've shipped. Click any <strong>node</strong> to open its system inspector — mission, pipeline architecture, metrics and launch links.</p>
+                    <div class="ins-idle-stats">
+                        <div class="ins-stat"><strong>12</strong><span>deployed systems</span></div>
+                        <div class="ins-stat"><strong>5</strong><span>LLM / ML powered</span></div>
+                        <div class="ins-stat"><strong>4</strong><span>clusters online</span></div>
+                        <div class="ins-stat"><strong>100%</strong><span>shipped &amp; live</span></div>
+                    </div>
+                </div>`;
+        }
+
+        function renderNode(n) {
+            const c = CLUSTERS[n.cluster];
+            const d = (i) => `style="animation-delay:${(0.07 * i).toFixed(2)}s"`;
+            inspector.innerHTML = `
+                <div class="ins-prompt mono">$ inspect ${n.id}<span class="ins-caret"></span></div>
+                <div class="ins-row ins-head" ${d(1)}>
+                    <img class="ins-thumb" src="${n.img}" alt="" width="58" height="58" loading="lazy">
+                    <div>
+                        <h3>${n.name}</h3>
+                        <span class="ins-type mono">${n.type} · ${n.year}</span>
+                    </div>
+                </div>
+                <div class="ins-row" ${d(2)} style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;animation-delay:0.14s">
+                    <span class="pill" style="color:${c.color};border-color:${c.color}66;background:${c.color}1a">${c.label}</span>
+                    <span class="pill pill-live"><span class="status-dot"></span> ${n.status}</span>
+                </div>
+                <p class="ins-row ins-mission" ${d(3)}>${n.mission}</p>
+                <div class="ins-row" ${d(4)}>
+                    <div class="ins-label mono">// pipeline</div>
+                    <div class="ins-pipe">${n.pipeline.map((p) => `<span class="pl-step">${p}</span>`).join('<span class="pl-arrow" aria-hidden="true"></span>')}</div>
+                </div>
+                <div class="ins-row" ${d(5)}>
+                    <div class="ins-label mono">// metrics</div>
+                    <div class="ins-metrics">${n.metrics.map(([v, k]) => `<div class="ins-metric"><strong>${v}</strong><span>${k}</span></div>`).join('')}</div>
+                </div>
+                <div class="ins-row" ${d(6)}>
+                    <div class="ins-label mono">// stack</div>
+                    <div class="tag-row">${n.stack.map((t) => `<span>${t}</span>`).join('')}</div>
+                </div>
+                <div class="ins-row p-links" ${d(7)}>
+                    <a href="${n.gh}" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Source</a>
+                    <a href="${n.live}" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Launch</a>
+                </div>`;
+        }
+        renderIdle();
+
+        /* ── canvas loop ── */
+        let inView = true;
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver((en) => { inView = en[0].isIntersecting; }, { threshold: 0 }).observe(canvas);
+        }
+
+        const dimmed = (n) => focusCluster && !n.core && n.cluster !== focusCluster;
+
+        function draw(ts) {
+            requestAnimationFrame(draw);
+            if (!inView) return;
+            const t = ts / 1000;
+            ctx.clearRect(0, 0, W, H);
+
+            /* cluster ghost labels */
+            ctx.font = '600 11px "JetBrains Mono", monospace';
+            ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            Object.entries(CLUSTERS).forEach(([key, c]) => {
+                ctx.fillStyle = focusCluster === key ? c.color : pal.ghost;
+                ctx.fillText(c.label.toUpperCase(), c.lx * W, c.ly * H);
+            });
+
+            /* edges + pulses */
+            EDGES.forEach((e) => {
+                const A = px(e.a, t), B = px(e.b, t);
+                const cl = CLUSTERS[(e.b.cluster || e.a.cluster)];
+                const dim = dimmed(e.a) || dimmed(e.b);
+                ctx.strokeStyle = cl.color + (dim ? '14' : '3a');
+                ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
+                if (!reduceMotion && !dim) {
+                    e.t = (e.t + e.speed) % 1;
+                    const pxp = A.x + (B.x - A.x) * e.t;
+                    const pyp = A.y + (B.y - A.y) * e.t;
+                    const g = ctx.createRadialGradient(pxp, pyp, 0, pxp, pyp, 7);
+                    g.addColorStop(0, cl.color); g.addColorStop(1, cl.color + '00');
+                    ctx.fillStyle = g;
+                    ctx.beginPath(); ctx.arc(pxp, pyp, 7, 0, Math.PI * 2); ctx.fill();
+                }
+            });
+
+            /* nodes */
+            let found = null;
+            NODES.forEach((n) => {
+                const p = px(n, t);
+                const dim = dimmed(n);
+                const cl = n.core ? { color: '#a78bfa' } : CLUSTERS[n.cluster];
+                const isSel = selected === n;
+                const d2 = Math.hypot(mx - p.x, my - p.y);
+                const isHover = !dim && d2 < Math.max(26, n.r + 16);
+                if (isHover && !found) found = n;
+                const boost = (isHover || isSel) ? 1.25 : 1;
+                const alpha = dim ? 0.14 : 1;
+
+                ctx.globalAlpha = alpha;
+                const glowR = n.r * 3.1 * boost;
+                const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowR);
+                g.addColorStop(0, cl.color + 'e6');
+                g.addColorStop(0.4, cl.color + '55');
+                g.addColorStop(1, cl.color + '00');
+                ctx.fillStyle = g;
+                ctx.beginPath(); ctx.arc(p.x, p.y, glowR, 0, Math.PI * 2); ctx.fill();
+
+                ctx.fillStyle = cl.color;
+                ctx.beginPath(); ctx.arc(p.x, p.y, n.r * boost, 0, Math.PI * 2); ctx.fill();
+
+                if (n.core) {
+                    ctx.fillStyle = pal.coreText;
+                    ctx.font = '700 12px "Space Grotesk", sans-serif';
+                    ctx.fillText('KK', p.x, p.y);
+                    ctx.strokeStyle = cl.color + '66';
+                    ctx.setLineDash([4, 6]);
+                    ctx.beginPath(); ctx.arc(p.x, p.y, n.r + 10 + Math.sin(t * 1.4) * 2, 0, Math.PI * 2); ctx.stroke();
+                    ctx.setLineDash([]);
+                } else {
+                    if (isSel) {
+                        ctx.strokeStyle = cl.color;
+                        ctx.lineWidth = 1.5;
+                        ctx.beginPath(); ctx.arc(p.x, p.y, n.r * boost + 7, 0, Math.PI * 2); ctx.stroke();
+                    }
+                    ctx.font = (W < 520 ? '500 10px ' : (n.flag ? '600 12px ' : '500 11px ')) + '"JetBrains Mono", monospace';
+                    ctx.fillStyle = pal.label(dim ? 0.25 : (isHover || isSel ? 1 : 0.72));
+                    ctx.fillText(n.short, p.x, p.y + n.r + 16);
+                }
+                ctx.globalAlpha = 1;
+            });
+
+            hover = found;
+            canvas.style.cursor = hover && !hover.core ? 'pointer' : 'crosshair';
+            if (hint) {
+                hint.textContent = hover && !hover.core
+                    ? `// ${hover.id} — click to inspect`
+                    : '// click a node to inspect';
+                hint.style.color = hover && !hover.core ? 'var(--cyan)' : '';
+            }
+        }
+        requestAnimationFrame(draw);
     }
 
     /* ── Skills orbital constellation (canvas) ─────────── */
