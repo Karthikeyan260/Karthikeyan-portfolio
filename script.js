@@ -31,8 +31,31 @@
         githubTelemetry();
         contactForm();
         aiAssistant();
+        lazyThree();
         $('#currentYear') && ($('#currentYear').textContent = new Date().getFullYear());
     });
+
+    /* ── Lazy-load Three.js hero after first paint (CWV) ── */
+    function lazyThree() {
+        if (reduceMotion) return;
+        if (navigator.connection && navigator.connection.saveData) return;
+        if (!$('#heroCanvas3D')) return;
+        const inject = () => {
+            const three = document.createElement('script');
+            three.src = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js';
+            three.onload = () => {
+                const scene = document.createElement('script');
+                scene.src = 'three-scene.js';
+                document.body.appendChild(scene);
+            };
+            document.body.appendChild(three);
+        };
+        const schedule = () => ('requestIdleCallback' in window)
+            ? requestIdleCallback(inject, { timeout: 2500 })
+            : setTimeout(inject, 350);
+        if (document.readyState === 'complete') schedule();
+        else window.addEventListener('load', schedule, { once: true });
+    }
 
     /* ── Theme toggle ──────────────────────────────────── */
     const getTheme = () => document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
@@ -396,6 +419,7 @@
                 metrics: [['4', 'domains'], ['paper', 'published'], ['prod', 'status']],
                 stack: ['Gemini 2.0 Flash', 'Prompt Engineering', 'Next.js 15', 'Firebase'],
                 img: 'images/projects/ai-consulting.jpg',
+                cs: 'projects/ai-consulting.html',
                 gh: 'https://github.com/Karthikeyan260/AiConsultingSystem',
                 live: 'https://aiconsultingsystem.netlify.app/'
             },
@@ -408,6 +432,7 @@
                 metrics: [['3', 'AI tools'], ['ML', 'skill-gap'], ['PDF', 'pipeline']],
                 stack: ['Gemini 2.0 Flash', 'scikit-learn', 'Streamlit', 'PyPDF2'],
                 img: 'images/projects/ai-job-assistant.jpg',
+                cs: 'projects/job-assistant.html',
                 gh: 'https://github.com/Karthikeyan260/AI-Powered-Job-Application-Assistant',
                 live: 'https://ai-powered-job-application-assistant.streamlit.app/'
             },
@@ -420,6 +445,7 @@
                 metrics: [['vision', 'modality'], ['instant', 'inference'], ['live', 'status']],
                 stack: ['Multimodal LLM', 'Gemini Vision', 'Streamlit', 'Python'],
                 img: 'images/projects/nutrify-ai.jpg',
+                cs: 'projects/nutrify-ai.html',
                 gh: 'https://github.com/Karthikeyan260/NutriLens',
                 live: 'https://nutrifyai.streamlit.app/'
             },
@@ -432,6 +458,7 @@
                 metrics: [['92%', 'F1 score'], ['HF', 'spaces'], ['6', 'entities']],
                 stack: ['SpaCy', 'NER', 'Hugging Face', 'Python'],
                 img: 'images/projects/address-ner.svg',
+                cs: 'projects/address-ner.html',
                 gh: 'https://github.com/Karthikeyan260/Address_NER',
                 live: 'https://huggingface.co/spaces/karthik2604/Address_ner'
             },
@@ -654,6 +681,7 @@
                     <div class="tag-row">${n.stack.map((t) => `<span>${t}</span>`).join('')}</div>
                 </div>
                 <div class="ins-row p-links" ${d(7)}>
+                    ${n.cs ? `<a href="${n.cs}" class="p-link live"><i class="fas fa-file-lines"></i> Case study</a>` : ''}
                     <a href="${n.gh}" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Source</a>
                     <a href="${n.live}" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Launch</a>
                 </div>`;

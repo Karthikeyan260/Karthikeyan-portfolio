@@ -10,4 +10,28 @@
             <image:title>Karthikeyan K Profile Picture</image:title>
         </image:image>
     </url>
+    <url>
+        <loc>https://karthikeyank-site.vercel.app/projects/ai-consulting.html</loc>
+        <lastmod>2026-07-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://karthikeyank-site.vercel.app/projects/job-assistant.html</loc>
+        <lastmod>2026-07-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://karthikeyank-site.vercel.app/projects/nutrify-ai.html</loc>
+        <lastmod>2026-07-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://karthikeyank-site.vercel.app/projects/address-ner.html</loc>
+        <lastmod>2026-07-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>

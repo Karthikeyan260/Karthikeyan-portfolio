@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Job Application Assistant — LLM Career Copilot | Karthikeyan K</title>
+    <meta name="description" content="Case study: an LLM career copilot that rewrites resumes, generates cover letters and scores job fit with Gemini 2.0 Flash plus scikit-learn skill-gap analysis.">
+    <meta name="author" content="Karthikeyan K">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#7c3aed">
+    <link rel="canonical" href="https://karthikeyank-site.vercel.app/projects/job-assistant.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://karthikeyank-site.vercel.app/projects/job-assistant.html">
+    <meta property="og:title" content="AI Job Application Assistant — case study by Karthikeyan K">
+    <meta property="og:description" content="Case study: an LLM career copilot that rewrites resumes, generates cover letters and scores job fit with Gemini 2.0 Flash plus scikit-learn skill-gap analysis.">
+    <meta property="og:image" content="https://karthikeyank-site.vercel.app/og-card.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Job Application Assistant — case study by Karthikeyan K">
+    <meta name="twitter:description" content="Case study: an LLM career copilot that rewrites resumes, generates cover letters and scores job fit with Gemini 2.0 Flash plus scikit-learn skill-gap analysis.">
+    <meta name="twitter:image" content="https://karthikeyank-site.vercel.app/og-card.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090914'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-size='26' font-family='Inter,sans-serif' font-weight='700' fill='%23a78bfa' dy='.3em'%3EKK%3C/text%3E%3C/svg%3E">
+    <script>(function(){try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t==='light'?'light':'dark';}catch(e){document.documentElement.dataset.theme='dark';}})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "AI Job Application Assistant", "url": "https://ai-powered-job-application-assistant.streamlit.app/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "description": "Case study: an LLM career copilot that rewrites resumes, generates cover letters and scores job fit with Gemini 2.0 Flash plus scikit-learn skill-gap analysis.", "author": {"@type": "Person", "name": "Karthikeyan K", "url": "https://karthikeyank-site.vercel.app/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://karthikeyank-site.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://karthikeyank-site.vercel.app/#projects"}, {"@type": "ListItem", "position": 3, "name": "AI Job Application Assistant", "item": "https://karthikeyank-site.vercel.app/projects/job-assistant.html"}]}</script>
+</head>
+<body>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><div class="aurora-blob a1"></div><div class="aurora-blob a2"></div></div>
+
+    <header class="cs-header">
+        <a class="cs-back" href="../index.html#projects"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to system map</a>
+        <a class="brand" href="../index.html" aria-label="Karthikeyan K — home"><span class="brand-mark">K<span class="brand-accent">K</span></span></a>
+    </header>
+
+    <main class="cs-main">
+        <span class="cs-kicker mono">case_study 02 · llm career copilot</span>
+        <h1>AI Job Application Assistant</h1>
+        <div class="cs-meta"><span class="pill">LLM & Agents</span><span class="pill">Gemini 2.0 Flash</span><span class="pill">2024 · Live</span></div>
+        <p class="cs-lede">Three AI copilot tools in one app: resume optimization, personalized cover-letter generation, and job-compatibility scoring — combining LLM generation with classical ML analysis so the advice is grounded in measurable skill gaps, not just fluent text.</p>
+        <img class="cs-shot" src="../images/projects/ai-job-assistant.jpg" alt="AI Job Application Assistant screenshot" width="800" height="480">
+
+        <h2><span class="mono">01</span> The problem</h2>
+        <p>Tailoring a resume and cover letter for every job description is slow, and candidates rarely know which skills actually block them. Pure-LLM tools generate fluent but ungrounded advice; the goal was to pair generation with measurable analysis.</p>
+
+        <h2><span class="mono">02</span> Architecture</h2>
+        <div class="cs-pipe ins-pipe"><span class="pl-step">resume + job description</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">document parser</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">LLM rewrite / generate</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">ML fit scoring</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">skill-gap report</span></div>
+        <ul><li><strong>Document ingestion:</strong> PyPDF2 and python-docx parse uploaded resumes into clean text for downstream stages.</li><li><strong>Role-targeted prompting:</strong> Gemini 2.0 Flash rewrites the resume and drafts cover letters against the specific job description, not a generic template.</li><li><strong>Compatibility scoring:</strong> scikit-learn computes a resume-to-JD fit score, so the LLM’s qualitative advice is anchored to a quantitative signal.</li><li><strong>Skill-gap analytics:</strong> missing skills are extracted and visualized with Plotly, with progress tracking across applications.</li><li><strong>Interface:</strong> Streamlit keeps the whole pipeline interactive and deployable in one artifact.</li></ul>
+
+        <h2><span class="mono">03</span> Results</h2>
+        <div class="cs-metrics"><div class="cs-metric"><strong>3</strong><span>copilot tools</span></div><div class="cs-metric"><strong>ML + LLM</strong><span>hybrid pipeline</span></div><div class="cs-metric"><strong>live</strong><span>streamlit cloud</span></div></div>
+        <p>A working example of the hybrid pattern — LLM for generation, classical ML for measurement — shipped end-to-end: parsing, prompting, scoring, visualization and deployment.</p>
+
+        <h2><span class="mono">04</span> Stack</h2>
+        <div class="tag-row"><span>Gemini 2.0 Flash</span><span>LLM Pipelines</span><span>scikit-learn</span><span>Plotly</span><span>PyPDF2</span><span>python-docx</span><span>Streamlit</span></div>
+
+        <div class="cs-actions">
+            <a href="https://github.com/Karthikeyan260/AI-Powered-Job-Application-Assistant" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fab fa-github" aria-hidden="true"></i> View source</a>
+            <a href="https://ai-powered-job-application-assistant.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span class="btn-glow" aria-hidden="true"></span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Launch live demo</a>
+        </div>
+    </main>
+
+    <footer class="cs-footer">
+        <p>© <span id="yr"></span> <a href="../index.html">Karthikeyan K</a> — AI Engineer · <a href="../index.html#projects">More systems</a></p>
+    </footer>
+    <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,133 +1,68 @@
-# Karthikeyan K - Portfolio Website
+# Karthikeyan K — AI Engineer
 
-> Personal portfolio website showcasing the work and skills of Karthikeyan K, a Full Stack Developer and B.Tech student in Information Technology
+> Portfolio of Karthikeyan K, an AI Engineer building multi-agent LLM systems, RAG pipelines, and intelligent automation. Currently Associate Data Analyst at Zinnov, designing agentic AI workflows for enterprise data automation.
 
-## Site Purpose
+## Who is Karthikeyan K
 
-This is a professional portfolio website featuring projects, skills, experience, and educational background of Karthikeyan K. The site demonstrates expertise in Full Stack Development, AI, IoT, and Blockchain technologies.
+Karthikeyan K is an AI Engineer from Chennai, India, focused on agentic AI: systems where LLMs don't just answer questions but take multi-step actions, retrieve context intelligently, and integrate into real business workflows. He works primarily in Python with hands-on experience across LangChain, LangGraph, Retrieval-Augmented Generation (RAG), Model Context Protocol (MCP), and vector-based retrieval systems.
 
-## Main Sections
+At Zinnov (Associate Data Analyst, September 2025–present) he:
+- Designed and deployed LLM role-mapping agents (LangChain, LangGraph, Gemini API) that automate enterprise role classification for Fortune 500 clients, cutting manual classification effort by ~90%
+- Built a RAG + embeddings entity-resolution system that reconciles 1.6M+ company records at ~90% match accuracy
+- Architects multi-agent AI workflows that automate complex business processes
 
-- Home: Introduction and hero section with profile information
-- About: Personal background, journey, and areas of expertise
-- Education: Academic qualifications including B.Tech in Information Technology from DMI College of Engineering (2021-2025)
-- Experience: Professional internships and work experience including roles at:
-  - AICTE (AI Virtual Internship, Aug 2024 - Sep 2024)
-  - Edunet Foundation & IBM SkillsBuild (Generative AI Virtual Internship, Aug 2024 - Sep 2024)
-  - NoviTech R&D (AI, Blockchain, IoT, Full Stack Internships, May 2024 - July 2024)
-- Skills: Technical competencies and programming languages
-- Projects: Portfolio of developed applications and systems
-- Contact: Ways to get in touch and social media links
+Education: B.Tech in Information Technology, DMI College of Engineering (2021–2025). Six internships across AI, full-stack, UI, and IoT (Zinnov, MarcelloTech, OctaNet, NoviTech R&D, Anna University MIT Campus, Sri Sairam Techno Incubator).
 
-## Technologies Used
+Publication: "AI-Driven Consulting: A Smart Expert System for Diverse Domains" (international research paper). Also presented research on deep learning for skin disease diagnosis.
 
-### Frontend
-- HTML5 (Semantic markup)
-- CSS3 (Flexbox, Grid, Custom properties, Animations)
-- JavaScript (ES6+, DOM manipulation)
+## Core Expertise
 
-### Libraries & Frameworks
-- AOS (Animate On Scroll)
-- Typed.js (Dynamic typing effects)
-- Font Awesome (Icon library)
+- Agentic AI and multi-agent systems: LangChain, LangGraph, MCP, AI agents, orchestration
+- Retrieval-Augmented Generation: vector databases, embedding models, semantic search, entity resolution
+- LLM engineering: prompt engineering, Gemini API, evaluation, AI automation
+- ML and NLP: deep learning, named-entity recognition (SpaCy), scikit-learn, Hugging Face
+- Engineering foundation: Python, JavaScript/TypeScript, React, Next.js, full-stack deployment
 
-### Development Tools
-- Git & GitHub (Version control)
-- VS Code (Development environment)
-- Vercel (Deployment platform)
+## Featured AI Projects
 
-## Featured Projects
+### AI Consulting System — multi-domain LLM expert system
+- Specialized Gemini 2.0 Flash agents for Education, Healthcare, Finance and Retail with domain-tuned prompting and real-time persistence; basis of the published research paper
+- Case study: https://karthikeyank-site.vercel.app/projects/ai-consulting.html
+- Live: https://aiconsultingsystem.netlify.app/ · Code: https://github.com/Karthikeyan260/AiConsultingSystem
 
-### AI Consulting System
-- Multi-domain AI-powered consulting platform
-- Technologies: Next.js 15, TypeScript, Gemini 2.0 Flash AI, Radix UI, Tailwind CSS, Framer Motion, Clerk Auth, Firebase
-- Features domain-specific chatbots for Education, Healthcare, Finance, and Retail
-- Live: https://aiconsultingsystem.netlify.app/
-- Repository: https://github.com/Karthikeyan260/AiConsultingSystem
+### AI Job Application Assistant — LLM career copilot
+- Resume optimization, cover-letter generation and job-fit scoring via Gemini 2.0 Flash with ML-driven skill-gap analysis
+- Case study: https://karthikeyank-site.vercel.app/projects/job-assistant.html
+- Live: https://ai-powered-job-application-assistant.streamlit.app/ · Code: https://github.com/Karthikeyan260/AI-Powered-Job-Application-Assistant
 
-### Todo Application
-- Feature-rich task management application
-- Technologies: React, TypeScript, Redux
-- Live: https://todo-karthikeyan.vercel.app/
-- Repository: https://github.com/Karthikeyan260/Todo-List
+### NutrifyAI — vision-language nutrition analysis
+- Food photos become instant nutritional insight through Gemini multimodal inference
+- Case study: https://karthikeyank-site.vercel.app/projects/nutrify-ai.html
+- Live: https://nutrifyai.streamlit.app/ · Code: https://github.com/Karthikeyan260/NutriLens
 
-### Weather Dashboard
-- Real-time weather application
-- Technologies: HTML5, CSS3, JavaScript, OpenWeatherMap API
-- Repository: https://github.com/Karthikeyan260/Weather-Dashboard
+### Address NER — custom named-entity recognition
+- Custom SpaCy NER model extracting structured address components at 92% F1, deployed on Hugging Face Spaces
+- Case study: https://karthikeyank-site.vercel.app/projects/address-ner.html
+- Live: https://huggingface.co/spaces/karthik2604/Address_ner · Code: https://github.com/Karthikeyan260/Address_NER
 
-### Chess Game
-- Interactive chess game with AI opponent
-- Technologies: JavaScript, HTML5, CSS3
-- Repository: https://github.com/Karthikeyan260/Chess-Game
+### Other builds
+- Todo Application (React/TypeScript/Redux): https://todo-karthikeyan.vercel.app/
+- Weather Dashboard (real-time API dashboard): https://weather-dashboard-rho-inky.vercel.app/
+- Text to Speech (Web Speech API): https://text-to-speech-webpage.vercel.app
+- Chess with minimax AI, Snake, Memory Game, Tic Tac Toe, Netflix UI clone — see https://github.com/Karthikeyan260
 
-### Snake Game
-- Classic game with modern animations
-- Technologies: JavaScript, HTML5 Canvas, CSS3
-- Repository: https://github.com/Karthikeyan260/Snake-Game
+## Certifications
 
-### NutrifyAI
-- AI-powered nutrition analysis tool
-- Technologies: AI/ML, Python, Web technologies
-- Repository: https://github.com/Karthikeyan260/NutrifyAI
+20+ including Claude Certified Architect – Foundations (Anthropic, verified on Credly), Building with the Claude API, Claude Code in Action, Introduction to Model Context Protocol (Anthropic), AI Agents 101 with MCP (AMD AI Academy), AI Agents Fundamentals (Hugging Face), Introduction to Generative AI and Responsible AI (Google Cloud).
 
-## Technical Skills
-
-### Programming Languages
-- Python
-- JavaScript
-- HTML
-- CSS
-- SQL
-
-### Frameworks & Libraries
-- React.js
-- Next.js
-- Bootstrap
-- Tailwind CSS
-- Redux
-
-### AI & Machine Learning
-- Model training
-- Generative AI
-- Responsible AI
-- Gemini AI integration
-
-### Tools & Platforms
-- Git & GitHub
-- VS Code
-- Vercel
-- MongoDB
-- Firebase
-
-### Other Technologies
-- Blockchain fundamentals
-- IoT (Internet of Things)
-- Cybersecurity fundamentals
-
-## Contact Information
+## Contact
 
 - Email: kartji005@gmail.com
 - LinkedIn: https://www.linkedin.com/in/karthikeyan2604/
 - GitHub: https://github.com/Karthikeyan260
-- Instagram: https://www.instagram.com/karthik_keyan04
+- Hugging Face: https://huggingface.co/karthik2604
+- Portfolio: https://karthikeyank-site.vercel.app/
 
-## Site Features
+## Site
 
-- Modern, responsive design optimized for all devices
-- Dark/Light theme toggle
-- Smooth scroll animations
-- Interactive custom cursor
-- Progress bars for skill visualization
-- Project cards with live demos and source code links
-- Interactive contact form
-- Social media integration
-
-## Repository
-
-- GitHub: https://github.com/Karthikeyan260/Karthikeyan-portfolio
-- Live Site: https://karthikeyan-portfolio-website.vercel.app/
-
-## License
-
-Open source - MIT License
+Hand-built single-page portfolio (HTML/CSS/vanilla JS): Three.js neural hero, interactive AI system map of projects, GitHub telemetry, dark/light themes. Repository: https://github.com/Karthikeyan260/Karthikeyan-portfolio

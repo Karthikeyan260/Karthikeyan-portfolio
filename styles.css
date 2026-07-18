@@ -1116,6 +1116,60 @@ a.gh-repo:hover { border-color: var(--stroke-bright); transform: translateX(6px)
 }
 .hero::before { display: none; }
 
+/* ── Case-study pages ──────────────────────────────────── */
+.cs-header {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px clamp(20px, 5vw, 48px);
+    background: var(--nav-bg); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--stroke);
+}
+.cs-back {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 0.88rem; font-weight: 600; color: var(--text-dim);
+    transition: color 0.25s, transform 0.3s var(--ease-out);
+}
+.cs-back:hover { color: var(--text); transform: translateX(-4px); }
+.cs-main { width: min(820px, 92%); margin: 0 auto; padding: 64px 0 90px; position: relative; z-index: 3; }
+.cs-kicker { color: var(--cyan); font-size: 0.76rem; letter-spacing: 0.08em; }
+.cs-main h1 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(2rem, 5.4vw, 3.1rem); letter-spacing: -0.03em;
+    line-height: 1.1; margin: 14px 0 18px;
+}
+.cs-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 26px; }
+.cs-lede { font-size: 1.12rem; color: var(--text); line-height: 1.7; margin-bottom: 34px; }
+.cs-shot {
+    width: 100%; border-radius: 20px; border: 1px solid var(--stroke-bright);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4), var(--glow-violet);
+    margin-bottom: 44px;
+}
+.cs-main h2 {
+    font-family: var(--font-display); font-size: 1.35rem; letter-spacing: -0.01em;
+    margin: 40px 0 14px; display: flex; align-items: center; gap: 12px;
+}
+.cs-main h2 .mono { color: var(--cyan); font-size: 0.72rem; }
+.cs-main p, .cs-main li { color: var(--text-dim); font-size: 0.98rem; line-height: 1.75; }
+.cs-main ul { padding-left: 22px; display: grid; gap: 8px; margin: 12px 0; }
+.cs-main strong { color: var(--text); }
+.cs-pipe { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.cs-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 18px 0; }
+.cs-metric {
+    padding: 18px; border-radius: var(--radius-sm); text-align: center;
+    background: var(--surface); border: 1px solid var(--stroke);
+}
+.cs-metric strong {
+    display: block; font-family: var(--font-display); font-size: 1.6rem;
+    background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.cs-metric span { font-size: 0.74rem; color: var(--text-faint); }
+.cs-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+.cs-footer {
+    border-top: 1px solid var(--stroke); padding: 28px 0; text-align: center;
+    color: var(--text-faint); font-size: 0.78rem; position: relative; z-index: 3;
+}
+.cs-footer a { color: var(--violet-soft); }
+
 /* ── Reduced motion ────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {

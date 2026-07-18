@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutrifyAI — Vision-Language Nutrition Analysis | Karthikeyan K</title>
+    <meta name="description" content="Case study: NutrifyAI turns any food photo into instant nutritional insight and calorie counts using Gemini multimodal vision inference.">
+    <meta name="author" content="Karthikeyan K">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#7c3aed">
+    <link rel="canonical" href="https://karthikeyank-site.vercel.app/projects/nutrify-ai.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://karthikeyank-site.vercel.app/projects/nutrify-ai.html">
+    <meta property="og:title" content="NutrifyAI — case study by Karthikeyan K">
+    <meta property="og:description" content="Case study: NutrifyAI turns any food photo into instant nutritional insight and calorie counts using Gemini multimodal vision inference.">
+    <meta property="og:image" content="https://karthikeyank-site.vercel.app/og-card.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NutrifyAI — case study by Karthikeyan K">
+    <meta name="twitter:description" content="Case study: NutrifyAI turns any food photo into instant nutritional insight and calorie counts using Gemini multimodal vision inference.">
+    <meta name="twitter:image" content="https://karthikeyank-site.vercel.app/og-card.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090914'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-size='26' font-family='Inter,sans-serif' font-weight='700' fill='%23a78bfa' dy='.3em'%3EKK%3C/text%3E%3C/svg%3E">
+    <script>(function(){try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t==='light'?'light':'dark';}catch(e){document.documentElement.dataset.theme='dark';}})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "NutrifyAI", "url": "https://nutrifyai.streamlit.app/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "description": "Case study: NutrifyAI turns any food photo into instant nutritional insight and calorie counts using Gemini multimodal vision inference.", "author": {"@type": "Person", "name": "Karthikeyan K", "url": "https://karthikeyank-site.vercel.app/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://karthikeyank-site.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://karthikeyank-site.vercel.app/#projects"}, {"@type": "ListItem", "position": 3, "name": "NutrifyAI", "item": "https://karthikeyank-site.vercel.app/projects/nutrify-ai.html"}]}</script>
+</head>
+<body>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><div class="aurora-blob a1"></div><div class="aurora-blob a2"></div></div>
+
+    <header class="cs-header">
+        <a class="cs-back" href="../index.html#projects"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to system map</a>
+        <a class="brand" href="../index.html" aria-label="Karthikeyan K — home"><span class="brand-mark">K<span class="brand-accent">K</span></span></a>
+    </header>
+
+    <main class="cs-main">
+        <span class="cs-kicker mono">case_study 03 · vision-language inference</span>
+        <h1>NutrifyAI</h1>
+        <div class="cs-meta"><span class="pill">Vision & NLP</span><span class="pill">Gemini Vision</span><span class="pill">2024 · Live</span></div>
+        <p class="cs-lede">Point a camera at food, get a nutrition breakdown. NutrifyAI uses Gemini’s multimodal inference to identify dishes from a single photo and return calories and nutritional insight — no barcode, no manual search.</p>
+        <img class="cs-shot" src="../images/projects/nutrify-ai.jpg" alt="NutrifyAI screenshot" width="800" height="480">
+
+        <h2><span class="mono">01</span> The problem</h2>
+        <p>Manual food logging is the reason diet tracking fails: searching databases and estimating portions takes longer than eating. A photo is the lowest-friction input a user can give.</p>
+
+        <h2><span class="mono">02</span> Architecture</h2>
+        <div class="cs-pipe ins-pipe"><span class="pl-step">food photo</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">gemini multimodal inference</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">structured nutrition output</span></div>
+        <ul><li><strong>Image intake:</strong> Pillow handles upload processing before inference.</li><li><strong>Multimodal prompting:</strong> a structured prompt instructs Gemini Vision to identify the dish and estimate nutritional content in a consistent format.</li><li><strong>Instant response:</strong> results render in the Streamlit UI in one round trip — the entire product is a single vision-language call engineered well.</li><li><strong>Config hygiene:</strong> dotenv keeps API credentials out of the codebase.</li></ul>
+
+        <h2><span class="mono">03</span> Results</h2>
+        <div class="cs-metrics"><div class="cs-metric"><strong>1 photo</strong><span>input needed</span></div><div class="cs-metric"><strong>vision</strong><span>LLM modality</span></div><div class="cs-metric"><strong>live</strong><span>streamlit cloud</span></div></div>
+        <p>A deliberately small system that shows multimodal LLM engineering: one well-structured vision call replaces an entire manual data-entry workflow.</p>
+
+        <h2><span class="mono">04</span> Stack</h2>
+        <div class="tag-row"><span>Multimodal LLM</span><span>Gemini Vision API</span><span>Python</span><span>Streamlit</span><span>Pillow</span></div>
+
+        <div class="cs-actions">
+            <a href="https://github.com/Karthikeyan260/NutriLens" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fab fa-github" aria-hidden="true"></i> View source</a>
+            <a href="https://nutrifyai.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span class="btn-glow" aria-hidden="true"></span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Launch live demo</a>
+        </div>
+    </main>
+
+    <footer class="cs-footer">
+        <p>© <span id="yr"></span> <a href="../index.html">Karthikeyan K</a> — AI Engineer · <a href="../index.html#projects">More systems</a></p>
+    </footer>
+    <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

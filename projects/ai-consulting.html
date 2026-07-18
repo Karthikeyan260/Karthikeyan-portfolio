@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Consulting System — Multi-Domain LLM Expert System | Karthikeyan K</title>
+    <meta name="description" content="Case study: building a multi-domain LLM expert system with specialized Gemini 2.0 Flash agents for Education, Healthcare, Finance and Retail — domain-tuned prompting, routing, and real-time persistence.">
+    <meta name="author" content="Karthikeyan K">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#7c3aed">
+    <link rel="canonical" href="https://karthikeyank-site.vercel.app/projects/ai-consulting.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://karthikeyank-site.vercel.app/projects/ai-consulting.html">
+    <meta property="og:title" content="AI Consulting System — case study by Karthikeyan K">
+    <meta property="og:description" content="Case study: building a multi-domain LLM expert system with specialized Gemini 2.0 Flash agents for Education, Healthcare, Finance and Retail — domain-tuned prompting, routing, and real-time persistence.">
+    <meta property="og:image" content="https://karthikeyank-site.vercel.app/og-card.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Consulting System — case study by Karthikeyan K">
+    <meta name="twitter:description" content="Case study: building a multi-domain LLM expert system with specialized Gemini 2.0 Flash agents for Education, Healthcare, Finance and Retail — domain-tuned prompting, routing, and real-time persistence.">
+    <meta name="twitter:image" content="https://karthikeyank-site.vercel.app/og-card.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090914'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-size='26' font-family='Inter,sans-serif' font-weight='700' fill='%23a78bfa' dy='.3em'%3EKK%3C/text%3E%3C/svg%3E">
+    <script>(function(){try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t==='light'?'light':'dark';}catch(e){document.documentElement.dataset.theme='dark';}})();</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "AI Consulting System", "url": "https://aiconsultingsystem.netlify.app/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "description": "Case study: building a multi-domain LLM expert system with specialized Gemini 2.0 Flash agents for Education, Healthcare, Finance and Retail \u2014 domain-tuned prompting, routing, and real-time persistence.", "author": {"@type": "Person", "name": "Karthikeyan K", "url": "https://karthikeyank-site.vercel.app/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://karthikeyank-site.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://karthikeyank-site.vercel.app/#projects"}, {"@type": "ListItem", "position": 3, "name": "AI Consulting System", "item": "https://karthikeyank-site.vercel.app/projects/ai-consulting.html"}]}</script>
+</head>
+<body>
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><div class="aurora-blob a1"></div><div class="aurora-blob a2"></div></div>
+
+    <header class="cs-header">
+        <a class="cs-back" href="../index.html#projects"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to system map</a>
+        <a class="brand" href="../index.html" aria-label="Karthikeyan K — home"><span class="brand-mark">K<span class="brand-accent">K</span></span></a>
+    </header>
+
+    <main class="cs-main">
+        <span class="cs-kicker mono">case_study 01 · agentic expert system</span>
+        <h1>AI Consulting System</h1>
+        <div class="cs-meta"><span class="pill">LLM & Agents</span><span class="pill">Gemini 2.0 Flash</span><span class="pill">2024 · Live</span></div>
+        <p class="cs-lede">A production expert system where one interface routes users to four specialized LLM consultants — Education, Healthcare, Finance and Retail — each with its own domain-tuned prompting strategy. The architecture became the basis of my published research paper, "AI-Driven Consulting: A Smart Expert System for Diverse Domains."</p>
+        <img class="cs-shot" src="../images/projects/ai-consulting.jpg" alt="AI Consulting System screenshot" width="800" height="480">
+
+        <h2><span class="mono">01</span> The problem</h2>
+        <p>A single general-purpose chatbot performs poorly across specialized consulting domains: answers drift, tone is generic, and domain constraints (medical caution, financial disclaimers, retail context) get lost. The goal was one product that behaves like four different domain experts without four separate apps.</p>
+
+        <h2><span class="mono">02</span> Architecture</h2>
+        <div class="cs-pipe ins-pipe"><span class="pl-step">user query</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">domain router</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">domain-tuned prompt chain</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">gemini 2.0 flash</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">expert response</span></div>
+        <ul><li><strong>Domain routing:</strong> the app resolves which vertical a conversation belongs to and hands it to that domain’s agent configuration.</li><li><strong>Domain-tuned prompt chains:</strong> each vertical carries its own system prompting, tone rules and constraint set — the core of the expert-system behavior.</li><li><strong>Real-time persistence:</strong> conversations persist through Firebase so sessions survive reloads and can be resumed.</li><li><strong>Authentication:</strong> Clerk handles identity so each user’s consulting history stays private.</li><li><strong>App shell:</strong> Next.js 15 + TypeScript + Tailwind with Radix UI primitives and Framer Motion transitions.</li></ul>
+
+        <h2><span class="mono">03</span> Results</h2>
+        <div class="cs-metrics"><div class="cs-metric"><strong>4</strong><span>expert domains</span></div><div class="cs-metric"><strong>1</strong><span>published research paper</span></div><div class="cs-metric"><strong>prod</strong><span>live deployment</span></div></div>
+        <p>The system ships in production and the architecture was formalized into an international research publication. It demonstrates the pattern I use at work daily: specialized LLM agents beat one generic model when each carries domain-scoped prompting and constraints.</p>
+
+        <h2><span class="mono">04</span> Stack</h2>
+        <div class="tag-row"><span>Gemini 2.0 Flash</span><span>Prompt Engineering</span><span>Next.js 15</span><span>TypeScript</span><span>Firebase</span><span>Clerk</span><span>Radix UI</span><span>Tailwind CSS</span></div>
+
+        <div class="cs-actions">
+            <a href="https://github.com/Karthikeyan260/AiConsultingSystem" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fab fa-github" aria-hidden="true"></i> View source</a>
+            <a href="https://aiconsultingsystem.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span class="btn-glow" aria-hidden="true"></span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Launch live demo</a>
+        </div>
+    </main>
+
+    <footer class="cs-footer">
+        <p>© <span id="yr"></span> <a href="../index.html">Karthikeyan K</a> — AI Engineer · <a href="../index.html#projects">More systems</a></p>
+    </footer>
+    <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
