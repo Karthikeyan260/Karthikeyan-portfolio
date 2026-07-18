@@ -422,7 +422,8 @@
             canvas.width = W * dpr; canvas.height = H * dpr;
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             CX = W / 2; CY = H / 2;
-            R = W < 520 ? Math.min(W * 1.05, H * 1.1) : Math.min(W, H) * 0.78;
+            /* cap so outer ring (0.58R) + label width stays inside canvas */
+            R = W < 520 ? Math.min((W / 2 - 46) / 0.58, H * 1.05) : Math.min(W, H) * 0.78;
         }
         resize();
         window.addEventListener('resize', resize, { passive: true });
@@ -463,7 +464,9 @@
         let pal = PALETTES[getTheme()];
         document.addEventListener('themechange', (e) => { pal = PALETTES[e.detail] || PALETTES.dark; });
 
-        const FONT = '500 12px "JetBrains Mono", monospace';
+        const FONT = () => W < 520
+            ? '500 10px "JetBrains Mono", monospace'
+            : '500 12px "JetBrains Mono", monospace';
         let last = 0;
         function draw(ts) {
             requestAnimationFrame(draw);
@@ -521,7 +524,7 @@
                 ctx.fillStyle = n.hover > 0.4 ? pal.nodeHover : pal.node;
                 ctx.beginPath(); ctx.arc(x, y, rad, 0, Math.PI * 2); ctx.fill();
 
-                ctx.font = FONT;
+                ctx.font = FONT();
                 ctx.fillStyle = pal.label(n.hover);
                 ctx.fillText(n.name, x, y - 14 - n.hover * 4);
             });
@@ -653,7 +656,7 @@
                     animation: reduceMotion ? false : { animateRotate: true, duration: 1200, easing: 'easeOutQuart' },
                     plugins: {
                         legend: {
-                            position: 'right',
+                            position: window.innerWidth < 520 ? 'bottom' : 'right',
                             labels: {
                                 color: tc.legend, usePointStyle: true, pointStyle: 'circle',
                                 font: { family: 'Sora', size: 11 }, padding: 14

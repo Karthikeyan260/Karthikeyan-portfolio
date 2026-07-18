@@ -20,11 +20,10 @@
             antialias: false,
             powerPreference: 'low-power'
         });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
-
         /* ── Neural nodes ── */
         const isMobile = window.innerWidth < 760;
-        const COUNT = isMobile ? 90 : 170;
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.4 : 1.75));
+        const COUNT = isMobile ? 70 : 170;
         const SPREAD = 26;
         const LINK_DIST = isMobile ? 4.2 : 4.8;
 
