@@ -27,6 +27,7 @@
         cardGlowTrack();
         scrollOrb();
         ecosystem();
+        credTabs();
         skillsOrbit();
         githubTelemetry();
         contactForm();
@@ -390,6 +391,28 @@
         orb.addEventListener('click', () => {
             if (lenis) lenis.scrollTo(0, { duration: 1.4 });
             else window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    /* ── Credentials tabs ──────────────────────────────── */
+    function credTabs() {
+        const tabs = $$('.cred-tab');
+        const panes = $$('.cred-pane');
+        if (!tabs.length) return;
+        tabs.forEach((tab) => {
+            tab.addEventListener('click', () => {
+                tabs.forEach((t) => {
+                    const on = t === tab;
+                    t.classList.toggle('active', on);
+                    t.setAttribute('aria-selected', String(on));
+                });
+                panes.forEach((p) => {
+                    const on = p.dataset.pane === tab.dataset.pane;
+                    p.classList.toggle('active', on);
+                    p.hidden = !on;
+                });
+                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+            });
         });
     }
 
@@ -1166,7 +1189,7 @@
             },
             {
                 keys: ['experience', 'job', 'zinnov', 'intern', 'career'],
-                a: 'Currently <strong>Associate Data Analyst @ Zinnov</strong> (Sep 2025–present) — LLM role-mapping agents cutting manual effort ~90%, and a RAG entity-resolution system reconciling <strong>1.6M+ records</strong> at ~90% accuracy. Six internships before that: Zinnov (Tech), MarcelloTech (UI), OctaNet (Full Stack), NoviTech (AI + Full Stack), and IoT at Anna University MIT &amp; Sri Sairam. Details in <a href="#experience">Experience</a>.'
+                a: 'Currently <strong>Associate Data Analyst @ Zinnov</strong> (Sep 2025–present) — LLM role-mapping agents cutting manual effort ~90%, and a RAG entity-resolution system reconciling <strong>1.6M+ records</strong> at ~90% accuracy. Started at Zinnov as a Tech Intern and converted to full-time; earlier internships include Full Stack at OctaNet and IoT at Anna University MIT &amp; Sri Sairam. Details in <a href="#experience">Experience</a>.'
             },
             {
                 keys: ['contact', 'email', 'reach', 'hire', 'phone', 'connect'],
@@ -1178,7 +1201,7 @@
             },
             {
                 keys: ['cert', 'credential', 'anthropic', 'claude', 'publication', 'paper', 'research'],
-                a: '20+ certifications including <strong>Claude Certified Architect (Anthropic)</strong>, Hugging Face AI Agents Fundamentals, AMD AI Academy agent courses and Google Cloud GenAI — plus a published paper: <strong>"AI-Driven Consulting: A Smart Expert System for Diverse Domains"</strong>. See <a href="#certifications">Credentials</a>.'
+                a: '45 credentials across five categories — including <strong>Claude Certified Architect (Anthropic)</strong>, AI Agents in LangGraph (DeepLearning.AI), AWS Prompt Engineering, Hugging Face AI Agents Fundamentals and AMD AI Academy agent courses — plus two published research papers. See <a href="#certifications">Credentials</a>.'
             },
             {
                 keys: ['resume', 'cv', 'download'],
