@@ -46,7 +46,7 @@ Publication: "AI-Driven Consulting: A Smart Expert System for Diverse Domains" (
 - Live: https://huggingface.co/spaces/karthik2604/Address_ner · Code: https://github.com/Karthikeyan260/Address_NER
 
 ### Other builds
-- Todo Application (React/TypeScript/Redux): https://todo-karthikeyan.vercel.app/
+- Todo Application (React/TypeScript/Redux): https://i8ftfb0ekpv7admu.vercel.app/
 - Weather Dashboard (real-time API dashboard): https://weather-dashboard-rho-inky.vercel.app/
 - Text to Speech (Web Speech API): https://text-to-speech-webpage.vercel.app
 - Chess with minimax AI, Snake, Memory Game, Tic Tac Toe, Netflix UI clone — see https://github.com/Karthikeyan260

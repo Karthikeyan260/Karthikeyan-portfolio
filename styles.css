@@ -13,7 +13,7 @@
     --stroke-bright: rgba(167, 139, 250, 0.35);
     --text: #eef0ff;
     --text-dim: #9aa0b8;
-    --text-faint: #62687f;
+    --text-faint: #7d83a3;
     --violet: #8b5cf6;
     --violet-soft: #a78bfa;
     --cyan: #22d3ee;
@@ -53,10 +53,10 @@
     --stroke-bright: rgba(124, 58, 237, 0.4);
     --text: #14162a;
     --text-dim: #454b66;
-    --text-faint: #71768e;
+    --text-faint: #646a84;
     --violet: #7c3aed;
     --violet-soft: #6d28d9;
-    --cyan: #0891b2;
+    --cyan: #0e7490;
     --magenta: #c026d3;
     --green: #059669;
     --grad: linear-gradient(120deg, #7c3aed, #0891b2);
@@ -880,6 +880,7 @@ a.gh-repo:hover { border-color: var(--stroke-bright); transform: translateX(6px)
 
 .eco-inspector .tag-row { margin-top: 0; }
 .eco-inspector .p-links { margin-top: auto; padding-top: 18px; }
+.ins-wake { color: var(--text-faint); font-size: 0.68rem; margin-top: 10px; }
 
 @media (max-width: 980px) {
     .eco-body { grid-template-columns: 1fr; }
@@ -890,6 +891,7 @@ a.gh-repo:hover { border-color: var(--stroke-bright); transform: translateX(6px)
     .eco-stage { min-height: 360px; }
     .eco-inspector { padding: 20px 18px; }
     .eco-hud { flex-direction: column; align-items: flex-start; }
+    .eco-hint { left: auto; right: 14px; bottom: auto; top: 14px; font-size: 0.66rem; }
 }
 
 .p-links { display: flex; gap: 12px; margin-top: 18px; }

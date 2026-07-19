@@ -399,19 +399,33 @@
         const tabs = $$('.cred-tab');
         const panes = $$('.cred-pane');
         if (!tabs.length) return;
-        tabs.forEach((tab) => {
-            tab.addEventListener('click', () => {
-                tabs.forEach((t) => {
-                    const on = t === tab;
-                    t.classList.toggle('active', on);
-                    t.setAttribute('aria-selected', String(on));
-                });
-                panes.forEach((p) => {
-                    const on = p.dataset.pane === tab.dataset.pane;
-                    p.classList.toggle('active', on);
-                    p.hidden = !on;
-                });
-                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+        function activate(tab) {
+            tabs.forEach((t) => {
+                const on = t === tab;
+                t.classList.toggle('active', on);
+                t.setAttribute('aria-selected', String(on));
+                t.tabIndex = on ? 0 : -1;
+            });
+            panes.forEach((p) => {
+                const on = p.dataset.pane === tab.dataset.pane;
+                p.classList.toggle('active', on);
+                p.hidden = !on;
+            });
+            if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+        }
+        tabs.forEach((tab, i) => {
+            tab.tabIndex = tab.classList.contains('active') ? 0 : -1;
+            tab.addEventListener('click', () => activate(tab));
+            tab.addEventListener('keydown', (e) => {
+                let idx = null;
+                if (e.key === 'ArrowRight') idx = (i + 1) % tabs.length;
+                else if (e.key === 'ArrowLeft') idx = (i - 1 + tabs.length) % tabs.length;
+                else if (e.key === 'Home') idx = 0;
+                else if (e.key === 'End') idx = tabs.length - 1;
+                if (idx === null) return;
+                e.preventDefault();
+                tabs[idx].focus();
+                activate(tabs[idx]);
             });
         });
     }
@@ -507,7 +521,7 @@
                 stack: ['React', 'TypeScript', 'Redux'],
                 img: 'images/projects/todo-app.jpg',
                 gh: 'https://github.com/Karthikeyan260/Todo-List',
-                live: 'https://todo-karthikeyan.vercel.app/'
+                live: 'https://i8ftfb0ekpv7admu.vercel.app/'
             },
             {
                 id: 'weather', cluster: 'interfaces', x: 0.27, y: 0.80, r: 10,
@@ -531,7 +545,7 @@
                 stack: ['CSS Grid', 'Flexbox', 'JavaScript'],
                 img: 'images/projects/netflix-clone.svg',
                 gh: 'https://github.com/Karthikeyan260/Netflix-clone',
-                live: 'https://netflix-clone-olive-five-55.vercel.app/'
+                live: 'https://netflix-clone1-one.vercel.app/'
             },
             {
                 id: 'chess', cluster: 'playground', x: 0.64, y: 0.66, r: 11,
@@ -707,7 +721,8 @@
                     ${n.cs ? `<a href="${n.cs}" class="p-link live"><i class="fas fa-file-lines"></i> Case study</a>` : ''}
                     <a href="${n.gh}" target="_blank" rel="noopener noreferrer" class="p-link"><i class="fab fa-github"></i> Source</a>
                     <a href="${n.live}" target="_blank" rel="noopener noreferrer" class="p-link live"><i class="fas fa-arrow-up-right-from-square"></i> Launch</a>
-                </div>`;
+                </div>
+                ${n.live.includes('streamlit.app') ? `<div class="ins-row ins-wake mono" ${d(8)}>// hosted on streamlit — cold start may take ~30s</div>` : ''}`;
         }
         renderIdle();
 
@@ -1048,9 +1063,21 @@
             })(t0);
         }
 
-        function drawLangChart(entries) {
+        function loadChartJs() {
+            return new Promise((resolve, reject) => {
+                if (typeof Chart !== 'undefined') return resolve();
+                const s = document.createElement('script');
+                s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js';
+                s.onload = resolve;
+                s.onerror = reject;
+                document.head.appendChild(s);
+            });
+        }
+
+        async function drawLangChart(entries) {
             const cv = $('#langChart');
-            if (!cv || typeof Chart === 'undefined' || !entries.length) return;
+            if (!cv || !entries.length) return;
+            try { await loadChartJs(); } catch { return; }
             const COLORS = ['#8b5cf6', '#22d3ee', '#e879f9', '#34d399', '#fbbf24', '#60a5fa', '#f87171'];
             const themeCfg = () => getTheme() === 'light'
                 ? { legend: '#454b66', border: '#f3f4fb', ttBg: 'rgba(255,255,255,0.95)', ttColor: '#14162a' }
@@ -1127,7 +1154,8 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const inputs = $$('input[required], textarea[required]', form);
-            if (!inputs.every(validate)) {
+            /* map first so every field gets marked, not just the first invalid one */
+            if (inputs.map(validate).includes(false)) {
                 status.textContent = 'Please fill in all fields correctly.';
                 status.className = 'form-status err';
                 return;
