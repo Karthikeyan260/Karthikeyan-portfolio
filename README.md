@@ -27,6 +27,7 @@ I'm **Karthikeyan K**, an AI Engineer and Associate Data Analyst at **Zinnov**, 
 - **🎬 Cinematic experience**: Preloader with logo reveal, curtain transitions, scroll-driven storytelling
 - **🧠 Three.js neural hero**: Animated neural-network constellation with mouse parallax and theme-aware rendering
 - **🌓 Dark/Light theme**: One-click toggle, `localStorage` persistence, no flash on reload — canvases and charts adapt live
+- **🗺️ AI system map**: Projects presented as an explorable network — 12 nodes in 4 clusters around a core hub, with animated data pulses and a terminal-style system inspector showing each project's pipeline architecture
 - **🛰️ Skill constellation**: Custom canvas orbital visualization of the AI stack (LangChain, LangGraph, RAG, MCP…)
 - **📊 GitHub telemetry**: Live stats, language distribution (Chart.js doughnut), and top repositories via the GitHub API
 - **🤖 KAI assistant**: Floating AI chat widget answering questions about skills, projects, and experience
@@ -67,8 +68,8 @@ I'm **Karthikeyan K**, an AI Engineer and Associate Data Analyst at **Zinnov**, 
 | **Experience** | Zinnov (Associate Data Analyst + Tech Intern), MarcelloTech, OctaNet, NoviTech, IoT ×2 |
 | **Skills** | Orbital constellation + clustered chips of the AI/engineering stack |
 | **GitHub** | Live stats, language chart, highlighted repos |
-| **Projects** | AI Consulting System (published research), AI Job Assistant, NutrifyAI, Address NER (92% F1), and more |
-| **Credentials** | 20+ certifications (Anthropic, Hugging Face, AMD, Google Cloud, IBM…) + publications |
+| **Projects** | Interactive AI system map + case-study pages: AI Consulting System (published research), AI Job Assistant, NutrifyAI, Address NER (92% F1), and more |
+| **Credentials** | 45 credentials in 5 tabbed categories — certifications (Anthropic, DeepLearning.AI, AWS, Hugging Face, AMD…), courses, badges, publications, achievements |
 | **Contact** | Animated form with floating labels, validation, and live status |
 
 ## 🚀 Getting Started

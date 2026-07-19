@@ -1,23 +1,20 @@
 {
   "name": "karthikeyan-portfolio",
-  "version": "1.0.0",
-  "description": "Portfolio of Karthikeyan K – Full Stack Developer, AI Developer, and IoT Enthusiast.",
+  "version": "2.0.0",
+  "description": "Portfolio of Karthikeyan K – AI Engineer building multi-agent LLM systems, RAG pipelines, and intelligent automation.",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "python -m http.server 8000"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Karthikeyan260/Karthikeyan-portfolio.git"
   },
-  "keywords": ["portfolio", "full-stack", "ai", "iot", "web-developer"],
+  "keywords": ["portfolio", "ai-engineer", "llm", "rag", "ai-agents", "langchain", "langgraph"],
   "author": "Karthikeyan K",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Karthikeyan260/Karthikeyan-portfolio/issues"
   },
-  "homepage": "https://github.com/Karthikeyan260/Karthikeyan-portfolio#readme",
-  "dependencies": {
-    "@vercel/speed-insights": "^2.0.0"
-  }
+  "homepage": "https://karthikeyank-site.vercel.app/"
 }
