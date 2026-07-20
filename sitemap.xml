@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
-        <loc>https://karthikeyank-site.vercel.app/</loc>
+        <loc>https://karthikeyan.vercel.app/</loc>
         <lastmod>2026-07-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://karthikeyank-site.vercel.app/og-card.png</image:loc>
+            <image:loc>https://karthikeyan.vercel.app/og-card.png</image:loc>
             <image:title>Karthikeyan K — AI Engineer</image:title>
         </image:image>
     </url>
     <url>
-        <loc>https://karthikeyank-site.vercel.app/projects/ai-consulting.html</loc>
+        <loc>https://karthikeyan.vercel.app/projects/ai-consulting.html</loc>
         <lastmod>2026-07-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://karthikeyank-site.vercel.app/projects/job-assistant.html</loc>
+        <loc>https://karthikeyan.vercel.app/projects/job-assistant.html</loc>
         <lastmod>2026-07-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://karthikeyank-site.vercel.app/projects/nutrify-ai.html</loc>
+        <loc>https://karthikeyan.vercel.app/projects/nutrify-ai.html</loc>
         <lastmod>2026-07-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://karthikeyank-site.vercel.app/projects/address-ner.html</loc>
+        <loc>https://karthikeyan.vercel.app/projects/address-ner.html</loc>
         <lastmod>2026-07-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

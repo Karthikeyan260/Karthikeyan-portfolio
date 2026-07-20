@@ -2,7 +2,7 @@
   "name": "Karthikeyan K — AI Engineer Portfolio",
   "short_name": "Karthikeyan K",
   "description": "Portfolio of Karthikeyan K – AI Engineer building multi-agent LLM systems, RAG pipelines, and intelligent automation with LangChain, LangGraph, and Gemini.",
-  "start_url": "https://karthikeyank-site.vercel.app/",
+  "start_url": "https://karthikeyan.vercel.app/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
@@ -34,13 +34,13 @@
       "name": "View Projects",
       "short_name": "Projects",
       "description": "Explore the AI system map of projects",
-      "url": "https://karthikeyank-site.vercel.app/#projects"
+      "url": "https://karthikeyan.vercel.app/#projects"
     },
     {
       "name": "Get in Touch",
       "short_name": "Contact",
       "description": "Contact Karthikeyan K",
-      "url": "https://karthikeyank-site.vercel.app/#contact"
+      "url": "https://karthikeyan.vercel.app/#contact"
     }
   ]
 }

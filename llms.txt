@@ -27,22 +27,22 @@ Publication: "AI-Driven Consulting: A Smart Expert System for Diverse Domains" (
 
 ### AI Consulting System — multi-domain LLM expert system
 - Specialized Gemini 2.0 Flash agents for Education, Healthcare, Finance and Retail with domain-tuned prompting and real-time persistence; basis of the published research paper
-- Case study: https://karthikeyank-site.vercel.app/projects/ai-consulting.html
+- Case study: https://karthikeyan.vercel.app/projects/ai-consulting.html
 - Live: https://aiconsultingsystem.netlify.app/ · Code: https://github.com/Karthikeyan260/AiConsultingSystem
 
 ### AI Job Application Assistant — LLM career copilot
 - Resume optimization, cover-letter generation and job-fit scoring via Gemini 2.0 Flash with ML-driven skill-gap analysis
-- Case study: https://karthikeyank-site.vercel.app/projects/job-assistant.html
+- Case study: https://karthikeyan.vercel.app/projects/job-assistant.html
 - Live: https://ai-powered-job-application-assistant.streamlit.app/ · Code: https://github.com/Karthikeyan260/AI-Powered-Job-Application-Assistant
 
 ### NutrifyAI — vision-language nutrition analysis
 - Food photos become instant nutritional insight through Gemini multimodal inference
-- Case study: https://karthikeyank-site.vercel.app/projects/nutrify-ai.html
+- Case study: https://karthikeyan.vercel.app/projects/nutrify-ai.html
 - Live: https://nutrifyai.streamlit.app/ · Code: https://github.com/Karthikeyan260/NutriLens
 
 ### Address NER — custom named-entity recognition
 - Custom SpaCy NER model extracting structured address components at 92% F1, deployed on Hugging Face Spaces
-- Case study: https://karthikeyank-site.vercel.app/projects/address-ner.html
+- Case study: https://karthikeyan.vercel.app/projects/address-ner.html
 - Live: https://huggingface.co/spaces/karthik2604/Address_ner · Code: https://github.com/Karthikeyan260/Address_NER
 
 ### Other builds
@@ -61,7 +61,7 @@ Publication: "AI-Driven Consulting: A Smart Expert System for Diverse Domains" (
 - LinkedIn: https://www.linkedin.com/in/karthikeyan2604/
 - GitHub: https://github.com/Karthikeyan260
 - Hugging Face: https://huggingface.co/karthik2604
-- Portfolio: https://karthikeyank-site.vercel.app/
+- Portfolio: https://karthikeyan.vercel.app/
 
 ## Site
 
