@@ -455,7 +455,7 @@
                 pipeline: ['user query', 'domain router', 'gemini 2.0', 'expert answer'],
                 metrics: [['4', 'domains'], ['paper', 'published'], ['prod', 'status']],
                 stack: ['Gemini 2.0 Flash', 'Prompt Engineering', 'Next.js 15', 'Firebase'],
-                img: 'images/projects/ai-consulting.jpg',
+                img: 'images/projects/ai-consulting.png',
                 cs: 'projects/ai-consulting.html',
                 gh: 'https://github.com/Karthikeyan260/AiConsultingSystem',
                 live: 'https://aiconsultingsystem.netlify.app/'
@@ -468,7 +468,7 @@
                 pipeline: ['resume + JD', 'doc parser', 'LLM rewrite', 'fit score'],
                 metrics: [['3', 'AI tools'], ['ML', 'skill-gap'], ['PDF', 'pipeline']],
                 stack: ['Gemini 2.0 Flash', 'scikit-learn', 'Streamlit', 'PyPDF2'],
-                img: 'images/projects/ai-job-assistant.jpg',
+                img: 'images/projects/ai-job-assistant.png',
                 cs: 'projects/job-assistant.html',
                 gh: 'https://github.com/Karthikeyan260/AI-Powered-Job-Application-Assistant',
                 live: 'https://ai-powered-job-application-assistant.streamlit.app/'
@@ -481,7 +481,7 @@
                 pipeline: ['food photo', 'gemini vision', 'macro breakdown'],
                 metrics: [['vision', 'modality'], ['instant', 'inference'], ['live', 'status']],
                 stack: ['Multimodal LLM', 'Gemini Vision', 'Streamlit', 'Python'],
-                img: 'images/projects/nutrify-ai.jpg',
+                img: 'images/projects/nutrify-ai.png',
                 cs: 'projects/nutrify-ai.html',
                 gh: 'https://github.com/Karthikeyan260/NutriLens',
                 live: 'https://nutrifyai.streamlit.app/'
@@ -494,7 +494,7 @@
                 pipeline: ['raw text', 'spaCy NER', 'structured address'],
                 metrics: [['92%', 'F1 score'], ['HF', 'spaces'], ['6', 'entities']],
                 stack: ['SpaCy', 'NER', 'Hugging Face', 'Python'],
-                img: 'images/projects/address-ner.svg',
+                img: 'images/projects/address-ner.png',
                 cs: 'projects/address-ner.html',
                 gh: 'https://github.com/Karthikeyan260/Address_NER',
                 live: 'https://huggingface.co/spaces/karthik2604/Address_ner'
