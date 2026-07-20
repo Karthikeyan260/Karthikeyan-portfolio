@@ -44,14 +44,14 @@
         <p class="cs-lede">Three AI copilot tools in one app: resume optimization, personalized cover-letter generation, and job-compatibility scoring — combining LLM generation with classical ML analysis so the advice is grounded in measurable skill gaps, not just fluent text.</p>
         <img class="cs-shot" src="../images/projects/ai-job-assistant.png" alt="AI Job Application Assistant screenshot" width="800" height="480">
 
-        <h2><span class="mono">01</span> The problem</h2>
+        <h2><span class="mono">01</span> What problem does it solve?</h2>
         <p>Tailoring a resume and cover letter for every job description is slow, and candidates rarely know which skills actually block them. Pure-LLM tools generate fluent but ungrounded advice; the goal was to pair generation with measurable analysis.</p>
 
-        <h2><span class="mono">02</span> Architecture</h2>
+        <h2><span class="mono">02</span> How does it work?</h2>
         <div class="cs-pipe ins-pipe"><span class="pl-step">resume + job description</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">document parser</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">LLM rewrite / generate</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">ML fit scoring</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">skill-gap report</span></div>
         <ul><li><strong>Document ingestion:</strong> PyPDF2 and python-docx parse uploaded resumes into clean text for downstream stages.</li><li><strong>Role-targeted prompting:</strong> Gemini 2.0 Flash rewrites the resume and drafts cover letters against the specific job description, not a generic template.</li><li><strong>Compatibility scoring:</strong> scikit-learn computes a resume-to-JD fit score, so the LLM’s qualitative advice is anchored to a quantitative signal.</li><li><strong>Skill-gap analytics:</strong> missing skills are extracted and visualized with Plotly, with progress tracking across applications.</li><li><strong>Interface:</strong> Streamlit keeps the whole pipeline interactive and deployable in one artifact.</li></ul>
 
-        <h2><span class="mono">03</span> Results</h2>
+        <h2><span class="mono">03</span> What did it achieve?</h2>
         <div class="cs-metrics"><div class="cs-metric"><strong>3</strong><span>copilot tools</span></div><div class="cs-metric"><strong>ML + LLM</strong><span>hybrid pipeline</span></div><div class="cs-metric"><strong>live</strong><span>streamlit cloud</span></div></div>
         <p>A working example of the hybrid pattern — LLM for generation, classical ML for measurement — shipped end-to-end: parsing, prompting, scoring, visualization and deployment.</p>
 

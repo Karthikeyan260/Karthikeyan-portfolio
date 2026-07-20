@@ -44,14 +44,14 @@
         <p class="cs-lede">Point a camera at food, get a nutrition breakdown. NutrifyAI uses Gemini’s multimodal inference to identify dishes from a single photo and return calories and nutritional insight — no barcode, no manual search.</p>
         <img class="cs-shot" src="../images/projects/nutrify-ai.png" alt="NutrifyAI screenshot" width="800" height="480">
 
-        <h2><span class="mono">01</span> The problem</h2>
+        <h2><span class="mono">01</span> What problem does it solve?</h2>
         <p>Manual food logging is the reason diet tracking fails: searching databases and estimating portions takes longer than eating. A photo is the lowest-friction input a user can give.</p>
 
-        <h2><span class="mono">02</span> Architecture</h2>
+        <h2><span class="mono">02</span> How does it work?</h2>
         <div class="cs-pipe ins-pipe"><span class="pl-step">food photo</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">gemini multimodal inference</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">structured nutrition output</span></div>
         <ul><li><strong>Image intake:</strong> Pillow handles upload processing before inference.</li><li><strong>Multimodal prompting:</strong> a structured prompt instructs Gemini Vision to identify the dish and estimate nutritional content in a consistent format.</li><li><strong>Instant response:</strong> results render in the Streamlit UI in one round trip — the entire product is a single vision-language call engineered well.</li><li><strong>Config hygiene:</strong> dotenv keeps API credentials out of the codebase.</li></ul>
 
-        <h2><span class="mono">03</span> Results</h2>
+        <h2><span class="mono">03</span> What did it achieve?</h2>
         <div class="cs-metrics"><div class="cs-metric"><strong>1 photo</strong><span>input needed</span></div><div class="cs-metric"><strong>vision</strong><span>LLM modality</span></div><div class="cs-metric"><strong>live</strong><span>streamlit cloud</span></div></div>
         <p>A deliberately small system that shows multimodal LLM engineering: one well-structured vision call replaces an entire manual data-entry workflow.</p>
 

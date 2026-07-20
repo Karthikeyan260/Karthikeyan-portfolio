@@ -44,14 +44,14 @@
         <p class="cs-lede">Free-text addresses are useless to structured systems. This custom NER model reads raw address strings and emits labeled components — house number, street, city, postcode, country — at 92% F1, deployed publicly on Hugging Face Spaces.</p>
         <img class="cs-shot" src="../images/projects/address-ner.png" alt="Address NER screenshot" width="800" height="480">
 
-        <h2><span class="mono">01</span> The problem</h2>
+        <h2><span class="mono">01</span> What problem does it solve?</h2>
         <p>Address data arrives as unstructured strings in wildly inconsistent formats. Regex breaks on real-world variance; the task needs a learned model that generalizes across formats.</p>
 
-        <h2><span class="mono">02</span> Architecture</h2>
+        <h2><span class="mono">02</span> How does it work?</h2>
         <div class="cs-pipe ins-pipe"><span class="pl-step">raw address text</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">spaCy NER model</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">labeled entities</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">structured record</span></div>
         <ul><li><strong>Custom entity schema:</strong> HOUSE_NUMBER, STREET_NAME, CITY, DISTRICT, POSTCODE, COUNTRY — designed for downstream database ingestion.</li><li><strong>Model training:</strong> a SpaCy pipeline trained on annotated address data rather than a zero-shot LLM call — cheaper, faster and deterministic at inference.</li><li><strong>Evaluation:</strong> measured to 92% F1 with precision/recall tracked per entity type.</li><li><strong>Deployment:</strong> published as an interactive demo on Hugging Face Spaces where anyone can test arbitrary addresses.</li></ul>
 
-        <h2><span class="mono">03</span> Results</h2>
+        <h2><span class="mono">03</span> What did it achieve?</h2>
         <div class="cs-metrics"><div class="cs-metric"><strong>92%</strong><span>F1 score</span></div><div class="cs-metric"><strong>6</strong><span>entity types</span></div><div class="cs-metric"><strong>HF Spaces</strong><span>public deployment</span></div></div>
         <p>Demonstrates the classical-NLP judgment call: when a task is narrow and structured, a small trained model beats an LLM on cost, latency and determinism — and knowing that trade-off is part of AI engineering.</p>
 

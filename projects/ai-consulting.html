@@ -44,14 +44,14 @@
         <p class="cs-lede">A production expert system where one interface routes users to four specialized LLM consultants — Education, Healthcare, Finance and Retail — each with its own domain-tuned prompting strategy. The architecture became the basis of my published research paper, "AI-Driven Consulting: A Smart Expert System for Diverse Domains."</p>
         <img class="cs-shot" src="../images/projects/ai-consulting.png" alt="AI Consulting System screenshot" width="800" height="480">
 
-        <h2><span class="mono">01</span> The problem</h2>
+        <h2><span class="mono">01</span> What problem does it solve?</h2>
         <p>A single general-purpose chatbot performs poorly across specialized consulting domains: answers drift, tone is generic, and domain constraints (medical caution, financial disclaimers, retail context) get lost. The goal was one product that behaves like four different domain experts without four separate apps.</p>
 
-        <h2><span class="mono">02</span> Architecture</h2>
+        <h2><span class="mono">02</span> How does it work?</h2>
         <div class="cs-pipe ins-pipe"><span class="pl-step">user query</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">domain router</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">domain-tuned prompt chain</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">gemini 2.0 flash</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">expert response</span></div>
         <ul><li><strong>Domain routing:</strong> the app resolves which vertical a conversation belongs to and hands it to that domain’s agent configuration.</li><li><strong>Domain-tuned prompt chains:</strong> each vertical carries its own system prompting, tone rules and constraint set — the core of the expert-system behavior.</li><li><strong>Real-time persistence:</strong> conversations persist through Firebase so sessions survive reloads and can be resumed.</li><li><strong>Authentication:</strong> Clerk handles identity so each user’s consulting history stays private.</li><li><strong>App shell:</strong> Next.js 15 + TypeScript + Tailwind with Radix UI primitives and Framer Motion transitions.</li></ul>
 
-        <h2><span class="mono">03</span> Results</h2>
+        <h2><span class="mono">03</span> What did it achieve?</h2>
         <div class="cs-metrics"><div class="cs-metric"><strong>4</strong><span>expert domains</span></div><div class="cs-metric"><strong>1</strong><span>published research paper</span></div><div class="cs-metric"><strong>prod</strong><span>live deployment</span></div></div>
         <p>The system ships in production and the architecture was formalized into an international research publication. It demonstrates the pattern I use at work daily: specialized LLM agents beat one generic model when each carries domain-scoped prompting and constraints.</p>
 
