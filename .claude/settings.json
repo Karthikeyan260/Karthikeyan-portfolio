@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -i 's#images/projects/ai-consulting\\\\.jpg#images/projects/ai-consulting.png#g' projects/ai-consulting.html script.js)",
+      "Bash(sed -i 's#images/projects/ai-job-assistant\\\\.jpg#images/projects/ai-job-assistant.png#g' projects/job-assistant.html script.js)",
+      "Bash(sed -i 's#images/projects/nutrify-ai\\\\.jpg#images/projects/nutrify-ai.png#g' projects/nutrify-ai.html script.js)",
+      "Bash(cd \"c:/Users/KarthikeyanK/Downloads/Karthikeyan-portfolio\" && rm images/projects/ai-consulting.jpg images/projects/ai-job-assistant.jpg images/projects/nutrify-ai.jpg && git status --short)",
+      "Bash(sed -i 's#images/projects/address-ner\\\\.svg#images/projects/address-ner.png#g' projects/address-ner.html script.js)",
+      "Bash(sed -i 's#content=\"https://karthikeyan.vercel.app/og-card.png\"#content=\"https://karthikeyan.vercel.app/images/projects/address-ner.png\"#g' projects/address-ner.html)",
+      "Bash(git commit -m ' *)",
+      "Bash(curl -sI https://karthikeyan.vercel.app/)",
+      "Bash(curl -sI https://karthikeyan.vercel.app/projects/nutrify-ai.html)",
+      "Bash(powershell -Command \"[guid]::NewGuid\\(\\).ToString\\('N'\\)\")",
+      "Bash(node -e \"console.log\\(require\\('crypto'\\).randomBytes\\(16\\).toString\\('hex'\\)\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://karthikeyan.vercel.app/9299c4e6bfb445a5934d9dfff9f1549c.txt)",
+      "Bash(curl -s https://karthikeyan.vercel.app/projects/nutrify-ai.html)",
+      "WebSearch",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://karthikeyank.tech/)",
+      "Bash(curl -s https://karthikeyank.tech/)",
+      "Bash(curl -v -s -o /dev/null https://karthikeyank.tech/)",
+      "Bash(curl -sL -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" http://karthikeyank.tech/ --max-time 10)",
+      "Bash(curl -sL -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" https://karthikeyank.tech/ --max-time 10)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\KarthikeyanK\\Downloads\\Karthikeyan-portfolio\\images\\projects"
+    ]
+  }
+}
