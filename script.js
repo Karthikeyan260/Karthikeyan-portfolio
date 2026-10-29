@@ -1201,7 +1201,9 @@
                 form.reset();
                 toast('Message sent successfully 🚀');
             } catch {
-                status.textContent = 'Transmission failed — email me directly at kartji005@gmail.com';
+                const body = encodeURIComponent(`${$('#msgField').value}\n\n— ${$('#fromName').value} (${$('#fromEmail').value})`);
+                status.innerHTML = 'Couldn\'t send from here. <a href="mailto:kartji005@gmail.com?subject=' +
+                    encodeURIComponent('Portfolio contact') + '&body=' + body + '">Click to send it from your email app</a> — your message is pre-filled.';
                 status.className = 'form-status err';
             } finally {
                 labelSpan.hidden = false;

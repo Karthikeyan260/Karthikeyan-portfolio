@@ -291,7 +291,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; position: relative; }
 .nav-link {
-    display: block; padding: 8px 14px; border-radius: 999px;
+    display: block; padding: 10px 12px; border-radius: 999px;
     font-size: 0.86rem; font-weight: 500; color: var(--text-dim);
     transition: color 0.25s; position: relative; z-index: 1;
 }
@@ -332,7 +332,7 @@ button { font-family: inherit; cursor: pointer; }
 .menu-toggle.open span:nth-child(2) { opacity: 0; scale: 0; }
 .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 960px) {
+@media (max-width: 1180px) {
     .nav-links, .btn-nav { display: none; }
     .menu-toggle { display: flex; }
 }
@@ -763,12 +763,24 @@ a.gh-repo:hover { border-color: var(--stroke-bright); transform: translateX(6px)
     .gh-grid { grid-template-columns: 1fr; grid-template-areas: "stats" "chart" "repos"; }
     .gh-stats { grid-template-columns: repeat(2, 1fr); }
 }
+@media (max-width: 420px) {
+    .gh-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .gh-stat { padding: 20px 16px; }
+    .gh-chart-card, .gh-repos-card { padding: 22px; }
+}
 
 /* ── Projects ──────────────────────────────────────────── */
 /* — AI System Map (projects ecosystem) — */
 .visually-hidden {
     position: absolute; width: 1px; height: 1px; overflow: hidden;
     clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+/* keyboard users must see where focus is: reveal the hidden link when it is focused */
+.visually-hidden a:focus {
+    position: fixed; left: 16px; bottom: 16px; z-index: 3000;
+    width: auto; height: auto; overflow: visible; clip: auto; clip-path: none;
+    padding: 12px 18px; border-radius: 10px;
+    background: var(--violet); color: #fff;
 }
 .eco { display: grid; gap: 18px; }
 .eco-hud {
@@ -941,7 +953,7 @@ a.gh-repo:hover { border-color: var(--stroke-bright); transform: translateX(6px)
     color: var(--cyan); text-transform: uppercase;
 }
 .cred h3 { font-size: 0.9rem; font-weight: 600; line-height: 1.45; }
-.cred-verify { font-size: 0.75rem; color: var(--green); display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; }
+.cred-verify { font-size: 0.75rem; color: var(--green); display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; padding: 5px 0; }
 .honors-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 18px; margin-top: 40px; }
 .honor { padding: 28px 26px; }
 .honor-icon {
