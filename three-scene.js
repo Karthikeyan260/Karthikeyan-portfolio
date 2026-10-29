@@ -7,6 +7,9 @@
     function init() {
         const canvas = document.getElementById('heroCanvas3D');
         if (!canvas || typeof THREE === 'undefined' || reduceMotion) return;
+        /* skip the WebGL layer on low-end devices; the CSS background still renders */
+        if ((navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) ||
+            (navigator.deviceMemory && navigator.deviceMemory <= 2)) return;
 
         const scene = new THREE.Scene();
         scene.fog = new THREE.FogExp2(0x050509, 0.035);

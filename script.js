@@ -44,6 +44,8 @@
         const inject = () => {
             const three = document.createElement('script');
             three.src = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js';
+            three.integrity = 'sha384-qOkzR5Ke/XkQxuGVJ9hpFEpDlcoLtWwVYhnJf06cLIZa2vaIptSqaubivErzmD5O';
+            three.crossOrigin = 'anonymous';
             three.onload = () => {
                 const scene = document.createElement('script');
                 scene.src = 'three-scene.js';
@@ -90,7 +92,10 @@
             pct.textContent = Math.round(p) + '%';
         }, 140);
 
+        let finished = false;
         const finish = () => {
+            if (finished) return;
+            finished = true;
             clearInterval(tick);
             fill.style.width = '100%';
             pct.textContent = '100%';
@@ -98,11 +103,11 @@
                 el.classList.add('done');
                 document.body.dispatchEvent(new CustomEvent('site:ready'));
                 setTimeout(() => el.remove(), 1400);
-            }, reduceMotion ? 50 : 420);
+            }, reduceMotion ? 50 : 120);
         };
         if (document.readyState === 'complete') finish();
         else window.addEventListener('load', finish);
-        setTimeout(finish, 5000); /* hard cap */
+        setTimeout(finish, 1500); /* hard cap — don't block the hero on slow CDNs */
     }
 
     /* ── Lenis + GSAP ──────────────────────────────────── */
@@ -126,6 +131,8 @@
                 if (!target) return;
                 e.preventDefault();
                 lenis.scrollTo(target, { offset: -70, duration: 1.3 });
+                if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+                target.focus({ preventScroll: true });
             });
         });
     }
@@ -137,13 +144,17 @@
         if (!dot || !ring) return;
         let mx = -100, my = -100, rx = -100, ry = -100;
         window.addEventListener('pointermove', (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
-        (function loop() {
+        let running = false;
+        function loop() {
             rx += (mx - rx) * 0.16;
             ry += (my - ry) * 0.16;
             dot.style.transform = `translate(${mx}px, ${my}px)`;
             ring.style.transform = `translate(${rx}px, ${ry}px)`;
+            if (Math.abs(mx - rx) < 0.1 && Math.abs(my - ry) < 0.1) { running = false; return; }
             requestAnimationFrame(loop);
-        })();
+        }
+        const wake = () => { if (!running) { running = true; requestAnimationFrame(loop); } };
+        window.addEventListener('pointermove', wake, { passive: true });
         const hoverables = 'a, button, .chip, .tilt-card, input, textarea, [data-tilt]';
         document.addEventListener('pointerover', (e) => {
             if (e.target.closest(hoverables)) ring.classList.add('is-hover');
@@ -269,12 +280,11 @@
         const el = $('#typedRole');
         if (!el) return;
         const roles = [
-            'AI Engineer',
-            'Multi-Agent Systems Builder',
-            'RAG &amp; LLM Engineer',
+            'Associate Data Analyst',
+            'LLM Agent Builder',
+            'RAG &amp; Entity Resolution',
             'Agentic AI Explorer',
-            'GenAI Automation Developer',
-            'Full Stack AI Builder'
+            'GenAI Automation Developer'
         ];
         if (typeof Typed !== 'undefined' && !reduceMotion) {
             new Typed('#typedRole', {
@@ -282,7 +292,7 @@
                 backDelay: 1800, loop: true, showCursor: false
             });
         } else {
-            el.textContent = 'AI Engineer';
+            el.textContent = 'Associate Data Analyst';
         }
     }
 
@@ -489,11 +499,11 @@
             {
                 id: 'address-ner', cluster: 'perception', x: 0.845, y: 0.30, r: 11,
                 short: 'Address NER', name: 'Address NER',
-                type: 'custom named-entity recognition', year: '2024', status: 'LIVE',
-                mission: 'Custom NER model extracting structured address components from raw text — trained, evaluated and deployed to Hugging Face Spaces.',
-                pipeline: ['raw text', 'spaCy NER', 'structured address'],
-                metrics: [['92%', 'F1 score'], ['HF', 'spaces'], ['6', 'entities']],
-                stack: ['SpaCy', 'NER', 'Hugging Face', 'Python'],
+                type: 'fine-tuned token classifier', year: '2024', status: 'LIVE',
+                mission: 'Fine-tuned ALBERT token-classification model extracting structured address components from raw text, served as a Gradio demo on Hugging Face Spaces.',
+                pipeline: ['raw text', 'ALBERT tagger', 'structured address'],
+                metrics: [['ALBERT', 'model'], ['HF', 'spaces'], ['NER', 'task']],
+                stack: ['Transformers', 'ALBERT', 'Gradio', 'Hugging Face', 'Python'],
                 img: 'images/projects/address-ner.png',
                 cs: 'projects/address-ner.html',
                 gh: 'https://github.com/Karthikeyan260/Address_NER',
@@ -680,10 +690,10 @@
                 <div class="ins-idle">
                     <p>This is the live map of everything I've shipped. Click any <strong>node</strong> to open its system inspector — mission, pipeline architecture, metrics and launch links.</p>
                     <div class="ins-idle-stats">
-                        <div class="ins-stat"><strong>12</strong><span>deployed systems</span></div>
-                        <div class="ins-stat"><strong>5</strong><span>LLM / ML powered</span></div>
-                        <div class="ins-stat"><strong>4</strong><span>clusters online</span></div>
-                        <div class="ins-stat"><strong>100%</strong><span>shipped &amp; live</span></div>
+                        <div class="ins-stat"><strong>12</strong><span>projects</span></div>
+                        <div class="ins-stat"><strong>4</strong><span>AI case studies</span></div>
+                        <div class="ins-stat"><strong>8</strong><span>smaller builds</span></div>
+                        <div class="ins-stat"><strong>4</strong><span>clusters</span></div>
                     </div>
                 </div>`;
         }
@@ -694,7 +704,11 @@
             inspector.innerHTML = `
                 <div class="ins-prompt mono">$ inspect ${n.id}<span class="ins-caret"></span></div>
                 <div class="ins-row ins-head" ${d(1)}>
-                    <img class="ins-thumb" src="${n.img}" alt="" width="58" height="58" loading="lazy">
+                    <picture>
+                        ${/(ai-consulting|ai-job-assistant|nutrify-ai|chess-game|snake-game|todo-app|weather-dashboard)\.(png|jpg)$/.test(n.img)
+                            ? `<source srcset="${n.img.replace(/\.(png|jpg)$/, '.webp')}" type="image/webp">` : ''}
+                        <img class="ins-thumb" src="${n.img}" alt="" width="58" height="58" loading="lazy">
+                    </picture>
                     <div>
                         <h3>${n.name}</h3>
                         <span class="ins-type mono">${n.type} · ${n.year}</span>
@@ -987,7 +1001,8 @@
         })();
 
         const load = (data) => {
-            const { user, repos } = data;
+            const { user } = data;
+            const repos = data.repos.filter((r) => !r.fork);
             const totals = {
                 repos: user.public_repos,
                 followers: user.followers,
@@ -1010,12 +1025,11 @@
 
             /* top repos */
             const list = $('#ghRepoList');
-            const top = [...repos]
-                .filter((r) => !r.fork)
-                .sort((a, b) => (b.stargazers_count - a.stargazers_count) || (new Date(b.pushed_at) - new Date(a.pushed_at)))
-                .slice(0, 5);
+            const FEATURED = ['Hivemind', 'Pdf_Rag_Chatbot', 'AiConsultingSystem', 'AI-Powered-Job-Application-Assistant', 'NutriLens', 'Address_NER'];
+            const byName = Object.fromEntries(repos.map((r) => [r.name, r]));
+            const top = FEATURED.map((n) => byName[n]).filter(Boolean).slice(0, 5);
             list.innerHTML = top.map((r) => `
-                <li><a class="gh-repo loaded" href="${r.html_url}" target="_blank" rel="noopener noreferrer">
+                <li><a class="gh-repo loaded" href="${esc(r.html_url)}" target="_blank" rel="noopener noreferrer">
                     <span class="gh-repo-name">${esc(r.name)}
                         <span class="stars"><i class="fas fa-star"></i> ${r.stargazers_count} · <i class="fas fa-code-branch"></i> ${r.forks_count}</span>
                     </span>
@@ -1040,7 +1054,7 @@
             } catch {
                 $$('.gh-stat', section).forEach((c) => c.classList.add('loaded'));
                 const list = $('#ghRepoList');
-                if (list) list.innerHTML = '<li class="gh-repo loaded"><span class="gh-repo-desc">GitHub API rate-limited — <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer">view profile directly</a>.</span></li>';
+                if (list) list.innerHTML = '<li class="gh-repo loaded"><span class="gh-repo-desc">GitHub data unavailable right now — <a href="https://github.com/Karthikeyan260" target="_blank" rel="noopener noreferrer">view profile directly</a>.</span></li>';
             }
         };
 
@@ -1065,9 +1079,10 @@
 
         function loadChartJs() {
             return new Promise((resolve, reject) => {
-                if (typeof Chart !== 'undefined') return resolve();
-                const s = document.createElement('script');
+                if (typeof Chart !== 'undefined') return resolve();                const s = document.createElement('script');
                 s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js';
+                s.integrity = 'sha384-JUh163oCRItcbPme8pYnROHQMC6fNKTBWtRG3I3I0erJkzNgL7uxKlNwcrcFKeqF';
+                s.crossOrigin = 'anonymous';
                 s.onload = resolve;
                 s.onerror = reject;
                 document.head.appendChild(s);
@@ -1144,11 +1159,15 @@
             const field = input.closest('.field');
             const ok = input.checkValidity() && input.value.trim().length > 0;
             field.classList.toggle('invalid', !ok);
+            input.setAttribute('aria-invalid', String(!ok));
             return ok;
         };
         $$('input[required], textarea[required]', form).forEach((inp) => {
             inp.addEventListener('blur', () => validate(inp));
-            inp.addEventListener('input', () => inp.closest('.field').classList.remove('invalid'));
+            inp.addEventListener('input', () => {
+                inp.closest('.field').classList.remove('invalid');
+                inp.removeAttribute('aria-invalid');
+            });
         });
 
         form.addEventListener('submit', async (e) => {
@@ -1158,6 +1177,8 @@
             if (inputs.map(validate).includes(false)) {
                 status.textContent = 'Please fill in all fields correctly.';
                 status.className = 'form-status err';
+                const firstBad = inputs.find((i) => i.getAttribute('aria-invalid') === 'true');
+                if (firstBad) firstBad.focus();
                 return;
             }
             labelSpan.hidden = true;
@@ -1173,7 +1194,8 @@
                     headers: { Accept: 'application/json, text/plain, */*' },
                     body: payload
                 });
-                if (!res.ok) throw new Error('send failed');
+                const out = await res.json().catch(() => null);
+                if (!res.ok || !out || String(out.success) !== 'true') throw new Error('send failed');
                 status.textContent = '✓ Message transmitted — I\'ll get back to you soon!';
                 status.className = 'form-status ok';
                 form.reset();
@@ -1213,11 +1235,11 @@
             },
             {
                 keys: ['project', 'work', 'built', 'portfolio', 'best'],
-                a: 'AI highlights: <strong>AI Consulting System</strong> (multi-domain LLM expert system — published research), <strong>AI Job Application Assistant</strong> (LLM career copilot), <strong>NutrifyAI</strong> (multimodal vision analysis), and a custom <strong>Address NER</strong> model at 92% F1 on Hugging Face. See <a href="#projects">all projects</a>.'
+                a: 'AI highlights: <strong>AI Consulting System</strong> (multi-domain LLM expert system — published research), <strong>AI Job Application Assistant</strong> (LLM career copilot), <strong>NutrifyAI</strong> (multimodal vision analysis), and a fine-tuned <strong>Address NER</strong> model demo on Hugging Face. See <a href="#projects">all projects</a>.'
             },
             {
                 keys: ['experience', 'job', 'zinnov', 'intern', 'career'],
-                a: 'Currently <strong>Associate Data Analyst @ Zinnov</strong> (Sep 2025–present) — LLM role-mapping agents cutting manual effort ~90%, and a RAG entity-resolution system reconciling <strong>1.6M+ records</strong> at ~90% accuracy. Started at Zinnov as a Tech Intern and converted to full-time; earlier internships include Full Stack at OctaNet and IoT at Anna University MIT &amp; Sri Sairam. Details in <a href="#experience">Experience</a>.'
+                a: 'Currently <strong>Associate Data Analyst @ Zinnov</strong> (Jun 2025–present) — LLM role-mapping agents cutting manual effort by an estimated ~90%, and a RAG entity-resolution system reconciling <strong>1.6M+ records</strong> at ~90% match accuracy. Started at Zinnov as a Tech Intern and converted to full-time; earlier internships include Full Stack at OctaNet and IoT at Anna University MIT &amp; Sri Sairam. Details in <a href="#experience">Experience</a>.'
             },
             {
                 keys: ['contact', 'email', 'reach', 'hire', 'phone', 'connect'],
@@ -1225,7 +1247,7 @@
             },
             {
                 keys: ['education', 'college', 'degree', 'study'],
-                a: 'B.Tech in Information Technology, <strong>DMI College of Engineering</strong> (2021–2025), with 4 industry internships completed during the program.'
+                a: 'B.Tech in Information Technology, <strong>DMI College of Engineering</strong> (2021–2025), with six internships across AI, full-stack and IoT during the program.'
             },
             {
                 keys: ['cert', 'credential', 'anthropic', 'claude', 'publication', 'paper', 'research'],
@@ -1256,8 +1278,10 @@
             if (open) field.focus();
         }
         fab.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
-        close.addEventListener('click', () => setOpen(false));
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+        close.addEventListener('click', () => { setOpen(false); fab.focus(); });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && panel.classList.contains('open')) { setOpen(false); fab.focus(); }
+        });
 
         function addMsg(html, who) {
             const div = document.createElement('div');
@@ -1282,7 +1306,11 @@
 
         function answer(q) {
             const lower = q.toLowerCase();
-            const hit = KNOWLEDGE.find((k) => k.keys.some((key) => lower.includes(key)));
+            const words = lower.split(/[^a-z0-9+.#]+/).filter(Boolean);
+            const matches = (key) => key.length <= 3
+                ? words.includes(key)
+                : words.some((w) => w.startsWith(key));
+            const hit = KNOWLEDGE.find((k) => k.keys.some(matches));
             botReply(hit ? hit.a : FALLBACK);
         }
 

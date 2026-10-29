@@ -1,13 +1,13 @@
-# Karthikeyan K — AI Engineer
+# Karthikeyan K — Associate Data Analyst (LLM agents, RAG, entity resolution)
 
-> Portfolio of Karthikeyan K, an AI Engineer building multi-agent LLM systems, RAG pipelines, and intelligent automation. Currently Associate Data Analyst at Zinnov, designing agentic AI workflows for enterprise data automation.
+> Portfolio of Karthikeyan K. Associate Data Analyst at Zinnov, building multi-agent LLM systems, RAG pipelines, and agentic automation for enterprise data. Targeting AI Engineer roles.
 
 ## Who is Karthikeyan K
 
 Karthikeyan K is an AI Engineer from Chennai, India, focused on agentic AI: systems where LLMs don't just answer questions but take multi-step actions, retrieve context intelligently, and integrate into real business workflows. He works primarily in Python with hands-on experience across LangChain, LangGraph, Retrieval-Augmented Generation (RAG), Model Context Protocol (MCP), and vector-based retrieval systems.
 
-At Zinnov (Associate Data Analyst, September 2025–present) he:
-- Designed and deployed LLM role-mapping agents (LangChain, LangGraph, Gemini API) that automate enterprise role classification for Fortune 500 clients, cutting manual classification effort by ~90%
+At Zinnov (Associate Data Analyst, June 2025–present) he:
+- Designed and deployed LLM role-mapping agents (LangChain, LangGraph, Gemini API) that automate enterprise role classification for enterprise clients, cutting manual classification effort by an estimated ~90%
 - Built a RAG + embeddings entity-resolution system that reconciles 1.6M+ company records at ~90% match accuracy
 - Architects multi-agent AI workflows that automate complex business processes
 
@@ -20,7 +20,7 @@ Publication: "AI-Driven Consulting: A Smart Expert System for Diverse Domains" (
 - Agentic AI and multi-agent systems: LangChain, LangGraph, MCP, AI agents, orchestration
 - Retrieval-Augmented Generation: vector databases, embedding models, semantic search, entity resolution
 - LLM engineering: prompt engineering, Gemini API, evaluation, AI automation
-- ML and NLP: deep learning, named-entity recognition (SpaCy), scikit-learn, Hugging Face
+- ML and NLP: deep learning, named-entity recognition (fine-tuned Transformers), scikit-learn, Hugging Face
 - Engineering foundation: Python, JavaScript/TypeScript, React, Next.js, full-stack deployment
 
 ## Featured AI Projects
@@ -41,7 +41,7 @@ Publication: "AI-Driven Consulting: A Smart Expert System for Diverse Domains" (
 - Live: https://nutrifyai.streamlit.app/ · Code: https://github.com/Karthikeyan260/NutriLens
 
 ### Address NER — custom named-entity recognition
-- Custom SpaCy NER model extracting structured address components at 92% F1, deployed on Hugging Face Spaces
+- Fine-tuned ALBERT token-classification model extracting structured address components, deployed as a Gradio demo on Hugging Face Spaces
 - Case study: https://karthikeyan.vercel.app/projects/address-ner.html
 - Live: https://huggingface.co/spaces/karthik2604/Address_ner · Code: https://github.com/Karthikeyan260/Address_NER
 
@@ -53,7 +53,7 @@ Publication: "AI-Driven Consulting: A Smart Expert System for Diverse Domains" (
 
 ## Certifications
 
-20+ including Claude Certified Architect – Foundations (Anthropic, verified on Credly), Building with the Claude API, Claude Code in Action, Introduction to Model Context Protocol (Anthropic), AI Agents 101 with MCP (AMD AI Academy), AI Agents Fundamentals (Hugging Face), Introduction to Generative AI and Responsible AI (Google Cloud).
+45 credentials, including Claude Certified Architect – Foundations (Anthropic, verified on Credly), Building with the Claude API, Claude Code in Action, Introduction to Model Context Protocol (Anthropic), AI Agents 101 with MCP (AMD AI Academy), AI Agents Fundamentals (Hugging Face), Introduction to Generative AI and Responsible AI (Google Cloud).
 
 ## Contact
 

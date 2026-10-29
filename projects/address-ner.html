@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Address NER — Custom Named-Entity Recognition at 92% F1 | Karthikeyan K</title>
-    <meta name="description" content="Case study: training and deploying a custom SpaCy NER model that extracts structured address components (house number, street, city, postcode, country) from raw text at 92% F1.">
+    <title>Address NER — Fine-tuned Token Classifier for Addresses | Karthikeyan K</title>
+    <meta name="description" content="Case study: a fine-tuned ALBERT token-classification model that extracts structured address components from raw text, deployed as a Gradio demo on Hugging Face Spaces.">
     <meta name="author" content="Karthikeyan K">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#7c3aed">
@@ -12,11 +12,11 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://karthikeyan.vercel.app/projects/address-ner.html">
     <meta property="og:title" content="Address NER — case study by Karthikeyan K">
-    <meta property="og:description" content="Case study: training and deploying a custom SpaCy NER model that extracts structured address components (house number, street, city, postcode, country) from raw text at 92% F1.">
+    <meta property="og:description" content="Case study: a fine-tuned ALBERT token-classification model that extracts structured address components from raw text, deployed as a Gradio demo on Hugging Face Spaces.">
     <meta property="og:image" content="https://karthikeyan.vercel.app/images/projects/address-ner.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Address NER — case study by Karthikeyan K">
-    <meta name="twitter:description" content="Case study: training and deploying a custom SpaCy NER model that extracts structured address components (house number, street, city, postcode, country) from raw text at 92% F1.">
+    <meta name="twitter:description" content="Case study: a fine-tuned ALBERT token-classification model that extracts structured address components from raw text, deployed as a Gradio demo on Hugging Face Spaces.">
     <meta name="twitter:image" content="https://karthikeyan.vercel.app/images/projects/address-ner.png">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090914'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-size='26' font-family='Inter,sans-serif' font-weight='700' fill='%23a78bfa' dy='.3em'%3EKK%3C/text%3E%3C/svg%3E">
     <script>(function(){try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t==='light'?'light':'dark';}catch(e){document.documentElement.dataset.theme='dark';}})();</script>
@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="../styles.css">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Address NER", "url": "https://huggingface.co/spaces/karthik2604/Address_ner", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "description": "Case study: training and deploying a custom SpaCy NER model that extracts structured address components (house number, street, city, postcode, country) from raw text at 92% F1.", "author": {"@type": "Person", "name": "Karthikeyan K", "url": "https://karthikeyan.vercel.app/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Address NER", "url": "https://huggingface.co/spaces/karthik2604/Address_ner", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "description": "Case study: a fine-tuned ALBERT token-classification model that extracts structured address components from raw text, deployed as a Gradio demo on Hugging Face Spaces.", "author": {"@type": "Person", "name": "Karthikeyan K", "url": "https://karthikeyan.vercel.app/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://karthikeyan.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Projects", "item": "https://karthikeyan.vercel.app/#projects"}, {"@type": "ListItem", "position": 3, "name": "Address NER", "item": "https://karthikeyan.vercel.app/projects/address-ner.html"}]}</script>
 </head>
 <body>
@@ -40,23 +40,23 @@
     <main class="cs-main">
         <span class="cs-kicker mono">case_study 04 · custom nlp model</span>
         <h1>Address NER</h1>
-        <div class="cs-meta"><span class="pill">Vision & NLP</span><span class="pill">SpaCy NER</span><span class="pill">2024 · Live</span></div>
-        <p class="cs-lede">Free-text addresses are useless to structured systems. This custom NER model reads raw address strings and emits labeled components — house number, street, city, postcode, country — at 92% F1, deployed publicly on Hugging Face Spaces.</p>
+        <div class="cs-meta"><span class="pill">Vision & NLP</span><span class="pill">ALBERT NER</span><span class="pill">2024 · Live</span></div>
+        <p class="cs-lede">Free-text addresses are useless to structured systems. This fine-tuned ALBERT token-classification model reads raw address strings and emits labeled address components, deployed as a public Gradio demo on Hugging Face Spaces.</p>
         <img class="cs-shot" src="../images/projects/address-ner.png" alt="Address NER screenshot" width="800" height="480">
 
         <h2><span class="mono">01</span> What problem does it solve?</h2>
         <p>Address data arrives as unstructured strings in wildly inconsistent formats. Regex breaks on real-world variance; the task needs a learned model that generalizes across formats.</p>
 
         <h2><span class="mono">02</span> How does it work?</h2>
-        <div class="cs-pipe ins-pipe"><span class="pl-step">raw address text</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">spaCy NER model</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">labeled entities</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">structured record</span></div>
-        <ul><li><strong>Custom entity schema:</strong> HOUSE_NUMBER, STREET_NAME, CITY, DISTRICT, POSTCODE, COUNTRY — designed for downstream database ingestion.</li><li><strong>Model training:</strong> a SpaCy pipeline trained on annotated address data rather than a zero-shot LLM call — cheaper, faster and deterministic at inference.</li><li><strong>Evaluation:</strong> measured to 92% F1 with precision/recall tracked per entity type.</li><li><strong>Deployment:</strong> published as an interactive demo on Hugging Face Spaces where anyone can test arbitrary addresses.</li></ul>
+        <div class="cs-pipe ins-pipe"><span class="pl-step">raw address text</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">ALBERT token classifier</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">labeled entities</span><span class="pl-arrow" aria-hidden="true"></span><span class="pl-step">structured record</span></div>
+        <ul><li><strong>Model:</strong> a fine-tuned ALBERT model (<code>AlbertForTokenClassification</code>, Hugging Face Transformers) that tags each token with an address-entity label.</li><li><strong>Inference:</strong> long inputs are split into overlapping 512-token windows (stride 96), and entity spans are merged across windows with per-span confidence scores.</li><li><strong>Fine-tuned model vs. LLM call:</strong> a small trained tagger is cheaper and more predictable at inference than prompting an LLM for the same extraction.</li><li><strong>Deployment:</strong> published as a Gradio demo on Hugging Face Spaces where anyone can test arbitrary addresses.</li></ul>
 
         <h2><span class="mono">03</span> What did it achieve?</h2>
-        <div class="cs-metrics"><div class="cs-metric"><strong>92%</strong><span>F1 score</span></div><div class="cs-metric"><strong>6</strong><span>entity types</span></div><div class="cs-metric"><strong>HF Spaces</strong><span>public deployment</span></div></div>
-        <p>Demonstrates the classical-NLP judgment call: when a task is narrow and structured, a small trained model beats an LLM on cost, latency and determinism — and knowing that trade-off is part of AI engineering.</p>
+        <div class="cs-metrics"><div class="cs-metric"><strong>ALBERT</strong><span>fine-tuned model</span></div><div class="cs-metric"><strong>512 / 96</strong><span>window / stride</span></div><div class="cs-metric"><strong>HF Spaces</strong><span>public deployment</span></div></div>
+        <p>A narrow, structured extraction task served by a small fine-tuned model instead of an LLM call. Evaluation figures (dataset size, split, per-entity precision/recall) are not published yet and will be added with the training notebook.</p>
 
         <h2><span class="mono">04</span> Stack</h2>
-        <div class="tag-row"><span>SpaCy</span><span>NER</span><span>Python</span><span>Hugging Face Spaces</span><span>Machine Learning</span></div>
+        <div class="tag-row"><span>ALBERT</span><span>Transformers</span><span>PyTorch</span><span>Gradio</span><span>Hugging Face Spaces</span></div>
 
         <div class="cs-actions">
             <a href="https://github.com/Karthikeyan260/Address_NER" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fab fa-github" aria-hidden="true"></i> View source</a>
@@ -65,7 +65,7 @@
     </main>
 
     <footer class="cs-footer">
-        <p>© <span id="yr"></span> <a href="../index.html">Karthikeyan K</a> — AI Engineer · <a href="../index.html#projects">More systems</a></p>
+        <p>© <span id="yr"></span> <a href="../index.html">Karthikeyan K</a> — Associate Data Analyst · <a href="../index.html#projects">More systems</a></p>
     </footer>
     <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 </body>

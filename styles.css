@@ -123,12 +123,14 @@ button { font-family: inherit; cursor: pointer; }
 }
 .skip-link:focus { top: 12px; }
 
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 4px; }
+[tabindex="-1"]:focus { outline: none; }
+
 /* ── Ambient layers ────────────────────────────────────── */
 .noise-overlay {
     position: fixed; inset: -50%; z-index: 2; pointer-events: none;
     opacity: var(--noise-opacity);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-    animation: noiseShift 0.6s steps(3) infinite;
 }
 @keyframes noiseShift {
     0% { transform: translate(0, 0); }

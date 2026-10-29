@@ -20,7 +20,7 @@
 
 I'm **Karthikeyan K**, an AI Engineer and Associate Data Analyst at **Zinnov**, building multi-agent LLM systems (LangChain, LangGraph, RAG, MCP) for enterprise data automation. This portfolio showcases my work in agentic AI, RAG pipelines, and production AI applications — from LLM role-mapping agents that cut manual classification effort by ~90% to a RAG entity-resolution system reconciling 1.6M+ company records.
 
-🌐 **[View Live Portfolio](https://karthikeyank-site.vercel.app/)**
+🌐 **[View Live Portfolio](https://karthikeyan.vercel.app/)**
 
 ## ✨ Features
 
