@@ -1234,7 +1234,7 @@
                 a: 'Karthikeyan\'s core stack is <strong>agentic AI</strong>: LangChain, LangGraph, RAG, MCP, vector databases, embeddings, semantic search and prompt engineering — powered by <strong>Python</strong> and the Gemini API, with ML/DL/NLP depth and a React/Next.js full-stack foundation. Explore the <a href="#skills">skill constellation</a>.'
             },
             {
-                keys: ['project', 'work', 'built', 'portfolio', 'best'],
+                keys: ['project', 'built', 'portfolio', 'best'],
                 a: 'AI highlights: <strong>AI Consulting System</strong> (multi-domain LLM expert system — published research), <strong>AI Job Application Assistant</strong> (LLM career copilot), <strong>NutrifyAI</strong> (multimodal vision analysis), and a fine-tuned <strong>Address NER</strong> model demo on Hugging Face. See <a href="#projects">all projects</a>.'
             },
             {
